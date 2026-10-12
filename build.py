@@ -27,7 +27,7 @@ MACH=[
 ]
 CS=dict(slug='cs4539',model='CS4539',zh='半自动小皮壳机',en='Semi-Automatic Small Case Making Machine',cat='case',img='cs4539',page='P9 p15',rows=[
  ('设备型号','Device model','半自动小皮壳机 CS4539'),('成型时间','Forming time','约1.2秒/个'),('最大成型尺寸','Maximum molding size','450-390mm'),('最小成型尺寸','Minimum molding size','35mm-35mm'),('纸板厚度','Cardboard thickness','0.8*20mm'),('工作速度','Working speed','15-34个/分钟'),('面纸厚度','Paper thickness','70-300g'),('电源','Power supply','220V/50ZH'),('气压','Air pressure','0.6-0.8Mpa'),('整机功率','Total machine power','1KW'),('出口木架尺寸','Export wooden crate size','长1450*宽1000*高1850mm'),('机器重量','Total weight','约490KG'),('外形尺寸','Overall dimensions','长1400*宽950*高1700mm')])
-NS=[('ZS-FB-001','酒盒装板机','Wine Box Board Assembly Machine (custom)','fb-001','P10 p17'),('ZS-FB-002','自动折内托机露','Automatic Box Insert Folding Machine (custom)',None,'P10 p18')]
+NS=[('ZS-FB-001','酒盒装板机','Wine Box Board Assembly Machine (custom)','fb-001','P10 p17'),('ZS-FB-002','自动折内托机露','Automatic Paper Tray / Insert Folding Machine',None,'P10 p18')]
 CATS={'inline':('随线划胶机','Inline Glue Scribing Machines'),'cabinet':('柜式划胶机','Cabinet Glue Scribing Machines'),'dual':('双工位划胶机','Dual-Station Glue Dispensing Machines'),'spray':('喷胶机','Glue Spraying Machine'),'press':('压泡机','Bubble Press Machine'),'case':('皮壳机','Case Making Machine'),'ns':('非标定制','Custom (Non-Standard) Machines')}
 EM='362804136@qq.com';TEL='0769 22250346'
 ADDR=('东莞市东城街道环城东路东城段 42号','No. 42, Dongcheng Section, Huancheng East Road, Dongcheng Subdistrict, Dongguan, Guangdong, China')
@@ -52,10 +52,10 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=6"></head><body{zhfont}>
+<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=7"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}">{LOGO}<span>{t['brand']}<small>{t['tag']}</small></span></a><nav>{nav}</nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
-<footer><div class="wrap fgrid"><div><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL} · <a href="mailto:{EM}">{EM}</a></div><div class="small">{'预览版 · 参数以画册为准，部分内容待核对' if lg=='zh' else 'Preview build · Specifications as printed in the company brochure; some items pending verification.'}</div></div></footer></body></html>'''
+<footer><div class="wrap fgrid"><div><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL} · <a href="mailto:{EM}">{EM}</a></div><div class="small">© 2026 {t['co']}</div></div></footer></body></html>'''
 import re as _re
 from PIL import Image as _I
 _SZ={}
@@ -92,7 +92,8 @@ def build():
     prom=promises(lg)
     body=f'''<section class="hero"><div class="wrap"><div><p class="eyebrow">{t['co']}</p><h1>{t['h1']}</h1>{BEAD}<p>{t['hp']}</p><div class="cta"><a class="btn" href="{P}contact/">{t['quote']}</a><a class="btn ghost" href="{P}products/">{t['allp']}</a></div></div><div class="heroimg"><img src="{BASE}img/s088e-4.jpg" alt="ZS-S088E-4 {'随线四轴划胶机-冷胶' if lg=='zh' else 'inline glue machine'}" data-eager></div></div></section>
 <div class="statbar"><div class="wrap">{st}</div><div class="wrap note">{stats_note}</div></div>
-<section><div class="wrap"><div class="grid g3">{en_}</div></div></section>{DIV}
+<section class="wideimg"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div class="wrap"><p>{'东莞东城 · 2018 年成立' if lg=='zh' else 'Dongcheng, Dongguan · Founded 2018'}</p></div></section>
+<section><div class="wrap"><div class="grid g3">{en_}</div></div></section>
 <section><div class="wrap"><h2>{'主推机型' if lg=='zh' else 'Featured Machines'}</h2><div class="grid g4">{''.join(card(m,lg) for m in feat)}</div><p><a class="btn" href="{P}products/">{t['allp']}</a></p></div></section>
 <section class="alt"><div class="wrap"><h2>{'三项承诺' if lg=='zh' else 'Our Three Commitments'}</h2>{prom}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'关于至尚' if lg=='zh' else 'About Zhishang'}</h2><p>{about_p(lg)}</p><a class="btn ghost dark" href="{P}about/">{'了解更多' if lg=='zh' else 'Learn more'}</a></div></div></section>
@@ -124,7 +125,7 @@ def build():
         summ=(m['features'][0][0] if lg=='zh' else m['features'][0][1])
       cz,ce=CATS[m['cat']]
       body=f'''<section class="phead"><div class="wrap crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a> / <a href="{P}products/">{t['nav'][0][1]}</a> / {cz if lg=='zh' else ce}</div></section>
-<section><div class="wrap pdetail"><div class="gallery"><img src="{BASE}img/{m['img']}.jpg" alt="{e(nm(m,lg))} {m['model']}" data-eager></div><div><small class="model">{m['model']}</small><h1>{nm(m,lg)}</h1>{BEAD}<p>{summ}</p>
+<section><div class="wrap pdetail"><div class="gallery"><img src="{BASE}img/{m['img']}.jpg" alt="{e(nm(m,lg))} {m['model']}" data-eager>{dets(lg,m)}</div><div><small class="model">{m['model']}</small><h1>{nm(m,lg)}</h1>{BEAD}<p>{summ}</p>
 <div class="cta"><a class="btn" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a><a class="btn ghost dark" href="mailto:{EM}?subject={('询价 ' if lg=='zh' else 'Inquiry ')+m['model']}">Email</a></div>
 <p class="small">{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL}</p>
 <nav class="tabs">{'' if m is CS else '<a href="#features">'+t['feat']+'</a>'}<a href="#specs">{t['spec']}</a></nav></div></div></section>
@@ -174,13 +175,21 @@ def extras(lg,m):
   rel=[x for x in MACH+[CS] if x['cat']==m['cat'] and x is not m] or [x for x in MACH if x['cat'] in ('inline','cabinet')][:3]
   relh=''.join(card(x,lg) for x in rel[:4])
   ldf={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":(a if z else b_),"acceptedAnswer":{"@type":"Answer","text":c}} for a,b_,c in fq if c!=T]}
-  return f'''<section class="alt"><div class="wrap two top"><div><h2>{'贸易信息' if z else 'Trade Information'}</h2><div class="tbl"><table class="spec">{trade}</table></div></div><div><h2>{'常见问题' if z else 'FAQ'}</h2><div class="faq">{faq}</div></div></div></section>
-<section><div class="wrap"><h2>{'相关机型' if z else 'Related Models'}</h2><div class="grid g4">{relh}</div></div></section><script type="application/ld+json">{json.dumps(ldf,ensure_ascii=False)}</script>'''
+  return f'''<template id="hold-trade-faq"><section class="alt"><div class="wrap two top"><div><h2>{'贸易信息' if z else 'Trade Information'}</h2><div class="tbl"><table class="spec">{trade}</table></div></div><div><h2>{'常见问题' if z else 'FAQ'}</h2><div class="faq">{faq}</div></div></div></section></template>
+<section><div class="wrap"><h2>{'相关机型' if z else 'Related Models'}</h2><div class="grid g4">{relh}</div></div></section>'''
 def ld_product(lg,m,summ):
   t=L[lg];P=URL+t['pre']
   d={"@context":"https://schema.org","@type":"Product","name":nm(m,lg),"model":m['model'],"mpn":m['model'],"image":URL+'img/'+m['img']+'.jpg',"description":summ,"brand":{"@type":"Brand","name":t['brand']},"manufacturer":{"@type":"Organization","name":t['co']},"url":P+'products/'+m['slug']+'/'}
   bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":'首页' if lg=='zh' else 'Home',"item":P},{"@type":"ListItem","position":2,"name":t['nav'][0][1],"item":P+'products/'},{"@type":"ListItem","position":3,"name":m['model'],"item":P+'products/'+m['slug']+'/'}]}
   return f'<script type="application/ld+json">{json.dumps(d,ensure_ascii=False)}</script><script type="application/ld+json">{json.dumps(bc,ensure_ascii=False)}</script>'
+DETL={'zh':['划胶头','控制手柄','控制面板'],'en':['Glue head','Teach pendant','Control panel']}
+DETS={'zs-s088c':[0,1,2],'zs-s088e-4':[0,1],'zs-s088p':[0,2]}
+def dets(lg,m):
+  if m['slug'] not in DETS: return ''
+  lab=DETL[lg][:]
+  if m['slug']=='zs-s088p': lab[0]='喷胶头' if lg=='zh' else 'Spray head'
+  if m['slug']=='zs-s088e-4': lab[1]='控制箱与手柄' if lg=='zh' else 'Control box and pendant'
+  return '<div class="dets">'+''.join(f'<figure><img src="{BASE}img/det-{m["slug"]}-{i+1}.jpg" alt="{m["model"]} {lab[k]}"><figcaption>{lab[k]}</figcaption></figure>' for i,k in enumerate(DETS[m['slug']]))+'</div>'
 def compare(lg):
   t=L[lg];hd=''.join(f'<th>{x}</th>' for x in [t['lab'][0],t['lab'][1],t['lab'][2],t['lab'][3],t['lab'][4],t['lab'][5],t['lab'][6]])
   rs=''.join(f'<tr><td><a href="{BASE}{t["pre"]}products/{m["slug"]}/"><code>{m["model"]}</code></a></td><td>{nm(m,lg)}</td><td><code>{m["dims"]}</code></td><td><code>{m["size"]}</code></td><td><code>{m["speed"]}</code></td><td><code>{m["power"]}</code></td><td><code>{m["width"] or "—"}</code></td></tr>' for m in MACH)
@@ -206,17 +215,17 @@ def about_body(lg):
   return f'''<section class="phead"><div class="wrap"><h1>{t['nav'][2][1]}</h1>{BEAD}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'公司简介' if lg=='zh' else 'Company Profile'}</h2><p>{about_p(lg)}</p></div></div></section>
 <section class="alt"><div class="wrap grid g3"><div class="card"><h3>{'公司使命' if lg=='zh' else 'Mission'}</h3><p>{mission}</p></div><div class="card"><h3>{'团队介绍' if lg=='zh' else 'Team'}</h3><p>{team}</p></div><div class="card"><h3>{'服务理念' if lg=='zh' else 'Service Concept'}</h3><p>{service_p(lg)}</p></div></div></section>
-<section><div class="wrap grid g3"><img class="ph" src="{BASE}img/team.jpg" alt="{'至尚团队' if lg=='zh' else 'Zhishang team'}"><img class="ph" src="{BASE}img/workshop.jpg" alt="{'车间' if lg=='zh' else 'Workshop'}"><img class="ph" src="{BASE}img/certs.jpg" alt="{'企业荣誉证书' if lg=='zh' else 'Certificates'}"></div><div class="wrap"><p class="small">{'企业荣誉：实用新型专利证书等（证书名称与编号 [待提供]）' if lg=='zh' else 'Corporate honors: utility model patent certificates and more (certificate names and numbers [to be provided]).'}</p></div></section>
+<section><div class="wrap grid g3"><img class="ph" src="{BASE}img/team.jpg" alt="{'至尚团队' if lg=='zh' else 'Zhishang team'}"><img class="ph" src="{BASE}img/workshop.jpg" alt="{'车间' if lg=='zh' else 'Workshop'}"><img class="ph" src="{BASE}img/certs.jpg" alt="{'企业荣誉证书' if lg=='zh' else 'Certificates'}"></div><div class="wrap"><p class="small">{'企业荣誉：实用新型专利证书等' if lg=='zh' else 'Corporate honors: utility model patent certificates and more.'}</p></div></section>
 <section class="alt"><div class="wrap"><h2>{'关联公司' if lg=='zh' else 'Related Companies'}</h2><div class="grid g2">{rl}</div></div></section>'''
 def inquiry(lg,model,full=False):
   t=L[lg];z=lg=='zh'
   opts=''.join(f'<option{" selected" if m["model"]==model else ""}>{m["model"]} {nm(m,lg)}</option>' for m in MACH+[CS])
-  return f'''<section id="quote" class="alt"><div class="wrap contact"><div><h2>{t['quote']}</h2><p class="sub">{'请留下您的需求，我们会尽快回复（回复时效 [待提供]）。' if z else 'Tell us about your boxes and glue. We will reply as soon as possible (response time [to be provided]).'}</p>
+  return f'''<section id="quote" class="alt"><div class="wrap contact"><div><h2>{t['quote']}</h2><p class="sub">{'请留下您的需求，我们会尽快回复。' if z else 'Tell us about your boxes and glue. We will reply as soon as possible.'}</p>
 <form action="mailto:{EM}" method="post" enctype="text/plain"><div><label>{'姓名' if z else 'Name'}</label><input name="name" required></div><div><label>{'邮箱/电话' if z else 'Email / phone'}</label><input name="contact" required></div>
 <div class="full"><label>{'机型' if z else 'Machine'}</label><select name="model" id="model"><option value="">{'不确定，需要建议' if z else 'Not sure, need advice'}</option>{opts}</select></div>
 <div class="full"><label>{'产品与需求（盒型、尺寸、胶水类型）' if z else 'Your product (box type, size, glue type)'}</label><textarea name="message"></textarea></div>
 <div class="full"><button class="btn" type="submit">{'发送询价' if z else 'Send inquiry'}</button> <span class="small">{'（预览版：提交将打开您的邮件程序）' if z else '(Preview: opens your email app)'}</span></div></form></div>
-<div class="cbox"><h3>{'联系方式' if z else 'Contact'}</h3><p><b>{t['co']}</b></p><p>{'地址' if z else 'Address'}: {ADDR[0] if z else ADDR[1]}</p><p>{'电话/传真' if z else 'Tel/Fax'}: <a href="tel:+8676922250346">{TEL}</a></p><p>{'邮箱' if z else 'Email'}: <a href="mailto:{EM}">{EM}</a></p><p class="small">{'WhatsApp / 微信：[待提供]' if z else 'WhatsApp / WeChat: [to be provided]'}</p><p class="trust">{'划胶嘴拥有发明专利和实用新型专利' if z else 'Nozzle covered by invention and utility model patents'}</p></div></div>
+<div class="cbox"><h3>{'联系方式' if z else 'Contact'}</h3><p><b>{t['co']}</b></p><p>{'地址' if z else 'Address'}: {ADDR[0] if z else ADDR[1]}</p><p>{'电话/传真' if z else 'Tel/Fax'}: <a href="tel:+8676922250346">{TEL}</a></p><p>{'邮箱' if z else 'Email'}: <a href="mailto:{EM}">{EM}</a></p><p class="trust">{'划胶嘴拥有发明专利和实用新型专利' if z else 'Nozzle covered by invention and utility model patents'}</p></div></div>
 <script>(function(){{var m=new URLSearchParams(location.search).get('model');if(!m)return;var s=document.getElementById('model');for(var o of s.options)if(o.text.replace(/ /g,'').indexOf(m)===0){{o.selected=true;break}}}})()</script></section>'''
 for _m in MACH+[CS]: _m['en']=ENT[_m['slug']]
 build()

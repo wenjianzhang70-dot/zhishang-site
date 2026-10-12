@@ -8,3 +8,7 @@
 - 不放车灯应用照片
 - 胶水、模具两家只放在「关于我们」的关联公司区块
 英文关键词（rigid box gluing machine、hot melt gluing machine for rigid box、glue dispensing machine、glue spraying machine、case making machine、lid-and-base box、book-style box、greyboard）的搜索量都还没核实。
+
+## 已从公开页面隐藏、等老板回复的内容（2026-10-12）
+- 每个产品页的「贸易信息」表（起订量、付款方式、交期、包装、整机质保）和「常见问题」。代码保留在 `<template id="hold-trade-faq">` 里，不显示；拿到答案后去掉 template 标签即可显示。
+- 询价回复时效、WhatsApp / 微信号、证书名称与编号，页面上已不显示「待提供」字样，等资料到了再补上。
