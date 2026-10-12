@@ -13,12 +13,12 @@ LC=('适用于大尺寸皮壳、坑卡类产品进行划胶','Suited to large ca
 def M(slug,model,zh,en,cat,img,dims,size,speed,power,width,features,ph=1):
   return dict(slug=slug,model=model,zh=zh,en=en,cat=cat,img=img,dims=dims,size=size,speed=speed,power=power,width=width,volt='220V/AC——50Hz',air='0.6MPa',features=features,page=ph)
 MACH=[
- M('zs-s088e-4','ZS-S088E-4','随线四轴划胶机-冷胶','Inline Four-Axis Glue Scribing Machine – Cold Glue','inline','s088e-4','1600*1080*1550MM','600*600*130MM/50*50*25MM','1.2M/S','2300W','3-10MM',[INL1,INL2,F3,COLD,F5],'P4 p05'),
- M('zs-s088r-4','ZS-S088R-4','随线四轴划胶机-热胶','Inline Four-Axis Glue Scribing Machine – Hot Glue','inline','s088r-4','1600*1080*1550MM','600*600*130MM/50*50*25MM','1.2M/S','5300W','3-10MM',[INL1,INL2,F3,HOT,F5],'P4 p06'),
- M('zs-s088c','ZS-S088C','四轴柜式划胶机-冷胶','Four-Axis Cabinet Glue Scribing Machine – Cold Glue','cabinet','s088c','1330*1090*1600MM','900*600*150MM/50*50*10MM','1.2M/S','2300W','3-10MM',[('适用于大尺寸盒子、折叠盒，书型盒，皮壳、坑卡类产品进行划胶','Suited to large boxes, folding boxes, book-style boxes, cases and recessed card insert products.'),FL2,F3,COLD,F5],'P5 p07'),
- M('zs-s088c-4','ZS-S088C-4','四轴柜式划胶机-热胶','Four-Axis Cabinet Glue Scribing Machine – Hot Glue','cabinet','s088c-4','1330*1090*1600MM','900*600*150MM/50*50*10MM','1.2M/S','5300W','3-10MM',[('适用于大尺寸盒子、皮壳、坑卡类产品进行划胶，刮胶，替代双面胶','Suited to large boxes, cases and recessed card insert products; glue scribing and scraping as a replacement for double-sided tape.'),FL2,F3,HOT,F5],'P5 p08'),
- M('zs-s088d','ZS-S088D','三轴柜式划胶机-冷胶','Three-Axis Cabinet Glue Scribing Machine – Cold Glue','cabinet','s088d','1330*1090*1600MM','900*600MM/50*50MM','1.2M/S','2000W','3-10MM',[('适用于大尺寸皮壳、坑卡类产品进行划胶，划胶精度高，一台机替代2人','Suited to large cases and recessed card insert products; high gluing precision; one machine replaces 2 workers.'),FL2,F3,FLATC,F5],'P6 p09'),
- M('zs-s088d-4','ZS-S088D-4','三轴柜式划胶机-热胶','Three-Axis Cabinet Glue Scribing Machine – Hot Glue','cabinet','s088d-4','1330*1090*1500MM','900*600MM/50*50MM','1.2M/S','4000W','3-10MM',[LC,FL2,F3,('可以刮热胶，替代双面胶，节省撕离型纸的人工和时间','Scrapes hot glue to replace double-sided tape, saving the labor and time of peeling release paper.'),F5],'P6 p10'),
+ M('zs-s088e-4','ZS-S088E-4','随线四轴划胶机-冷胶','Inline Four-Axis Gluing Machine – Cold Glue','inline','s088e-4','1600*1080*1550MM','600*600*130MM/50*50*25MM','1.2M/S','2300W','3-10MM',[INL1,INL2,F3,COLD,F5],'P4 p05'),
+ M('zs-s088r-4','ZS-S088R-4','随线四轴划胶机-热胶','Inline Four-Axis Gluing Machine – Hot Glue','inline','s088r-4','1600*1080*1550MM','600*600*130MM/50*50*25MM','1.2M/S','5300W','3-10MM',[INL1,INL2,F3,HOT,F5],'P4 p06'),
+ M('zs-s088c','ZS-S088C','四轴柜式划胶机-冷胶','Four-Axis Cabinet Gluing Machine – Cold Glue','cabinet','s088c','1330*1090*1600MM','900*600*150MM/50*50*10MM','1.2M/S','2300W','3-10MM',[('适用于大尺寸盒子、折叠盒，书型盒，皮壳、坑卡类产品进行划胶','Suited to large boxes, folding boxes, book-style boxes, cases and recessed card insert products.'),FL2,F3,COLD,F5],'P5 p07'),
+ M('zs-s088c-4','ZS-S088C-4','四轴柜式划胶机-热胶','Four-Axis Cabinet Gluing Machine – Hot Glue','cabinet','s088c-4','1330*1090*1600MM','900*600*150MM/50*50*10MM','1.2M/S','5300W','3-10MM',[('适用于大尺寸盒子、皮壳、坑卡类产品进行划胶，刮胶，替代双面胶','Suited to large boxes, cases and recessed card insert products; gluing and glue scraping as a replacement for double-sided tape.'),FL2,F3,HOT,F5],'P5 p08'),
+ M('zs-s088d','ZS-S088D','三轴柜式划胶机-冷胶','Three-Axis Cabinet Gluing Machine – Cold Glue','cabinet','s088d','1330*1090*1600MM','900*600MM/50*50MM','1.2M/S','2000W','3-10MM',[('适用于大尺寸皮壳、坑卡类产品进行划胶，划胶精度高，一台机替代2人','Suited to large cases and recessed card insert products; high gluing precision; one machine replaces 2 workers.'),FL2,F3,FLATC,F5],'P6 p09'),
+ M('zs-s088d-4','ZS-S088D-4','三轴柜式划胶机-热胶','Three-Axis Cabinet Gluing Machine – Hot Glue','cabinet','s088d-4','1330*1090*1500MM','900*600MM/50*50MM','1.2M/S','4000W','3-10MM',[LC,FL2,F3,('可以刮热胶，替代双面胶，节省撕离型纸的人工和时间','Scrapes hot glue to replace double-sided tape, saving the labor and time of peeling release paper.'),F5],'P6 p10'),
  M('zs-s088b','ZS-S088B /ZS-S088B-2','四轴双工位划胶机(标准/加大)','Four-Axis Dual-Station Glue Dispensing Machine (Standard / Large)','dual','s088b','890*840*1590MM / 1140*890*1590MM','480*300*2*130MM / 540*420*2*130MM','0.9M/S','1400W','3-10MM',[SMALL,FL2,F3,COLD,F5],'P7 p11'),
  M('zs-s088a','ZS-S088A /ZS-S088A-2','三轴双工位划胶机(标准/加大)','Three-Axis Dual-Station Glue Dispensing Machine (Standard / Large)','dual','s088a','890*840*1350MM / 1140*890*1350MM','450*300*2*150MM / 500*420*2*150MM','0.9M/S','1400W','3-10MM',[LC,FL2,F3,FLATC,F5],'P7 p12'),
  M('zs-s088a-r','ZS-S088A-R /ZS-S088A-2-R','三轴双工位划胶机-热胶(标准/加大)','Three-Axis Dual-Station Glue Dispensing Machine – Hot Glue (Standard / Large)','dual','s088a-r','890*840*1590MM / 1140*890*1590MM','480*300*2*130MM / 540*420*2*130MM','0.9M/S','1400W','3-10MM',[SMALL,FL2,F3,HOT,F5],'P8 p13'),
@@ -28,12 +28,12 @@ MACH=[
 CS=dict(slug='cs4539',model='CS4539',zh='半自动小皮壳机',en='Semi-Automatic Small Case Making Machine',cat='case',img='cs4539',page='P9 p15',rows=[
  ('设备型号','Device model','半自动小皮壳机 CS4539'),('成型时间','Forming time','约1.2秒/个'),('最大成型尺寸','Maximum molding size','450-390mm'),('最小成型尺寸','Minimum molding size','35mm-35mm'),('纸板厚度','Cardboard thickness','0.8*20mm'),('工作速度','Working speed','15-34个/分钟'),('面纸厚度','Paper thickness','70-300g'),('电源','Power supply','220V/50ZH'),('气压','Air pressure','0.6-0.8Mpa'),('整机功率','Total machine power','1KW'),('出口木架尺寸','Export wooden crate size','长1450*宽1000*高1850mm'),('机器重量','Total weight','约490KG'),('外形尺寸','Overall dimensions','长1400*宽950*高1700mm')])
 NS=[('ZS-FB-001','酒盒装板机','Wine Box Board Assembly Machine (custom)','fb-001','P10 p17'),('ZS-FB-002','自动折内托机露','Automatic Paper Tray / Insert Folding Machine',None,'P10 p18')]
-CATS={'inline':('随线划胶机','Inline Glue Scribing Machines'),'cabinet':('柜式划胶机','Cabinet Glue Scribing Machines'),'dual':('双工位划胶机','Dual-Station Glue Dispensing Machines'),'spray':('喷胶机','Glue Spraying Machine'),'press':('压泡机','Bubble Press Machine'),'case':('皮壳机','Case Making Machine'),'ns':('非标定制','Custom (Non-Standard) Machines')}
+CATS={'inline':('随线划胶机','Inline Gluing Machines'),'cabinet':('柜式划胶机','Cabinet Gluing Machines'),'dual':('双工位划胶机','Dual-Station Glue Dispensing Machines'),'spray':('喷胶机','Glue Spraying Machine'),'press':('压泡机','Bubble Press Machine'),'case':('皮壳机','Case Making Machine'),'ns':('非标定制','Custom (Non-Standard) Machines')}
 EM='362804136@qq.com';TEL='0769 22250346'
 ADDR=('东莞市东城街道环城东路东城段 42号','No. 42, Dongcheng Section, Huancheng East Road, Dongcheng Subdistrict, Dongguan, Guangdong, China')
-L={'en':dict(lang='en',pre='',other='zh/',sw='中文',co='Dongguan Zhishang Automation Technology Co., Ltd',brand='Zhishang Technology',tag='Focused on glue scribing equipment',
+L={'en':dict(lang='en',pre='',other='zh/',sw='中文',co='Dongguan Zhishang Automation Technology Co., Ltd',brand='Zhishang Technology',tag='Focused on gluing equipment',
  nav=[('products/','Products'),('applications/','Applications'),('about/','About'),('service/','Service'),('contact/','Contact')],quote='Request a Quote',ask='Ask about this machine',
- h1='Glue Scribing & Dispensing Machines for Rigid Boxes',hp='Inline, cabinet and dual-station gluing machines for rigid boxes, lid-and-base boxes, book-style boxes, cases and greyboard. Cold glue and hot melt models, plus glue spraying and bubble pressing.',
+ h1='Gluing & Glue Dispensing Machines for Rigid Boxes',hp='Inline, cabinet and dual-station gluing machines for rigid boxes, lid-and-base boxes, book-style boxes, cases and greyboard. Cold glue and hot melt models, plus glue spraying and bubble pressing.',
  spec='Technical Parameters',feat='Features',src='Data from the Zhishang product brochure.',view='View details',allp='All products',
  lab=['Model','Machine name','Overall size (L/W/H)','Effective size','Working speed','Rated power','Glue line width','Voltage','Air pressure']),
  'zh':dict(lang='zh-CN',pre='zh/',other='',sw='EN',co='东莞市至尚自动化科技有限公司',brand='至尚科技',tag='专注划胶设备行业',
@@ -112,7 +112,7 @@ def build():
     t=L[lg];P=BASE+t['pre']
     # HOME
     feat=[MACH[0],MACH[1],MACH[2],MACH[4],MACH[6],MACH[9],MACH[10],CS]
-    stats=[('2018',('成立于东莞东城','Founded in Dongcheng, Dongguan')),('4h',('市内故障维修时效','On-site repair response within the city')),('7 天' if lg=='zh' else '1 week',('省内客户先试用再付款','Trial before payment for in-province customers')),('3-10MM',('划胶宽度（划胶机）','Glue line width (scribing machines)'))]
+    stats=[('2018',('成立于东莞东城','Founded in Dongcheng, Dongguan')),('4h',('市内故障维修时效','On-site repair response within the city')),('7 天' if lg=='zh' else '1 week',('省内客户先试用再付款','Trial before payment for in-province customers')),('3-10MM',('划胶宽度（划胶机）','Glue line width (gluing machines)'))]
     st=''.join(f'<div><b>{a}</b><span>{b[0] if lg=="zh" else b[1]}</span></div>' for a,b in stats)
     if lg=='zh': stats_note='数据来自至尚画册：成立年份、售后时效、试用政策、参数。'
     else: stats_note='Figures from the Zhishang brochure.'
@@ -140,7 +140,7 @@ def build():
       ms=[m for m in allm if grpof(m)==c]
       grp+=f'<h2 id="{c}" class="rv">{cz if lg=="zh" else ce}</h2><p class="sub">{dz if lg=="zh" else de}</p><div class="grid g4">{"".join(card(m,lg) for m in ms)}</div>'
     comp=compare(lg)
-    W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Products: Glue Scribing, Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
+    W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Rigid Box Gluing, Glue Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][0][1]}</h1>{BEAD}<p>{"按工艺浏览：冷胶、热胶、喷胶、压泡、皮壳成型、非标定制。" if lg=="zh" else "Browse by process: cold glue, hot glue, spraying, bubble pressing, case making and custom machines."}</p></div></section><section><div class="wrap">{grp}</div></section><section class="alt"><div class="wrap"><h2>{"参数对比" if lg=="zh" else "Specification Comparison"}</h2><p class="sub">{t["src"]}</p>{comp}</div></section>{inquiry(lg,"")}'))
     # product pages
     for m in allm:
@@ -238,7 +238,7 @@ def promises(lg):
   return '<div class="grid g3 prom">'+''.join(f'<div class="card"><b class="num">0{i+1}</b><p>{a if lg=="zh" else b}</p></div>' for i,(a,b) in enumerate(P))+'</div>'
 def about_p(lg):
   return ('东莞市至尚自动化科技有限公司成立于2018年，位于东莞东城。主要研发生产：自动划胶机、喷胶机、压盒机及各种包装行业非标机械。公司是由“至尚精品包装”转型后成立的自动化公司，围绕包装产品优化升级、工艺优化、排拉布线、产能评估、生产计件制度推行等方案提供建议。' if lg=='zh' else
-   'Dongguan Zhishang Automation Technology Co., Ltd was founded in 2018 in Dongcheng, Dongguan. We develop and build automatic glue scribing machines, glue spraying machines, box pressing machines and non-standard machinery for the packaging industry. The company grew out of Zhishang Boutique Packaging, so we also advise on packaging product upgrades, process optimization, line layout, capacity evaluation and piece-rate production systems.')
+   'Dongguan Zhishang Automation Technology Co., Ltd was founded in 2018 in Dongcheng, Dongguan. We develop and build automatic gluing machines, glue spraying machines, box pressing machines and non-standard machinery for the packaging industry. The company grew out of Zhishang Boutique Packaging, so we also advise on packaging product upgrades, process optimization, line layout, capacity evaluation and piece-rate production systems.')
 def service_p(lg):
   return ('我司无偿为客户提供包装行业技术经验，管理经验分享，各种行业资源共享。公司对售后时效和客户满意度有严格要求和管控。有些易损件实行以旧换新，免费更换等方式高效处理设备异常。' if lg=='zh' else
    'We share packaging-industry technical and management experience and industry resources with customers free of charge. After-sales response time and customer satisfaction are strictly managed; some wearing parts are handled by trade-in or free replacement to resolve equipment issues quickly.')

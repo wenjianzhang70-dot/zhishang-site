@@ -21,3 +21,9 @@
 - 每台机器请提供 **3 张真实近距离照片**：划胶头（喷胶机为喷胶头）、控制手柄、控制面板。
 - 现在 ZS-S088C、ZS-S088E-4、ZS-S088P 页面上的细节小图是**从主图裁出来的**，不是真实特写，清晰度不够；其他机型还没有细节图。
 - 要求：光线充足、背景干净、横拍，尽量 ≥ 2000 px 宽。
+
+## 正式上线检查清单
+- [ ] 所有页面去掉 `<meta name="robots" content="noindex">`（build.py 里的 page()）
+- [ ] build.py 里的 URL/BASE 从 `https://wenjianzhang70-dot.github.io/zhishang-site/` 换成官方域名，重新生成：canonical、hreflang、JSON-LD 链接、sitemap.xml、robots.txt 的 Sitemap 地址
+- [ ] 绑定自定义域名（GitHub Pages CNAME + DNS），开启 HTTPS
+- [ ] 确认后提交 sitemap 到 Google Search Console / 百度站长
