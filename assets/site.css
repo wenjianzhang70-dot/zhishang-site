@@ -83,3 +83,5 @@ figure.render{margin:0;background:#fff;padding:12px;border-bottom:1px solid var(
 @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}.glue path,.bead path{animation:none!important;stroke-dashoffset:0!important}}
 .pdetail>*,.grid>*,.contact>*,.pbar .wrap>*{min-width:0}.pbar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}code{overflow-wrap:anywhere}
 @media(max-width:900px){.pdetail{grid-template-columns:1fr;gap:28px}.pbar .btn.sm{padding:8px 12px;font-size:.85rem;flex:none}}
+@media(max-width:900px){.pdetail{grid-template-columns:1fr;gap:28px}.pbar .btn.sm{padding:8px 12px;font-size:.85rem;flex:none}}
+.hsub{font-size:1.15rem;color:var(--ink);font-weight:600;margin:0 0 6px}
