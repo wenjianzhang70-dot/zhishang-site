@@ -52,7 +52,7 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=12"></head><body{zhfont}>
+<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=13"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}">{LOGO}<span>{t['brand']}<small>{t['tag']}</small></span></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main>
 <template id="hold-float-contact"><aside class="fcontact"><a href="#">WhatsApp</a><a href="mailto:{EM}">Email</a><a href="#">WeChat</a></aside></template>

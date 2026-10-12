@@ -93,3 +93,4 @@ figure.render{margin:0;background:#fff;padding:12px;border-bottom:1px solid var(
  nav#mnav{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:6px 20px 16px;box-shadow:0 8px 20px rgba(15,42,68,.12)}
  .navopen nav#mnav{display:flex}nav#mnav a{padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);font-weight:600}nav#mnav .navq{display:block;border:0;margin-top:10px;background:var(--accent);text-align:center;border-radius:4px}
  .hsub{font-size:1rem;font-weight:400}}
+body.pbar-on{padding-bottom:0}body.pbar-on footer,body:has(.pbar) footer{padding-bottom:110px}
