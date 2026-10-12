@@ -52,13 +52,13 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=13"></head><body{zhfont}>
+<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=14"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}">{LOGO}<span>{t['brand']}<small>{t['tag']}</small></span></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main>
 <template id="hold-float-contact"><aside class="fcontact"><a href="#">WhatsApp</a><a href="mailto:{EM}">Email</a><a href="#">WeChat</a></aside></template>
 <template id="hold-video"><section class="vslot"><div class="wrap"><video controls preload="none" playsinline poster=""><source src="" type="video/mp4"></video></div></section></template>
 <template id="hold-dark-hero"><section class="hero dark"><div class="wrap"><div><h1></h1></div></div></section></template>
-<script>(function(){{var a=document.getElementById('askcta'),b=document.getElementById('pbar');if(a&&b&&'IntersectionObserver' in window){{new IntersectionObserver(function(es){{var v=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;b.hidden=!v;document.body.classList.toggle('pbar-on',v)}}).observe(a)}}else if(b){{b.hidden=false;document.body.classList.add('pbar-on')}}}})();(function(){{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('mo');var io=new IntersectionObserver(function(es){{es.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target)}}}})}},{{rootMargin:'0px 0px -8% 0px'}});document.querySelectorAll('main section h2,.pcard,.card,.entry,.bead,.glue').forEach(function(el){{el.classList.add('rv');io.observe(el)}})}})()</script><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
+<script>(function(){{var a=document.getElementById('askcta'),b=document.getElementById('pbar');if(a&&b&&'IntersectionObserver' in window){{new IntersectionObserver(function(es){{var v=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;b.hidden=!v;document.body.style.paddingBottom=v?b.offsetHeight+'px':''}}).observe(a)}}else if(b){{b.hidden=false;document.body.style.paddingBottom=b.offsetHeight+'px'}}}})();(function(){{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('mo');var io=new IntersectionObserver(function(es){{es.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target)}}}})}},{{rootMargin:'0px 0px -8% 0px'}});document.querySelectorAll('main section h2,.pcard,.card,.entry,.bead,.glue').forEach(function(el){{el.classList.add('rv');io.observe(el)}})}})()</script><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
 <footer><div class="wrap fgrid"><div><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL} · <a href="mailto:{EM}">{EM}</a></div><div class="small">© 2026 {t['co']}</div></div></footer></body></html>'''
 import re as _re
 from PIL import Image as _I
@@ -89,6 +89,23 @@ def grpof(m):
 def csen(v):
   for a,b in [('半自动小皮壳机 CS4539','Semi-automatic small case making machine CS4539'),('约1.2秒/个','approx. 1.2 s/pc'),('15-34个/分钟','15-34 pcs/min'),('约490KG','approx. 490KG'),('长','L'),('宽','W'),('高','H')]: v=v.replace(a,b)
   return v
+B_INL=('盒子类产品；可与自动天地盒机连线','Box products; links to automatic lid-and-base box machines')
+B_SM=('小尺寸盒子、皮壳、首饰盒、奢侈品盒、化妆品盒、坑卡','Small boxes, cases, jewelry, luxury and cosmetic boxes, recessed card inserts')
+B_LC=('大尺寸皮壳、坑卡','Large cases, recessed card inserts')
+G_C=('白胶、黄胶、万能胶','White glue, yellow glue, universal glue');G_H=('热熔胶、压敏胶','Hot melt, pressure-sensitive adhesive')
+P_ALL=('盒子底部、侧面、平面侧面可同时划','bottom, sides and flat faces at once');P_FL=('盒底、皮壳、坑卡盒平面','box bottoms, cases, flat recessed card inserts')
+def _ax(z,en,p): return (z+(' · '+p[0] if p else ''),en+(' · '+p[1] if p else ''))
+FACTS={'zs-s088e-4':(B_INL,G_C,_ax('四轴 · 随线','4-axis · inline',P_ALL)),
+'zs-s088r-4':(B_INL,G_H,_ax('四轴 · 随线','4-axis · inline',P_ALL)),
+'zs-s088c':(('大尺寸盒子、折叠盒、书型盒、皮壳、坑卡','Large boxes, folding and book-style boxes, cases, recessed card inserts'),G_C,_ax('四轴 · 柜式','4-axis · cabinet',P_ALL)),
+'zs-s088c-4':(('大尺寸盒子、皮壳、坑卡','Large boxes, cases, recessed card inserts'),G_H,_ax('四轴 · 柜式','4-axis · cabinet',P_ALL)),
+'zs-s088d':(B_LC,G_C,_ax('三轴 · 柜式','3-axis · cabinet',P_FL)),
+'zs-s088d-4':(B_LC,('热胶（刮胶）','Hot glue (scraping)'),_ax('三轴 · 柜式','3-axis · cabinet',None)),
+'zs-s088b':(B_SM,G_C,_ax('四轴 · 双工位','4-axis · dual-station',P_ALL)),
+'zs-s088a':(B_LC,G_C,_ax('三轴 · 双工位','3-axis · dual-station',P_FL)),
+'zs-s088a-r':(B_SM,G_H,_ax('三轴 · 双工位','3-axis · dual-station',P_ALL)),
+'zs-s088p':(('皮盒面料（平面喷胶）','Leather-box covering materials (flat spraying)'),('白乳胶、万能胶等喷胶类胶水','White latex glue, universal glue and other sprayable glues'),('三轴','3-axis')),
+'zs-yh4040':(('手机盒、平板盒、香水盒','Phone, tablet and perfume boxes'),('压底部、压吸塑、压纸托','Bottoms, blister inserts, paper trays'),('随线 · 一次压一个或两个','Inline · one or two per cycle'))}
 def build():
   allm=MACH+[CS]
   for lg in ('en','zh'):
@@ -137,9 +154,12 @@ def build():
         summ=(m['features'][0][0] if lg=='zh' else m['features'][0][1])
       cz,ce=CATS[m['cat']]
       if m is CS: kp=[(r[0]+'：'+r[2]) if lg=='zh' else (r[1]+': '+csen(r[2])) for r in CS['rows'][1:6]]
-      else: kp=[f[0] if lg=='zh' else f[1] for f in m['features'] if f not in (F3,F5)][:4]
+      else: kp=None
       _h=HL[m['slug']][0] if lg=='zh' else HL[m['slug']][1];_p=_h.split(' – ',1);hh=f'<h1>{e(_p[0])}</h1>'+(f'<p class="hsub">{e(_p[1])}</p>' if len(_p)>1 else '')
-      pts='<ul class="pts">'+''.join(f'<li>{e(x)}</li>' for x in kp)+'</ul>'
+      if m is CS: pts='<ul class="pts">'+''.join(f'<li>{e(x)}</li>' for x in kp)+'</ul>'
+      else:
+        fx=FACTS[m['slug']];labs=(('适用产品','Products'),('胶水','Glue'),('结构 / 划胶位置','Build / gluing positions')) if m['cat']!='press' else (('适用产品','Products'),('工序','Process'),('结构','Build'))
+        pts='<dl class="facts">'+''.join(f'<div><dt>{l[0] if lg=="zh" else l[1]}</dt><dd>{e(v[0] if lg=="zh" else v[1])}</dd></div>' for l,v in zip(labs,fx) if v)+'</dl>'
       body=f'''<section class="phead"><div class="wrap crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a> / <a href="{P}products/">{t['nav'][0][1]}</a> / {cz if lg=='zh' else ce}</div></section>
 <section><div class="wrap pdetail"><div class="pinfo"><small class="model">{m['model']}</small><p class="pname">{nm(m,lg)}</p>{hh}{BEAD}{pts}
 <div class="cta" id="askcta"><a class="btn" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a><a class="btn ghost dark" href="mailto:{EM}?subject={('询价 ' if lg=='zh' else 'Inquiry ')+m['model']}">Email</a></div>
