@@ -57,3 +57,9 @@ picture{display:block}.crumbs{margin-bottom:8px}
 .small{color:#4f5d6b}
 img{max-width:100%;height:auto}.pcard img{height:auto}footer .small{color:#c3cedb}
 img.ph[alt*="ertific"],img.ph[alt*="证书"]{object-fit:contain;background:#fff}
+
+.hero .wrap{grid-template-columns:.9fr 1.3fr}.heroimg{background:none;padding:0;border:0}.heroimg img{border-radius:6px;border-bottom:4px solid var(--accent)}
+.wideimg{padding:0;position:relative}.wideimg img{width:100%;height:420px;object-fit:cover;display:block}.wideimg .wrap{position:absolute;left:0;right:0;bottom:16px}.wideimg p{display:inline-block;background:rgba(15,42,68,.85);color:#fff;padding:8px 14px;border-left:3px solid var(--accent);margin:0}
+.pcard img{background:#F3F5F7}.gallery img{background:#F3F5F7}
+.dets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}.dets figure{margin:0}.dets img{border:1px solid var(--line);border-radius:4px}.dets figcaption{font-size:.8rem;color:var(--steel);text-align:center}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.wideimg img{height:240px}}
