@@ -81,3 +81,4 @@ body:has(.pbar) footer{padding-bottom:80px}body:has(.pbar) .mcta{display:none}
 figure.render{margin:0;background:#fff;padding:12px;border-bottom:1px solid var(--line)}figure.render img{background:#fff!important;border:0!important;box-shadow:none!important}figure.render figcaption{font-size:.8rem;color:var(--steel);text-align:center}
 @media(max-width:900px){h1{font-size:2.2rem}.hero h1{font-size:2.4rem}.pdetail h1{font-size:1.9rem}h2{font-size:1.7rem}section{padding:56px 0}}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}.glue path,.bead path{animation:none!important;stroke-dashoffset:0!important}}
+.pdetail>*,.grid>*,.contact>*,.pbar .wrap>*{min-width:0}.pbar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}code{overflow-wrap:anywhere}
