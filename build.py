@@ -52,14 +52,14 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=14"></head><body{zhfont}>
-<header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}">{LOGO}<span>{t['brand']}<small>{t['tag']}</small></span></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
+<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":EM,"telephone":"+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=15"></head><body{zhfont}>
+<header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}"><img src="{BASE}img/logo-120h.png" width="240" height="62" alt="{'至尚科技 ZHI SHANG TECHNOLOGY'}"></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main>
 <template id="hold-float-contact"><aside class="fcontact"><a href="#">WhatsApp</a><a href="mailto:{EM}">Email</a><a href="#">WeChat</a></aside></template>
 <template id="hold-video"><section class="vslot"><div class="wrap"><video controls preload="none" playsinline poster=""><source src="" type="video/mp4"></video></div></section></template>
 <template id="hold-dark-hero"><section class="hero dark"><div class="wrap"><div><h1></h1></div></div></section></template>
 <script>(function(){{var a=document.getElementById('askcta'),b=document.getElementById('pbar');if(a&&b&&'IntersectionObserver' in window){{new IntersectionObserver(function(es){{var v=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;b.hidden=!v;document.body.style.paddingBottom=v?b.offsetHeight+'px':''}}).observe(a)}}else if(b){{b.hidden=false;document.body.style.paddingBottom=b.offsetHeight+'px'}}}})();(function(){{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('mo');var io=new IntersectionObserver(function(es){{es.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target)}}}})}},{{rootMargin:'0px 0px -8% 0px'}});document.querySelectorAll('main section h2,.pcard,.card,.entry,.bead,.glue').forEach(function(el){{el.classList.add('rv');io.observe(el)}})}})()</script><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
-<footer><div class="wrap fgrid"><div><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL} · <a href="mailto:{EM}">{EM}</a></div><div class="small">© 2026 {t['co']}</div></div></footer></body></html>'''
+<footer><div class="wrap fgrid"><div><span class="flogo"><img src="{BASE}img/logo-120h.png" width="186" height="48" alt="至尚科技 ZHI SHANG TECHNOLOGY" loading="lazy"></span><br><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL} · <a href="mailto:{EM}">{EM}</a></div><div class="small">© 2026 {t['co']}</div></div></footer></body></html>'''
 import re as _re
 from PIL import Image as _I
 _SZ={}
@@ -112,7 +112,7 @@ def build():
     t=L[lg];P=BASE+t['pre']
     # HOME
     feat=[MACH[0],MACH[1],MACH[2],MACH[4],MACH[6],MACH[9],MACH[10],CS]
-    stats=[('2018',('成立于东莞东城','Founded in Dongcheng, Dongguan')),('4h',('市内故障维修时效','On-site repair response within the city')),('7 天' if lg=='zh' else '1 week',('省内客户先试用再付款','Trial before payment for in-province customers')),('3-10MM',('划胶宽度（划胶机）','Glue line width (gluing machines)'))]
+    stats=[('2018',('成立于东莞东城','Founded in Dongcheng, Dongguan')),('7 天' if lg=='zh' else '7 days',('国外机器故障维修时效','Overseas machine fault repair response')),('终身' if lg=='zh' else 'Lifetime',('划胶枪嘴包修包换','Glue nozzle repair and replacement')),('3-10MM',('划胶宽度（划胶机）','Glue line width (gluing machines)'))]
     st=''.join(f'<div><b>{a}</b><span>{b[0] if lg=="zh" else b[1]}</span></div>' for a,b in stats)
     if lg=='zh': stats_note='数据来自至尚画册：成立年份、售后时效、试用政策、参数。'
     else: stats_note='Figures from the Zhishang brochure.'
@@ -178,8 +178,8 @@ def build():
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][1][1]}</h1>{BEAD}<p>{"以下应用均来自至尚画册各机型的适用说明。" if lg=="zh" else "Applications listed in the Zhishang brochure for each machine."}</p></div></section><section><div class="wrap"><div class="grid g4">{ap}</div></div></section>{inquiry(lg,"")}'))
     # about
     W(lg,'about',page(lg,'about/',('关于我们 - 东莞市至尚自动化科技有限公司' if lg=='zh' else 'About Dongguan Zhishang Automation Technology'),about_p(lg)[:150],about_body(lg)))
-    W(lg,'service',page(lg,'service/',('服务承诺 - 至尚科技' if lg=='zh' else 'Service & Commitments | Zhishang'),('划胶枪嘴终身包修包换；省内先试用一星期；售后时效。' if lg=='zh' else 'Lifetime nozzle repair and replacement, one-week trial in Guangdong, service response times.'),
-      f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][3][1]}</h1>{BEAD}</div></section><section><div class="wrap">{promises(lg)}<h2 style="margin-top:48px">{"服务理念" if lg=="zh" else "Service Concept"}</h2><p>{service_p(lg)}</p></div></section>{inquiry(lg,"")}'))
+    W(lg,'service',page(lg,'service/',('服务承诺 - 至尚科技' if lg=='zh' else 'Service & Commitments | Zhishang'),('划胶枪嘴终身包修包换；国外机器故障维修 7 天；海外安装与技术支持请咨询。' if lg=='zh' else 'Lifetime glue nozzle repair and replacement, 7-day overseas fault repair response. Contact us for overseas installation and support options.'),
+      f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][3][1]}</h1>{BEAD}</div></section><section><div class="wrap">{promises(lg)}<template id="hold-overseas-service"><ul class="pts"><li>远程视频支持 / Remote video support: [待确认]</li><li>工程师出国安装 / Engineer dispatch abroad: [待确认]</li><li>备件国际快递 / Spare parts shipping: [待确认]</li><li>英文说明书 / English manual: [待确认]</li><li>整机质保 / Machine warranty: [待确认]</li></ul></template><h2 style="margin-top:48px">{"服务理念" if lg=="zh" else "Service Concept"}</h2><p>{service_p(lg)}</p></div></section>{inquiry(lg,"")}'))
     W(lg,'contact',page(lg,'contact/',('联系我们 / 在线询价 - 至尚科技' if lg=='zh' else 'Contact & Request a Quote | Zhishang'),('东莞市至尚自动化科技有限公司联系方式。' if lg=='zh' else 'Contact Dongguan Zhishang Automation Technology.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][4][1]}</h1>{BEAD}</div></section>{inquiry(lg,"",full=True)}'))
   # sitemap/robots
@@ -196,7 +196,7 @@ def extras(lg,m):
   pack=('出口木架尺寸：长1450*宽1000*高1850mm' if z else 'Export wooden crate size: L1450*W1000*H1850mm') if m is CS else T
   scrib=m['cat'] in ('inline','cabinet','dual')
   warr=(('划胶枪嘴终身包修，包换（以旧换新）；整机质保 '+T) if z else ('Glue nozzle: lifetime repair and replacement (trade-in); whole-machine warranty '+T)) if scrib else (('整机质保 '+T) if z else ('Machine warranty '+T))
-  rows=[('起订量','MOQ',T),('付款方式','Payment terms',T),('交期','Lead time',T),('包装','Packaging',pack),('质保','Warranty',warr),('售后时效','Service response','市内4小时，省内24小时，省外3天，国外7天' if z else '4 hours in-city, 24 hours in-province, 3 days out-of-province, 7 days abroad'),('试用','Trial','省内客户先试用一星期，再付款' if z else 'Customers in Guangdong: one-week trial before payment')]
+  rows=[('起订量','MOQ',T),('付款方式','Payment terms',T),('交期','Lead time',T),('包装','Packaging',pack),('质保','Warranty',warr),('售后时效','Service response','国外7天；国内：市内4小时，省内24小时，省外3天' if z else 'Overseas: within 7 days'),('海外支持','Overseas support','海外安装与技术支持方案请联系我们'+('；国内省内客户可先试用一星期再付款' ) if z else 'Contact us for overseas installation and support options')]
   trade=''.join(f'<tr><th>{a if z else c}</th><td>{d}</td></tr>' for a,c,d in rows)
   fq=[]
   if is_cold(m): fq.append(('能用哪些胶水？','Which glues can it use?',[f[0] if z else f[1] for f in m['features'] if f in (COLD,FLATC)][0]))
@@ -205,8 +205,8 @@ def extras(lg,m):
   if m is not CS: fq.append(('需要什么电源和气源？','What power and air supply are needed?',f"{m['volt']}，{m['air']}" if z else f"{m['volt']}, {m['air']}"))
   if m.get('width'): fq.append(('划胶宽度多少？' if m['cat']!='spray' else '喷胶宽度多少？','What line width can it produce?',m['width']))
   if F3 in m.get('features',[]): fq.append(('能接入现有产线吗？','Can it fit into my existing line?',(F3[0]+('；'+INL2[0] if INL2 in m['features'] else '')) if z else (F3[1]+(' '+INL2[1] if INL2 in m['features'] else ''))))
-  fq+= [('机器坏了多久能修？','How fast is after-sales service?','售后时效：机器故障维修，市内4小时，省内24小时，省外3天，国外7天' if z else 'Machine faults: 4 hours in-city, 24 hours in-province, 3 days out-of-province, 7 days abroad.'),
-        ('可以先试用吗？','Can I try before buying?','省内客户先试用一星期，再付款，未能解决客户划胶水痛点可随时退机，费用我司承担。' if z else 'Customers in Guangdong can try it for one week before paying, and return it at our cost if it does not solve the gluing problem. Other regions: '+T),
+  fq+= [('机器坏了多久能修？','How fast is after-sales service?','机器故障维修：国外7天；国内市内4小时，省内24小时，省外3天。' if z else 'Overseas machine faults: service response within 7 days.'),
+        ('海外安装和技术支持怎么安排？','How are overseas installation and support arranged?','海外安装与技术支持方案请联系我们。国内省内客户可先试用一星期再付款。' if z else 'Contact us for overseas installation and support options.'),
         ('价格和交期？','Price and lead time?',T)]
   faq=''.join(f'<details><summary>{a if z else b_}</summary><p>{c}</p></details>' for a,b_,c in fq)
   rel=[x for x in MACH+[CS] if x['cat']==m['cat'] and x is not m] or [x for x in MACH if x['cat'] in ('inline','cabinet')][:3]
@@ -233,8 +233,8 @@ def compare(lg):
   return f'<div class="tbl"><table class="cmp"><thead><tr>{hd}</tr></thead><tbody>{rs}</tbody></table></div>'
 def promises(lg):
   P=[('划胶枪嘴终身包修，包换（以旧换新）。划胶嘴为我司自主研发品牌，有发明专利和实用新型专利。','Lifetime repair and replacement (trade-in) for glue nozzles. The nozzle is our own developed brand, covered by invention and utility model patents.'),
-     ('省内客户先试用一星期，再付款，未能解决客户划胶水痛点可随时退机，费用我司承担。','Customers in Guangdong can try the machine for one week before paying. If it does not solve your gluing problem, return it at any time at our cost.'),
-     ('售后时效：机器故障维修，市内4小时，省内24小时，省外3天，国外7天','Service response for machine faults: 4 hours within the city, 24 hours within the province, 3 days outside the province, 7 days abroad.')]
+     ('售后时效：国外机器故障维修 7 天。（国内：市内4小时，省内24小时，省外3天）','Overseas service response: machine faults are handled within 7 days.'),
+     ('海外安装与技术支持方案请联系我们。（国内省内客户可先试用一星期再付款）','Contact us for overseas installation and support options.')]
   return '<div class="grid g3 prom">'+''.join(f'<div class="card"><b class="num">0{i+1}</b><p>{a if lg=="zh" else b}</p></div>' for i,(a,b) in enumerate(P))+'</div>'
 def about_p(lg):
   return ('东莞市至尚自动化科技有限公司成立于2018年，位于东莞东城。主要研发生产：自动划胶机、喷胶机、压盒机及各种包装行业非标机械。公司是由“至尚精品包装”转型后成立的自动化公司，围绕包装产品优化升级、工艺优化、排拉布线、产能评估、生产计件制度推行等方案提供建议。' if lg=='zh' else
