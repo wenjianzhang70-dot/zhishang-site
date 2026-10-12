@@ -98,3 +98,6 @@ body.pbar-on{padding-bottom:0}body.pbar-on footer,body:has(.pbar) footer{padding
 body.pbar-on footer,body:has(.pbar) footer{padding-bottom:30px}@media(max-width:900px){body:has(.pbar) footer{padding-bottom:30px}}
 .facts{margin:10px 0 20px;border-top:1px solid var(--line)}.facts>div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.facts dt{color:var(--steel);font-size:.88rem;position:relative;padding-left:22px}.facts dt:before{content:"";position:absolute;left:0;top:.6em;width:14px;height:4px;border-radius:2px;background:var(--accent)}.facts dd{margin:0;color:var(--ink);font-weight:600}
 @media(max-width:520px){.facts>div{grid-template-columns:1fr;gap:2px}}
+/* v15 logo */
+.logo img{height:44px;width:auto;display:block}@media(max-width:520px){.logo img{height:36px}}
+.flogo{display:inline-block;background:#fff;border-radius:999px;padding:8px 18px;margin-bottom:10px}.flogo img{height:34px;width:auto;display:block}
