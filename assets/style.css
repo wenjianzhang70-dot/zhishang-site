@@ -38,3 +38,13 @@ table{font-family:"IBM Plex Mono",monospace;font-size:.88rem}
 .divider{height:14px;max-width:1160px;margin:0 auto;padding:0 20px}.divider svg{width:180px;height:14px}.divider path{stroke:var(--accent);stroke-width:3;fill:none;stroke-linecap:round}
 @keyframes draw{to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){.bead path{animation:none;stroke-dashoffset:0}}
 .kw{font-size:.8rem;color:var(--steel);margin-top:10px}
+
+.statbar{background:#fff;border-bottom:1px solid var(--line)}.statbar .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:22px 20px}
+.statbar b{display:block;font-family:"IBM Plex Mono",monospace;font-size:1.3rem;color:var(--ink);border-left:3px solid var(--accent);padding-left:12px}.statbar span{display:block;padding-left:15px;color:var(--steel);font-size:.9rem}
+.card svg{background:#0F2A44}.app svg.boxico{width:48px;height:48px;background:none;margin-bottom:8px;fill:none;stroke:#0F2A44;stroke-width:2;stroke-linejoin:round}
+.carton{width:100%;height:auto}.beadline{stroke:var(--accent);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:212;stroke-dashoffset:212;animation:draw 2.6s linear .3s forwards}
+@media(prefers-reduced-motion:reduce){.beadline{animation:none;stroke-dashoffset:0}}
+@media(max-width:820px){.statbar .wrap{grid-template-columns:1fr}}
+.btn.ghost{color:#fff}
+@media(max-width:520px){#applications .g4{grid-template-columns:1fr 1fr;gap:12px}.app{padding:14px}.app h3{font-size:1rem}.app p{font-size:.85rem}}
+.lang{white-space:nowrap;flex-shrink:0}
