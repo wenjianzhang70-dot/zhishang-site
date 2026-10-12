@@ -52,9 +52,13 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=8"></head><body{zhfont}>
+<link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=9"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}">{LOGO}<span>{t['brand']}<small>{t['tag']}</small></span></a><nav>{nav}</nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
-<main>{body}</main><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
+<main>{body}</main>
+<template id="hold-float-contact"><aside class="fcontact"><a href="#">WhatsApp</a><a href="mailto:{EM}">Email</a><a href="#">WeChat</a></aside></template>
+<template id="hold-video"><section class="vslot"><div class="wrap"><video controls preload="none" playsinline poster=""><source src="" type="video/mp4"></video></div></section></template>
+<template id="hold-dark-hero"><section class="hero dark"><div class="wrap"><div><h1></h1></div></div></section></template>
+<script>(function(){{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('mo');var io=new IntersectionObserver(function(es){{es.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target)}}}})}},{{rootMargin:'0px 0px -8% 0px'}});document.querySelectorAll('main section h2,.pcard,.card,.entry,.bead,.glue').forEach(function(el){{el.classList.add('rv');io.observe(el)}})}})()</script><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
 <footer><div class="wrap fgrid"><div><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL} · <a href="mailto:{EM}">{EM}</a></div><div class="small">© 2026 {t['co']}</div></div></footer></body></html>'''
 import re as _re
 from PIL import Image as _I
@@ -77,6 +81,22 @@ def card(m,lg):
 APPS={'en':[('Rigid / gift boxes','Lid-and-base and gift boxes; inline with automatic lid-and-base box machines.','ZS-S088E-4, ZS-S088R-4'),('Lid-and-base boxes','Bottom, side and flat-face gluing in one pass.','ZS-S088E-4, ZS-S088R-4, ZS-S088C'),('Book-style & folding boxes','Large-format boxes on the four-axis cabinet machine.','ZS-S088C'),('Cases (皮壳) & leather covers','Large and small cases; hot glue scraping to replace double-sided tape.','ZS-S088D, ZS-S088D-4, CS4539'),('Recessed card inserts (坑卡)','Flat glue lines on recessed card insert (坑卡) products.','ZS-S088A, ZS-S088D'),('Jewelry, luxury & cosmetic boxes','Small boxes on dual-station machines.','ZS-S088B, ZS-S088A-R'),('Phone, tablet & perfume boxes','Pressing bottoms, blister and paper trays.','ZS-YH4040'),('Leather-box covering materials','Even glue spraying with less waste.','ZS-S088P')],
 'zh':[('礼盒 / 精品盒','天地盒、礼盒；可搭配自动天地盒机连线','ZS-S088E-4、ZS-S088R-4'),('天地盒','盒子底部、侧面和平面侧面同时划','ZS-S088E-4、ZS-S088R-4、ZS-S088C'),('书型盒 / 折叠盒','大尺寸盒子，四轴柜式机','ZS-S088C'),('皮壳','大小皮壳；刮热胶替代双面胶','ZS-S088D、ZS-S088D-4、CS4539'),('坑卡','坑卡盒类平面划胶','ZS-S088A、ZS-S088D'),('首饰盒、奢侈品盒、化妆品盒','小尺寸盒子，双工位机','ZS-S088B、ZS-S088A-R'),('手机盒、平板盒、香水盒','压底部、压吸塑、压纸托','ZS-YH4040'),('皮盒面料喷胶','喷胶均匀，减少胶水浪费','ZS-S088P')]}
 ENT={'zs-s088e-4': 'Inline 4-Axis Cold Glue Dispensing Machine for Rigid Boxes', 'zs-s088r-4': 'Inline 4-Axis Hot Melt Gluing Machine for Rigid Boxes', 'zs-s088c': '4-Axis Cabinet Cold Glue Dispensing Machine', 'zs-s088c-4': '4-Axis Cabinet Hot Melt Glue Dispensing Machine', 'zs-s088d': '3-Axis Cabinet Cold Glue Dispensing Machine', 'zs-s088d-4': '3-Axis Cabinet Hot Melt Glue Dispensing Machine', 'zs-s088b': '4-Axis Dual-Station Glue Dispensing Machine (Standard / Large)', 'zs-s088a': '3-Axis Dual-Station Glue Dispensing Machine (Standard / Large)', 'zs-s088a-r': '3-Axis Dual-Station Hot Melt Gluing Machine (Standard / Large)', 'zs-s088p': '3-Axis Glue Spraying Machine', 'zs-yh4040': 'Inline Rigid Box Bubble Pressing Machine', 'cs4539': 'Semi-Automatic Small Case Making Machine'}
+HL={'zs-s088e-4':('随线连线划胶，一台机节省两个人','Inline gluing that saves two people per machine'),
+'zs-s088r-4':('热熔胶随线划胶，一台机节省两个人','Inline hot melt gluing that saves two people per machine'),
+'zs-s088c':('大尺寸盒子底部、侧面、平面侧面同时划胶','Glue the bottom, sides and flat faces of large boxes at the same time'),
+'zs-s088c-4':('大尺寸盒子划胶、刮胶，替代双面胶','Glue and scrape large boxes instead of using double-sided tape'),
+'zs-s088d':('大尺寸皮壳、坑卡划胶，一台机替代2人','Glue large cases and 坑卡 inserts: one machine replaces 2 workers'),
+'zs-s088d-4':('刮热胶替代双面胶，省去撕离型纸的人工和时间','Scrape hot glue instead of double-sided tape, with no release paper to peel'),
+'zs-s088b':('小尺寸盒子、首饰盒、皮壳划胶，双工位','Dual-station gluing for small boxes, jewelry boxes and cases'),
+'zs-s088a':('大尺寸皮壳、坑卡平面划胶，双工位','Dual-station flat gluing for large cases and 坑卡 inserts'),
+'zs-s088a-r':('小尺寸盒子热熔胶、压敏胶划胶，双工位','Dual-station hot melt and pressure-sensitive gluing for small boxes'),
+'zs-s088p':('皮盒面料喷胶均匀，减少胶水浪费','Even glue spraying on leather-box covers with less glue waste'),
+'zs-yh4040':('压底部、压吸塑、压纸托，可一次压一个或两个','Press box bottoms, blister inserts and paper trays, one or two at a time'),
+'cs4539':('小皮壳成型约1.2秒/个','Form small cases in about 1.2 seconds each')}
+GROUPS=[('cold',('冷胶划胶机','Cold Glue Machines'),('白胶、黄胶、万能胶','White, yellow and universal glue')),('hot',('热胶划胶机','Hot Glue Machines'),('热熔胶、压敏胶','Hot melt and pressure-sensitive adhesive')),('spray',('喷胶机','Glue Spraying'),('白乳胶、万能胶等喷胶类胶水','White latex, universal and other sprayable glues')),('press',('压泡机','Bubble Pressing'),('压底部、压吸塑、压纸托','Bottoms, blister inserts, paper trays')),('case',('皮壳机','Case Making'),('半自动小皮壳成型','Semi-automatic small case forming'))]
+def grpof(m):
+  if m['cat'] in ('spray','press','case'): return m['cat']
+  return 'hot' if is_hot(m) else 'cold'
 def build():
   allm=MACH+[CS]
   for lg in ('en','zh'):
@@ -90,7 +110,7 @@ def build():
     entries=[('applications/',('按应用找','Find by application'),('天地盒、书型盒、皮壳、坑卡……','Rigid boxes, book-style boxes, cases, greyboard…')),('products/',('按产品找','Find by product'),('随线 / 柜式 / 双工位 / 喷胶 / 压泡 / 皮壳','Inline, cabinet, dual-station, spraying, pressing, case making')),('products/#ns',('非标定制','Custom machines'),('可定制各种非标规格，适用各种需求','Custom specifications built to your requirements'))]
     en_=''.join(f'<a class="entry" href="{P}{h}"><h3>{a[0] if lg=="zh" else a[1]}</h3><p>{b[0] if lg=="zh" else b[1]}</p><span>→</span></a>' for h,a,b in entries)
     prom=promises(lg)
-    body=f'''<section class="hero"><div class="wrap"><div><p class="eyebrow">{t['co']}</p><h1>{t['h1']}</h1>{BEAD}<p>{t['hp']}</p><div class="cta"><a class="btn" href="{P}contact/">{t['quote']}</a><a class="btn ghost" href="{P}products/">{t['allp']}</a></div></div><div class="heroimg"><img src="{BASE}img/s088e-4.jpg" alt="ZS-S088E-4 {'随线四轴划胶机-冷胶' if lg=='zh' else 'inline glue machine'}" data-eager></div></div></section>
+    body=f'''<section class="hero"><div class="wrap"><div><p class="eyebrow">{t['co']}</p><h1>{t['h1']}</h1>{BEAD}<p>{t['hp']}</p><div class="cta"><a class="btn" href="{P}contact/">{t['quote']}</a><a class="btn ghost" href="{P}products/">{t['allp']}</a></div></div><div class="heroimg"><svg class="glue" viewBox="0 0 600 40" aria-hidden="true"><path d="M6 20 C90 6 150 34 240 20 S420 6 594 20"/><circle cx="594" cy="20" r="6"/></svg><img src="{BASE}img/s088e-4.jpg" alt="ZS-S088E-4 {'随线四轴划胶机-冷胶' if lg=='zh' else 'inline glue machine'}" data-eager></div></div></section>
 <div class="statbar"><div class="wrap">{st}</div><div class="wrap note">{stats_note}</div></div>
 <section class="wideimg"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div class="wrap"><p>{'东莞东城 · 2018 年成立' if lg=='zh' else 'Dongcheng, Dongguan · Founded 2018'}</p></div></section>
 <section><div class="wrap"><div class="grid g3">{en_}</div></div></section>
@@ -103,16 +123,16 @@ def build():
     W(lg,'',page(lg,'',title,desc,body))
     # PRODUCTS overview
     grp=''
-    for c,(cz,ce) in CATS.items():
+    for c,(cz,ce),(dz,de) in GROUPS+[('ns',CATS['ns'],('',''))]:
       if c=='ns':
-        ns=''.join(f'<div class="pcard static">{f"<img src={chr(34)}{BASE}img/{i}.jpg{chr(34)} alt={chr(34)}{m}{chr(34)} loading=lazy>" if i else ""}<div><small>{m}</small><h3>{z if lg=="zh" else en_n}</h3><p>{"非标机，按需定制" if lg=="zh" else "Non-standard machine, built to order."}</p></div></div>' for m,z,en_n,i,pg in NS)
+        ns=''.join(f'<div class="pcard static">{f"<figure class=render><img src={chr(34)}{BASE}img/{i}.jpg{chr(34)} alt={chr(34)}{m}{chr(34)} loading=lazy><figcaption>{'效果图' if lg=='zh' else 'Rendering'}</figcaption></figure>" if i else ""}<div><small>{m}</small><h3>{z if lg=="zh" else en_n}</h3><p>{"非标机，按需定制" if lg=="zh" else "Non-standard machine, built to order."}</p></div></div>' for m,z,en_n,i,pg in NS)
         grp+=f'<h2 id="ns">{cz if lg=="zh" else ce}</h2><p class="sub">{"可定制各种非标规格，适用各种需求。" if lg=="zh" else "We build custom machines to your specifications and requirements."}</p><div class="grid g3">{ns}</div>'
         continue
-      ms=[m for m in allm if m['cat']==c]
-      grp+=f'<h2 id="{c}">{cz if lg=="zh" else ce}</h2><div class="grid g4">{"".join(card(m,lg) for m in ms)}</div>'
+      ms=[m for m in allm if grpof(m)==c]
+      grp+=f'<h2 id="{c}" class="rv">{cz if lg=="zh" else ce}</h2><p class="sub">{dz if lg=="zh" else de}</p><div class="grid g4">{"".join(card(m,lg) for m in ms)}</div>'
     comp=compare(lg)
     W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Products: Glue Scribing, Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
-      f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][0][1]}</h1>{BEAD}<p>{"按系列浏览；冷胶 / 热胶、标准 / 加大版本见对比表。" if lg=="zh" else "Browse by series. Compare cold/hot glue and standard/large versions in the table below."}</p></div></section><section><div class="wrap">{grp}</div></section><section class="alt"><div class="wrap"><h2>{"参数对比" if lg=="zh" else "Specification Comparison"}</h2><p class="sub">{t["src"]}</p>{comp}</div></section>{inquiry(lg,"")}'))
+      f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][0][1]}</h1>{BEAD}<p>{"按工艺浏览：冷胶、热胶、喷胶、压泡、皮壳成型、非标定制。" if lg=="zh" else "Browse by process: cold glue, hot glue, spraying, bubble pressing, case making and custom machines."}</p></div></section><section><div class="wrap">{grp}</div></section><section class="alt"><div class="wrap"><h2>{"参数对比" if lg=="zh" else "Specification Comparison"}</h2><p class="sub">{t["src"]}</p>{comp}</div></section>{inquiry(lg,"")}'))
     # product pages
     for m in allm:
       if m is CS:
@@ -124,11 +144,15 @@ def build():
         feats='<ol class="feats">'+''.join(f'<li>{f[0] if lg=="zh" else f[1]}</li>' for f in m['features'])+'</ol>'
         summ=(m['features'][0][0] if lg=='zh' else m['features'][0][1])
       cz,ce=CATS[m['cat']]
+      if m is CS: kp=[(r[0] if lg=='zh' else r[1])+'：'+r[2] for r in CS['rows'][1:6]]
+      else: kp=[f[0] if lg=='zh' else f[1] for f in m['features'] if f not in (F3,F5)][:4]
+      pts='<ul class="pts">'+''.join(f'<li>{e(x)}</li>' for x in kp)+'</ul>'
       body=f'''<section class="phead"><div class="wrap crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a> / <a href="{P}products/">{t['nav'][0][1]}</a> / {cz if lg=='zh' else ce}</div></section>
-<section><div class="wrap pdetail"><div class="gallery"><img src="{BASE}img/{m['img']}.jpg" alt="{e(nm(m,lg))} {m['model']}" data-eager>{dets(lg,m)}</div><div><small class="model">{m['model']}</small><h1>{nm(m,lg)}</h1>{BEAD}<p>{summ}</p>
+<section><div class="wrap pdetail"><div class="pinfo"><small class="model">{m['model']}</small><p class="pname">{nm(m,lg)}</p><h1>{HL[m['slug']][0] if lg=='zh' else HL[m['slug']][1]}</h1>{BEAD}{pts}
 <div class="cta"><a class="btn" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a><a class="btn ghost dark" href="mailto:{EM}?subject={('询价 ' if lg=='zh' else 'Inquiry ')+m['model']}">Email</a></div>
 <p class="small">{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL}</p>
-<nav class="tabs">{'' if m is CS else '<a href="#features">'+t['feat']+'</a>'}<a href="#specs">{t['spec']}</a></nav></div></div></section>
+<nav class="tabs">{'' if m is CS else '<a href="#features">'+t['feat']+'</a>'}<a href="#specs">{t['spec']}</a></nav></div><div class="gallery"><img src="{BASE}img/{m['img']}.jpg" alt="{e(nm(m,lg))} {m['model']}" data-eager>{dets(lg,m)}</div></div></section>
+<div class="pbar"><div class="wrap"><span><code>{m['model']}</code> {nm(m,lg)}</span><a class="btn sm" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a></div></div>
 {f'<section id="features" class="alt"><div class="wrap"><h2>{t["feat"]}</h2>{feats}</div></section>' if feats else ''}
 <section id="specs"><div class="wrap"><h2>{t['spec']}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{t['src']}</p></div></section>
 {extras(lg,m)}
