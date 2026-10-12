@@ -66,3 +66,18 @@ img.ph[alt*="ertific"],img.ph[alt*="证书"]{object-fit:contain;background:#fff}
 .pcard img,.gallery img,.heroimg img,.dets img{background:#D5DCE3;border:1px solid #D5DCE3;box-shadow:0 2px 10px rgba(15,42,68,.10);border-radius:6px}
 .pcard img{border-width:0 0 1px 0;border-radius:0;box-shadow:none}.pcard{box-shadow:0 2px 10px rgba(15,42,68,.08);border-color:#D5DCE3}
 .heroimg img{border-bottom:4px solid var(--accent)}
+/* v9 professional pass */
+h1{font-size:3rem;font-weight:700;letter-spacing:-.01em;line-height:1.12}h2{font-size:2.1rem;font-weight:700;margin-bottom:16px}.hero h1{font-size:3.4rem}
+section{padding:80px 0}.phead{padding:48px 0 12px}.grid{gap:24px}
+.pdetail{grid-template-columns:1fr 1.1fr;gap:56px}.pdetail h1{font-size:2.4rem}.pname{margin:4px 0 10px;color:var(--steel);font-weight:600}
+.pts{list-style:none;padding:0;margin:8px 0 18px}.pts li{position:relative;padding:10px 0 10px 26px;border-top:1px solid var(--line)}.pts li:before{content:"";position:absolute;left:0;top:19px;width:14px;height:4px;border-radius:2px;background:var(--accent)}
+.pbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(15,42,68,.96);color:#fff;padding:10px 0}.pbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}.pbar code{color:var(--accent)}
+body:has(.pbar) footer{padding-bottom:80px}body:has(.pbar) .mcta{display:none}
+@media(max-width:520px){.pbar span{font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+.glue{display:block;width:100%;height:40px;margin-bottom:8px}.glue path{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:700;stroke-dashoffset:0}.glue circle{fill:var(--accent)}
+.mo .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.mo .rv.in{opacity:1;transform:none}
+.mo .glue.rv path,.mo .bead.rv path{stroke-dashoffset:700;animation:none}.mo .glue.in path,.mo .bead.in path{animation:draw 2.2s ease forwards}
+.mo .bead.rv{transform:none}
+figure.render{margin:0;background:#fff;padding:12px;border-bottom:1px solid var(--line)}figure.render img{background:#fff!important;border:0!important;box-shadow:none!important}figure.render figcaption{font-size:.8rem;color:var(--steel);text-align:center}
+@media(max-width:900px){h1{font-size:2.2rem}.hero h1{font-size:2.4rem}.pdetail h1{font-size:1.9rem}h2{font-size:1.7rem}section{padding:56px 0}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}.glue path,.bead path{animation:none!important;stroke-dashoffset:0!important}}
