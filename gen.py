@@ -71,13 +71,13 @@ def page(k,css,href):
 <main>
 <section class="hero"><div class="wrap"><div><h1>{t['h1']}</h1><svg class="bead" viewBox="0 0 520 14" aria-hidden="true"><path d="M4 7 C80 2 140 12 220 7 S380 2 516 7"/></svg><p>{t['hp']}</p><div class="cta"><a class="btn" href="#quote">{t['c1']}</a><a class="btn ghost" href="#products">{t['c2']}</a></div>
 <div class="stats">{"".join(f"<div><b>{a}</b><span>{b}</span></div>" for a,b in t['stats'])}</div></div>{HERO}</div></section>
-'''+D+'''<section id="products"><div class="wrap"><h2>{t['ph2'][0]}</h2><p class="sub">{t['ph2'][1]} {ph}</p><div class="grid g3">{prods}</div><p class="kw">{t['kw']}</p></div></section>
-'''+D+'''<section id="specs" class="alt"><div class="wrap"><h2>{t['sp'][0]}</h2><p class="sub">{t['sp'][1]} {ph}</p><div class="tbl"><table><thead><tr>{"".join(f"<th>{h}</th>" for h in t['th'])}</tr></thead><tbody>{rows}</tbody></table></div></div></section>
-'''+D+'''<section id="applications"><div class="wrap"><h2>{t['ap'][0]}</h2><p class="sub">{t['ap'][1]}</p><div class="grid g4">{apps}</div></div></section>
-'''+D+'''<section id="about" class="alt"><div class="wrap"><h2>{t['why'][0]}</h2><p class="sub">{t['why'][1]} {ph}</p><div class="grid g4">{whys}</div>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 180 14"><path d="M3 7 C40 3 80 11 120 7 S160 4 177 7"/></svg></div><section id="products"><div class="wrap"><h2>{t['ph2'][0]}</h2><p class="sub">{t['ph2'][1]} {ph}</p><div class="grid g3">{prods}</div><p class="kw">{t['kw']}</p></div></section>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 180 14"><path d="M3 7 C40 3 80 11 120 7 S160 4 177 7"/></svg></div><section id="specs" class="alt"><div class="wrap"><h2>{t['sp'][0]}</h2><p class="sub">{t['sp'][1]} {ph}</p><div class="tbl"><table><thead><tr>{"".join(f"<th>{h}</th>" for h in t['th'])}</tr></thead><tbody>{rows}</tbody></table></div></div></section>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 180 14"><path d="M3 7 C40 3 80 11 120 7 S160 4 177 7"/></svg></div><section id="applications"><div class="wrap"><h2>{t['ap'][0]}</h2><p class="sub">{t['ap'][1]}</p><div class="grid g4">{apps}</div></div></section>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 180 14"><path d="M3 7 C40 3 80 11 120 7 S160 4 177 7"/></svg></div><section id="about" class="alt"><div class="wrap"><h2>{t['why'][0]}</h2><p class="sub">{t['why'][1]} {ph}</p><div class="grid g4">{whys}</div>
 <h2 style="margin-top:56px">{t['fac'][0]}</h2><p class="sub">{t['fac'][1]} {ph}</p><div class="cert">{certs}</div></div></section>
-'''+D+'''<section id="cases"><div class="wrap"><h2>{t['cs'][0]}</h2><p class="sub">{t['cs'][1]} {ph}</p><div class="grid g3">{cases}</div></div></section>
-'''+D+'''<section id="contact" class="alt"><div class="wrap contact"><div id="quote"><h2>{t['inq'][0]}</h2><p class="sub">{t['inq'][1]}</p>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 180 14"><path d="M3 7 C40 3 80 11 120 7 S160 4 177 7"/></svg></div><section id="cases"><div class="wrap"><h2>{t['cs'][0]}</h2><p class="sub">{t['cs'][1]} {ph}</p><div class="grid g3">{cases}</div></div></section>
+<div class="divider" aria-hidden="true"><svg viewBox="0 0 180 14"><path d="M3 7 C40 3 80 11 120 7 S160 4 177 7"/></svg></div><section id="contact" class="alt"><div class="wrap contact"><div id="quote"><h2>{t['inq'][0]}</h2><p class="sub">{t['inq'][1]}</p>
 <form action="mailto:sales@example.com" method="post" enctype="text/plain"><div><label>{f[0]}</label><input name="name" required></div><div><label>{f[1]}</label><input name="company"></div>
 <div><label>{f[2]}</label><input type="email" name="email" required></div><div><label>{f[3]}</label><input name="country"></div>
 <div class="full"><label>{f[4]}</label><select name="product">{opts}</select></div><div class="full"><label>{f[5]}</label><textarea name="message"></textarea></div>
