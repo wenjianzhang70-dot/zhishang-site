@@ -63,3 +63,6 @@ img.ph[alt*="ertific"],img.ph[alt*="证书"]{object-fit:contain;background:#fff}
 .pcard img{background:#F3F5F7}.gallery img{background:#F3F5F7}
 .dets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}.dets figure{margin:0}.dets img{border:1px solid var(--line);border-radius:4px}.dets figcaption{font-size:.8rem;color:var(--steel);text-align:center}
 @media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.wideimg img{height:240px}}
+.pcard img,.gallery img,.heroimg img,.dets img{background:#D5DCE3;border:1px solid #D5DCE3;box-shadow:0 2px 10px rgba(15,42,68,.10);border-radius:6px}
+.pcard img{border-width:0 0 1px 0;border-radius:0;box-shadow:none}.pcard{box-shadow:0 2px 10px rgba(15,42,68,.08);border-color:#D5DCE3}
+.heroimg img{border-bottom:4px solid var(--accent)}
