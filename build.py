@@ -127,7 +127,7 @@ def build():
 <section><div class="wrap pdetail"><div class="gallery"><img src="{BASE}img/{m['img']}.jpg" alt="{e(nm(m,lg))} {m['model']}" data-eager></div><div><small class="model">{m['model']}</small><h1>{nm(m,lg)}</h1>{BEAD}<p>{summ}</p>
 <div class="cta"><a class="btn" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a><a class="btn ghost dark" href="mailto:{EM}?subject={('询价 ' if lg=='zh' else 'Inquiry ')+m['model']}">Email</a></div>
 <p class="small">{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL}</p>
-<nav class="tabs"><a href="#features">{t['feat']}</a><a href="#specs">{t['spec']}</a></nav></div></div></section>
+<nav class="tabs">{'' if m is CS else '<a href="#features">'+t['feat']+'</a>'}<a href="#specs">{t['spec']}</a></nav></div></div></section>
 {f'<section id="features" class="alt"><div class="wrap"><h2>{t["feat"]}</h2>{feats}</div></section>' if feats else ''}
 <section id="specs"><div class="wrap"><h2>{t['spec']}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{t['src']}</p></div></section>
 {extras(lg,m)}
