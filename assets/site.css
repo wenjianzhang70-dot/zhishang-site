@@ -29,13 +29,13 @@ section{padding:56px 0}section.alt{background:var(--bg)}.phead{padding:40px 0 10
 .grid{display:grid;gap:20px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
 #products h2,section h2[id]{margin-top:36px}
 .card,.entry,.pcard{background:#fff;border:1px solid var(--line);border-radius:6px;padding:20px}
-.entry{text-decoration:none;border-top:3px solid var(--accent)}.entry p{color:var(--steel);margin:0}.entry span{color:var(--accent);font-weight:700}
+.entry{text-decoration:none;border-top:3px solid var(--accent)}.entry p{color:var(--steel);margin:0}.entry span{color:var(--ink);font-weight:700}
 .pcard{display:flex;flex-direction:column;text-decoration:none;padding:0;overflow:hidden}.pcard:hover{border-color:var(--ink)}
 .pcard img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff;border-bottom:1px solid var(--line)}.pcard>div{padding:14px 16px}
 .pcard small{font-family:"IBM Plex Mono",monospace;color:var(--steel)}.pcard h3{font-size:1.05rem;margin:4px 0 8px}
 .keys{list-style:none;padding:0;margin:0 0 8px;font-size:.85rem}.keys li{display:flex;justify-content:space-between;gap:8px;border-top:1px dashed var(--line);padding:3px 0}.keys span{color:var(--steel)}
 .more{color:var(--ink);font-weight:600;font-size:.9rem}
-.prom .num{font:700 1.6rem "IBM Plex Mono",monospace;color:var(--accent)}
+.prom .num{font:700 1.6rem "IBM Plex Mono",monospace;color:var(--ink);border-bottom:3px solid var(--accent)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.two img,.ph{width:100%;border-radius:6px;display:block}.ph{aspect-ratio:4/3;object-fit:cover}
 .tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;background:#fff}th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
 .spec th{width:34%;background:var(--bg);font-weight:600;color:var(--ink)}.cmp thead th{background:var(--ink);color:#fff;font-weight:600;font-size:.85rem}.cmp td{font-size:.88rem}
@@ -50,3 +50,10 @@ input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);borde
 footer{background:var(--ink);color:#aab6c6;padding:30px 0;font-size:.88rem}.fgrid{display:grid;grid-template-columns:2fr 1fr;gap:20px}footer b{color:#fff}
 @media(max-width:900px){nav{display:none}.hero .wrap,.two,.pdetail,.contact,.fgrid{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr 1fr}.statbar .wrap{grid-template-columns:1fr 1fr}h1,.hero h1{font-size:2rem}}
 @media(max-width:520px){.g2,.g3{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr;gap:12px}form{grid-template-columns:1fr}header .btn.sm{display:none}.logo small{display:none}.pcard h3{font-size:.95rem}.keys{font-size:.75rem}.keys li{flex-direction:column;gap:0}}
+
+.two.top{align-items:start}.faq details{background:#fff;border:1px solid var(--line);border-radius:6px;margin-bottom:8px;padding:10px 14px}.faq summary{cursor:pointer;font-weight:600;color:var(--ink)}.faq p{margin:8px 0 0}
+picture{display:block}.crumbs{margin-bottom:8px}
+.mcta{display:none}@media(max-width:900px){.mcta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:20;background:var(--accent);color:var(--ink);text-align:center;font-weight:700;padding:14px;border-radius:6px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25)}footer{padding-bottom:84px}}
+.small{color:#4f5d6b}
+img{max-width:100%;height:auto}.pcard img{height:auto}footer .small{color:#c3cedb}
+img.ph[alt*="ertific"],img.ph[alt*="证书"]{object-fit:contain;background:#fff}
