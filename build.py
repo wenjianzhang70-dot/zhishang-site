@@ -85,7 +85,7 @@ def _appnav(lg):
   return f'<div class="navdd"><a href="{P}applications/">{n}</a><button type="button" class="ddbtn" aria-expanded="false" aria-label="{n}" onclick="var o=this.parentNode.classList.toggle(\'open\');this.setAttribute(\'aria-expanded\',o)">▾</button><ul class="ddmenu">{items}</ul></div>'
 def page(lg,path,title,desc,body):
   t=L[lg];here=t['pre']+path;alt=L['zh' if lg=='en' else 'en']['pre']+path
-  nav=''.join((_appnav(lg) if h=='applications/' else f'<a href="{BASE}{t["pre"]}{h}">{n}</a>') for h,n in [t['nav'][i] for i in (0,1,3,2,4)])
+  nav=''.join((_appnav(lg) if h=='applications/' else f'<a href="{BASE}{t["pre"]}{h}">{n}</a>') for h,n in [t['nav'][i] for i in (0,)]+[('guides/','技术问答' if lg=='zh' else 'Guides')]+[t['nav'][i] for i in (1,3,2,4)])
   zhfont='' if lg=='en' else ' class="zh"'
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="msvalidate.01" content="AC72F99CA17886800FFF19197C936275" />
 <title>{e(title)}</title><meta name="description" content="{e(desc)}">
