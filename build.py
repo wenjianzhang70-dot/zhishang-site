@@ -278,7 +278,7 @@ def promises(lg):
      ('海外安装与技术支持方案请联系我们。（国内省内客户可先试用一星期再付款）','Contact us for overseas installation and support options.')]
   return '<div class="grid g3 prom">'+''.join(f'<div class="card"><b class="num">0{i+1}</b><p>{a if lg=="zh" else b}</p></div>' for i,(a,b) in enumerate(P))+'</div>'
 def strength(lg):
-  z=lg=='zh';it=[('80',('员工（管理 20 人、操作 60 人）','Employees (20 management, 60 operators)')),('3000㎡',('车间 3000㎡','Workshop 3000㎡')),('500㎡',('办公 500㎡','Office 500㎡')),('Yantian · Shekou' if not z else '盐田 · 蛇口',('出货港口','Shipping ports'))]
+  z=lg=='zh';it=[('80',('员工（管理 20 人、操作 60 人）','Employees (20 management, 60 operators)')),('3000㎡',('车间','Workshop')),('500㎡',('办公','Office')),('Yantian · Shekou' if not z else '盐田 · 蛇口',('出货港口','Shipping ports'))]
   return '<div class="strength">'+''.join(f'<div><b>{a}</b><span>{b[0] if z else b[1]}</span></div>' for a,b in it)+'</div><p class="small">'+('数据来源：至尚公司介绍 PPT。' if z else 'Source: Zhishang company presentation.')+'</p>'
 def about_p(lg):
   return ('东莞市至尚自动化科技有限公司成立于2018年，位于东莞东城。主要研发生产：自动划胶机、喷胶机、压盒机及各种包装行业非标机械。公司是由“至尚精品包装”转型后成立的自动化公司，围绕包装产品优化升级、工艺优化、排拉布线、产能评估、生产计件制度推行等方案提供建议。' if lg=='zh' else
