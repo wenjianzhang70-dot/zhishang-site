@@ -97,7 +97,7 @@ def page(lg,path,title,desc,body):
 <template id="hold-video"><section class="vslot"><div class="wrap"><video controls preload="none" playsinline poster=""><source src="" type="video/mp4"></video></div></section></template>
 <template id="hold-dark-hero"><section class="hero dark"><div class="wrap"><div><h1></h1></div></div></section></template>
 <script>(function(){{var a=document.getElementById('askcta'),b=document.getElementById('pbar');if(a&&b&&'IntersectionObserver' in window){{new IntersectionObserver(function(es){{var v=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;b.hidden=!v;document.body.style.paddingBottom=v?b.offsetHeight+'px':''}}).observe(a)}}else if(b){{b.hidden=false;document.body.style.paddingBottom=b.offsetHeight+'px'}}}})();(function(){{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('mo');var io=new IntersectionObserver(function(es){{es.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target)}}}})}},{{rootMargin:'0px 0px -8% 0px'}});document.querySelectorAll('main section h2,.pcard,.card,.entry,.bead,.glue').forEach(function(el){{el.classList.add('rv');io.observe(el)}})}})()</script><script>(function(){{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){{es.forEach(function(x){{var v=x.target;if(x.isIntersecting){{v.preload='auto';var p=v.play();if(p)p.catch(function(){{}})}}else v.pause()}})}},{{threshold:.4}});document.querySelectorAll('video.mvid').forEach(function(v){{io.observe(v)}})}})()</script><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
-<footer><div class="wrap fgrid"><div><span class="flogo"><img src="{BASE}img/logo-120h.png" width="186" height="48" alt="至尚科技 ZHI SHANG TECHNOLOGY" loading="lazy"></span><br><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{(CP+' · 手机 / 微信 / WhatsApp: '+MOB+' · 电话/传真: '+TEL) if lg=='zh' else (CP+' · Tel / WhatsApp / WeChat: '+MOB)} · <a href="mailto:{em(lg)}">{em(lg)}</a></div><div class="small"><a href="{BASE}{t['pre']}glue/">{'胶水（九州顺驰）' if lg=='zh' else 'Glue (Jiuzhou Shunchi)'}</a> · <a href="{BASE}{t['pre']}molds/">{'模具（三狮）' if lg=='zh' else 'Molds (Sanshi)'}</a><br>© 2026 {t['co']}</div></div></footer></body></html>'''
+<footer><div class="wrap fgrid"><div><span class="flogo"><img src="{BASE}img/logo-120h.png" width="186" height="48" alt="至尚科技 ZHI SHANG TECHNOLOGY" loading="lazy"></span><br><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{(CP+' · 手机 / 微信 / WhatsApp: '+MOB+' · 电话/传真: '+TEL) if lg=='zh' else (CP+' · Tel / WhatsApp / WeChat: '+MOB)} · <a href="mailto:{em(lg)}">{em(lg)}</a></div><div class="small"><a href="{BASE}{t['pre']}glue/">{'胶水（九州顺驰）' if lg=='zh' else 'Glue (Jiuzhou Shunchi)'}</a> · <a href="{BASE}{t['pre']}molds/">{'模具（三狮）' if lg=='zh' else 'Molds (Sanshi)'}</a> · <a href="{BASE}{t['pre']}guides/">{'技术问答' if lg=='zh' else 'Guides'}</a><br>© 2026 {t['co']}</div></div></footer></body></html>'''
 import re as _re
 from PIL import Image as _I
 _SZ={}
@@ -428,7 +428,20 @@ def build3():
     body=phead(lg,name,lead,('products/',t['nav'][0][1]))+f'<section><div class="wrap">{g}<ul class="pts">{ptsh}</ul><p><a class="btn ghost dark" href="{P}products/zs-s088e-4/">{lk} →</a></p></div></section><section id="specs" class="alt"><div class="wrap"><h2>{t["spec"]}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{sn} {NOTE_Q[lg]}</p></div></section>'+inquiry(lg,'ZS-S088E-4')
     W(lg,'products/'+SPX_SLUG,page(lg,f'products/{SPX_SLUG}/',name+(' | 至尚科技' if z else ' | Zhishang'),lead,body))
 
+import guides as _G
+def build4():
+  pub={g[0] for g in _G.GUIDES}
+  for lg in ('en','zh'):
+    z=lg=='zh';P=BASE+L[lg]['pre'];items=''
+    for slug,en_,zh_ in _G.GUIDES:
+      G=zh_ if z else en_
+      W(lg,'guides/'+slug,page(lg,f'guides/{slug}/',G['title'],_G.desc(G),_G.guide_body(G,pub,BASE)))
+      items+=f'<a class="entry" href="{P}guides/{slug}/"><h3>{G["h1"]}</h3><p>{_G.desc(G)}</p><span>→</span></a>'
+    t='技术问答' if z else 'Guides'
+    lead=('精品盒划胶常见问题：现象、原因和解决办法，引用胶水厂公开技术资料。' if z else 'Common rigid-box gluing problems: symptoms, causes and fixes, citing adhesive makers\' published technical guides.')
+    W(lg,'guides',page(lg,'guides/',t+(' | 至尚科技' if z else ' | Zhishang'),lead,phead(lg,t,lead)+f'<section><div class="wrap"><div class="grid g3">{items}</div></div></section>'))
 build()
 build2()
 build3()
+build4()
 sitemap()
