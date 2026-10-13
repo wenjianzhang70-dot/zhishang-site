@@ -127,3 +127,14 @@ figure.render:not(.soon) figcaption{position:absolute;top:8px;left:8px;right:aut
 .vsec .vbox.tall{max-width:420px}
 .vsec video{display:block;width:100%;height:auto}
 .expo{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}.expo img,.expo picture{width:100%;max-width:355px;height:auto;border-radius:6px}
+.vc-stage{position:relative;max-width:960px}
+.vc-slide{margin:0}.vc-slide[hidden]{display:none}
+.vc-box{background:#0F2A44;border-radius:8px;overflow:hidden}
+.vc-box video{display:block;width:100%;height:min(70vh,560px);object-fit:contain;background:#0F2A44}
+.vc-slide figcaption{margin-top:10px;font-weight:600}
+.vc-prev,.vc-next{position:absolute;top:calc(min(70vh,560px)/2 - 24px);width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#0F2A44;font-size:30px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.vc-prev{left:10px}.vc-next{right:10px}
+.vc-nav{display:flex;align-items:center;gap:16px;margin-top:12px;max-width:960px}
+.vc-dots{display:flex;gap:8px}.vc-dot{width:12px;height:12px;border-radius:50%;border:2px solid #0F2A44;background:transparent;padding:0;cursor:pointer}.vc-dot[aria-current]{background:#F2A900;border-color:#F2A900}
+.vc-count{font-variant-numeric:tabular-nums;color:var(--steel)}
+.osgal img{width:100%;aspect-ratio:1/1;object-fit:contain;background:#fff}
