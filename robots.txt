@@ -1,4 +1,4 @@
 # preview build: pages carry noindex
 User-agent: *
 Allow: /
-Sitemap: https://wenjianzhang70-dot.github.io/zhishang-site/sitemap.xml
+Sitemap: https://zhishangkj.com/sitemap.xml
