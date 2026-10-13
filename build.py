@@ -95,7 +95,7 @@ def W(lg,path,html_):
   d=os.path.join(L[lg]['pre'],path);os.makedirs(d or '.',exist_ok=True);open(os.path.join(d,'index.html'),'w').write(html_)
 def nm(m,lg): return m['zh'] if lg=='zh' else m['en']
 def card(m,lg):
-  t=L[lg];k=[(t['lab'][4],m['speed']),(t['lab'][6],m['width'])] if m.get('width') else [(t['lab'][4],m.get('speed','')),]
+  t=L[lg];k=[(t['lab'][4],m['speed']),(t['lab'][6],m['width'])] if m.get('width') else [(t['lab'][4],m.get('speed') or (csen('15-34个/分钟') if lg=='en' else '15-34个/分钟')),]
   ks=''.join(f'<li><span>{a}</span><code>{b}</code></li>' for a,b in k)
   return f'<a class="pcard" href="{BASE}{t["pre"]}products/{m["slug"]}/"><img src="{BASE}img/{m["img"]}.jpg" alt="{e(nm(m,lg))} {m["model"]}" loading="lazy"><div><small>{m["model"]}</small><h3>{nm(m,lg)}</h3><ul class="keys">{ks}</ul><span class="more">{t["view"]} →</span></div></a>'
 APPS={'en':[('Rigid / gift boxes','Lid-and-base and gift boxes; inline with automatic lid-and-base box machines.','ZS-S088E-4, ZS-S088R-4'),('Lid-and-base boxes','Bottom, side and flat-face gluing in one pass.','ZS-S088E-4, ZS-S088R-4, ZS-S088C'),('Book-style & folding boxes','Large-format boxes on the four-axis cabinet machine.','ZS-S088C'),('Cases & leather covers','Large and small cases; hot glue scraping to replace double-sided tape.','ZS-S088D, ZS-S088D-4, CS4539'),('Recessed card inserts','Flat glue lines on recessed card insert products.','ZS-S088A, ZS-S088D'),('Jewelry, luxury & cosmetic boxes','Small boxes on dual-station machines.','ZS-S088B, ZS-S088A-R'),('Phone, tablet & perfume boxes','Pressing bottoms, blister and paper trays.','ZS-YH4040'),('Leather-box covering materials','Even glue spraying with less waste.','ZS-S088P')],
@@ -132,7 +132,7 @@ def build():
   for lg in ('en','zh'):
     t=L[lg];P=BASE+t['pre']
     # HOME
-    feat=[MACH[0],MACH[1],MACH[2],MACH[4],MACH[6],MACH[9],MACH[10],CS]
+    _bs={x['slug']:x for x in MACH};feat=[_bs[k] for k in ('zs-s088e-4','zs-s088r-4','zs-s088c','zs-s088d','zs-s088b','zs-s088p','zs-yh4040')]+[CS]
     stats=[('2018',('成立于东莞东城','Founded in Dongcheng, Dongguan')),('7 天' if lg=='zh' else '7 days',('国外机器故障维修时效','Overseas machine fault repair response')),('终身' if lg=='zh' else 'Lifetime',('划胶枪嘴包修包换','Glue nozzle repair and replacement')),('3-10MM',('划胶宽度（划胶机）','Glue line width (gluing machines)'))]
     st=''.join(f'<div><b>{a}</b><span>{b[0] if lg=="zh" else b[1]}</span></div>' for a,b in stats)
     if lg=='zh': stats_note='数据来自至尚画册：成立年份、售后时效、试用政策、参数。'
