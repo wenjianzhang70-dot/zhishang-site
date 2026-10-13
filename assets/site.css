@@ -101,3 +101,11 @@ body.pbar-on footer,body:has(.pbar) footer{padding-bottom:30px}@media(max-width:
 /* v15 logo */
 .logo img{height:44px;width:auto;display:block}@media(max-width:520px){.logo img{height:36px}}
 .flogo{display:inline-block;background:#fff;border-radius:999px;padding:8px 18px;margin-bottom:10px}.flogo img{height:34px;width:auto;display:block}
+/* v16 */
+.fcontact{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:19;display:flex;flex-direction:column;gap:8px}
+.fcontact a{display:block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:.85rem;padding:10px 12px;border-radius:6px;box-shadow:0 4px 12px rgba(15,42,68,.25);text-align:center;min-width:92px}
+.fcontact a:first-child{background:#1F8F4E}.fcontact small{display:block;font-weight:400;font-size:.68rem;color:#c3cedb}
+@media(max-width:900px){.fcontact{top:auto;bottom:84px;transform:none;right:10px}.fcontact a{padding:8px 10px;min-width:0;font-size:.78rem}.fcontact small{display:none}}
+.strength{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.strength b{display:block;font:700 2rem "Barlow Semi Condensed",system-ui,sans-serif;color:var(--ink);border-left:4px solid var(--accent);padding-left:14px}.strength span{display:block;padding-left:18px;color:var(--steel)}
+@media(max-width:900px){.strength{grid-template-columns:1fr 1fr}}
+.pcard.static .keys li{font-size:.8rem}
