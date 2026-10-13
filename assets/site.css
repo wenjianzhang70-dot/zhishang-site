@@ -151,5 +151,8 @@ figure.render:not(.soon) figcaption{position:absolute;top:8px;left:8px;right:aut
 @media(hover:hover) and (min-width:901px){.navdd:hover .ddmenu{display:block}}
 .jump{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}.jump a{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}.jump a:hover{border-color:var(--accent)}
 [id^="app-"]{scroll-margin-top:90px}.card [href] code{text-decoration:underline}
-@media(max-width:900px){.navdd{display:block;border-bottom:1px solid var(--line)}.navdd>a{display:block;padding:12px 0;color:var(--ink);font-weight:600;border:0!important}.ddbtn{display:none}
- .ddmenu{display:block;position:static;box-shadow:none;border:0;padding:0 0 8px 12px;min-width:0}.ddmenu a{padding:8px 0!important;border:0!important;font-weight:400!important;color:var(--steel)!important}}
+@media(max-width:900px){.navdd{display:block;border-bottom:1px solid var(--line)}.navdd>a{display:block;padding:12px 0;color:var(--ink);font-weight:600;border:0!important}.ddbtn{display:inline-block;position:absolute;right:0;top:4px;font-size:1.1rem;padding:8px 12px;border:1px solid var(--line);border-radius:4px}.navdd{position:relative}
+ .ddmenu{display:none;position:static;box-shadow:none;border:0;padding:0 0 8px 12px;min-width:0}.ddmenu a{padding:8px 0!important;border:0!important;font-weight:400!important;color:var(--steel)!important}}
+
+@media(max-width:900px){.navdd.open .ddmenu{display:block}}
+.card.one{position:relative}.card.one .small a::after{content:'';position:absolute;inset:0}
