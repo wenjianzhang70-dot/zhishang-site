@@ -72,7 +72,7 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=17"></head><body{zhfont}>
+<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=18"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}"><img src="{BASE}img/logo-120h.png" width="240" height="62" alt="{'至尚科技 ZHI SHANG TECHNOLOGY'}"></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main>
 <aside class="fcontact" aria-label="{'快速联系' if lg=='zh' else 'Quick contact'}"><a href="https://wa.me/{MOBN}" target="_blank" rel="noopener" title="WhatsApp {MOB}">WhatsApp</a><a href="mailto:{SALES}" title="{SALES}">Email</a><a href="tel:+{MOBN}" title="{'微信' if lg=='zh' else 'WeChat'}: {MOB}">{'微信' if lg=='zh' else 'WeChat'}<small>{MOB}</small></a></aside>
@@ -160,7 +160,7 @@ def build():
           zz=lg=="zh";ren=pg.startswith('P10')
           if i and ren: fig=f'<figure class="render"><img src="{BASE}img/{i}.jpg" alt="{m}" loading="lazy"><figcaption>{"效果图" if zz else "Rendering"}</figcaption></figure>'
           elif i: fig=f'<img src="{BASE}img/{i}.jpg" alt="{m} {z if zz else en_n}" loading="lazy">'
-          else: fig=''
+          else: fig=f'<figure class="render soon"><img src="{BASE}img/placeholder.jpg" alt="{m}" loading="lazy"><figcaption>{"图片待补" if zz else "Image coming soon"}</figcaption></figure>'
           sp=''.join(f'<li><span>{a if zz else b}</span><code>{v}</code></li>' for a,b,v in NSX.get(m,()))
           d=NSD.get(m);desc=(d[0] if zz else d[1]) if d else ("非标机，按需定制" if zz else "Non-standard machine, built to order.")
           return f'<div class="pcard static">{fig}<div><small>{m}</small><h3>{z if zz else en_n}</h3><p>{desc}</p>{"<ul class=keys>"+sp+"</ul><p class=small>"+("数据来源：至尚公司介绍 PPT。" if zz else "Data from the Zhishang company presentation (PPT).")+"</p>" if sp else ""}</div></div>'
@@ -249,14 +249,10 @@ def ld_product(lg,m,summ):
   d={"@context":"https://schema.org","@type":"Product","name":nm(m,lg),"model":m['model'],"mpn":m['model'],"image":URL+'img/'+m['img']+'.jpg',"description":summ,"brand":{"@type":"Brand","name":t['brand']},"manufacturer":{"@type":"Organization","name":t['co']},"url":P+'products/'+m['slug']+'/'}
   bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":'首页' if lg=='zh' else 'Home',"item":P},{"@type":"ListItem","position":2,"name":t['nav'][0][1],"item":P+'products/'},{"@type":"ListItem","position":3,"name":m['model'],"item":P+'products/'+m['slug']+'/'}]}
   return f'<script type="application/ld+json">{json.dumps(d,ensure_ascii=False)}</script><script type="application/ld+json">{json.dumps(bc,ensure_ascii=False)}</script>'
-DETL={'zh':['划胶头','控制手柄','控制面板'],'en':['Glue head','Teach pendant','Control panel']}
-DETS={'zs-s088c':[0,1,2],'zs-s088e-4':[0,1],'zs-s088p':[0,2]}
+DETS={'zs-s088r-4':[('胶头特写','Glue head close-up','PPT P7')],'zs-s088e-4':[('胶头特写','Glue head close-up','PPT P9')],'zs-s088r-3':[('胶头特写','Glue head close-up','PPT P8')],'zs-s088b':[('手持控制器与胶头','Handheld controller and glue head','PPT P13')]}
 def dets(lg,m):
   if m['slug'] not in DETS: return ''
-  lab=DETL[lg][:]
-  if m['slug']=='zs-s088p': lab[0]='喷胶头' if lg=='zh' else 'Spray head'
-  if m['slug']=='zs-s088e-4': lab[1]='控制箱与手柄' if lg=='zh' else 'Control box and pendant'
-  return '<div class="dets">'+''.join(f'<figure><img src="{BASE}img/det-{m["slug"]}-{i+1}.jpg" alt="{m["model"]} {lab[k]}"><figcaption>{lab[k]}</figcaption></figure>' for i,k in enumerate(DETS[m['slug']]))+'</div>'
+  return '<div class="dets">'+''.join(f'<figure><img src="{BASE}img/det-{m["slug"]}-{i+1}.jpg" alt="{m["model"]} {z if lg=="zh" else en}"><figcaption>{z if lg=="zh" else en}</figcaption></figure>' for i,(z,en,src) in enumerate(DETS[m['slug']]))+'</div>'
 def compare(lg):
   t=L[lg];hd=''.join(f'<th>{x}</th>' for x in [t['lab'][0],t['lab'][1],t['lab'][2],t['lab'][3],t['lab'][4],t['lab'][5],t['lab'][6]])
   rs=''.join(f'<tr><td><a href="{BASE}{t["pre"]}products/{m["slug"]}/"><code>{m["model"]}</code></a></td><td>{nm(m,lg)}</td><td><code>{m["dims"]}</code></td><td><code>{m["size"]}</code></td><td><code>{m["speed"]}</code></td><td><code>{m["power"]}</code></td><td><code>{m["width"] or "—"}</code></td></tr>' for m in MACH)
