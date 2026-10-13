@@ -185,6 +185,10 @@
 | 邮箱 | 362804136@qq.com | sales@zhishangkj.com |
 | D-4 英文名 | Four-axis | Three-axis（PPT P14，与中文一致） |
 
+### 8.2d B-2-R / A-4 照片归属（老板 2026-10-13 群内确认）
+- PPT P11/P12 共用的 image16、image17：image16 = ZS-S088B-2-R（四轴热胶），image17 = ZS-S088A-4（三轴热胶）。
+- 网站：B-2-R 用 image16（img/s088b-2-r.jpg/webp）。A-4 目前网站无独立页面，image17 暂未使用。
+
 #### 8.2b 老网站 glue-machine.com 产品页参数（2026-10-13 v17 整理；网站仍用画册值，未改）
 老网站页面没有写型号，以下按页面标题对应。老网站的速度 1M/second、0.8M/second、宽度 5-12mm、随线最小 L60*W60*H30 与 PPT 一致，与画册不同（见上表）。另外：
 | 机型（按老站标题） | 画册（网站现用） | 老网站 | 页面 |
@@ -212,3 +216,5 @@
 
 ### 8.3 可用图片
 PPT 内含 86 个媒体文件（解压于 /workspace/zs-ppt/x/ppt/media/），尚未逐张筛选；客户 logo 页（P30–31）、带客户品牌的图需授权。
+
+- 2026-10-13 老板确认：PPT image16 是 ZS-S088B-2-R，image17 是 ZS-S088A-4。
