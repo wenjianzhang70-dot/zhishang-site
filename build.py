@@ -70,7 +70,7 @@ def page(lg,path,title,desc,body):
   nav=''.join(f'<a href="{BASE}{t["pre"]}{h}">{n}</a>' for h,n in t['nav'])
   zhfont='' if lg=='en' else ' class="zh"'
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
+<title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
 <link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=24"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}"><img src="{BASE}img/logo-120h.png" width="240" height="62" alt="{'至尚科技 ZHI SHANG TECHNOLOGY'}"></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
@@ -164,15 +164,15 @@ def build():
           else: fig=f'<figure class="render soon"><img src="{BASE}img/placeholder.jpg" alt="{m}" loading="lazy"><figcaption>{"图片待补" if zz else "Image coming soon"}</figcaption></figure>'
           sp=''.join(f'<li><span>{a if zz else b}</span><code>{v}</code></li>' for a,b,v in NSX.get(m,()))
           d=NSD.get(m);desc=(d[0] if zz else d[1]) if d else ("非标机，按需定制" if zz else "Non-standard machine, built to order.")
-          return f'<div class="pcard static">{fig}<div><small>{m}</small><h3>{z if zz else en_n}</h3><p>{desc}</p>{"<ul class=keys>"+sp+"</ul><p class=small>"+("数据来源：至尚公司介绍 PPT。" if zz else "Data from the Zhishang company presentation (PPT).")+"</p>" if sp else ""}</div></div>'
+          return f'<div class="pcard static">{fig}<div><small>{m}</small><h3>{z if zz else en_n}</h3><p>{desc}</p>{"<ul class=keys>"+sp+"</ul><p class=small>"+("数据来源：至尚公司介绍 PPT。" if zz else "Data from the Zhishang company presentation (PPT).")+" "+("参数仅供参考，以报价为准。" if zz else "Specifications are for reference only; final specifications are subject to our quotation.")+"</p>" if sp else ""}</div></div>'
         ns=''.join(_nsc(*x) for x in NS)
         grp+=f'<h2 id="ns">{cz if lg=="zh" else ce}</h2><p class="sub">{"可定制各种非标规格，适用各种需求。" if lg=="zh" else "We build custom machines to your specifications and requirements."}</p><div class="grid g3">{ns}</div>'
         continue
       ms=[m for m in allm if grpof(m)==c]
       grp+=f'<h2 id="{c}" class="rv">{cz if lg=="zh" else ce}</h2><p class="sub">{dz if lg=="zh" else de}</p><div class="grid g4">{"".join(card(m,lg) for m in ms)}</div>'
     comp=compare(lg)
-    W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Rigid Box Gluing, Glue Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
-      f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][0][1]}</h1>{BEAD}<p>{"按工艺浏览：冷胶、热胶、喷胶、压泡、皮壳成型、非标定制。" if lg=="zh" else "Browse by process: cold glue, hot glue, spraying, bubble pressing, case making and custom machines."}</p></div></section><section><div class="wrap">{grp}</div></section><section class="alt"><div class="wrap"><h2>{"参数对比" if lg=="zh" else "Specification Comparison"}</h2><p class="sub">{t["src"]}</p>{comp}</div></section>{inquiry(lg,"")}'))
+    W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Rigid Box Gluing, Glue Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数：随线、柜式、双工位划胶机（冷胶/热胶），喷胶机、压泡机、半自动小皮壳机及非标定制机。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
+      f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][0][1]}</h1>{BEAD}<p>{"按工艺浏览：冷胶、热胶、喷胶、压泡、皮壳成型、非标定制。" if lg=="zh" else "Browse by process: cold glue, hot glue, spraying, bubble pressing, case making and custom machines."}</p></div></section><section><div class="wrap">{grp}</div></section><section class="alt"><div class="wrap"><h2>{"参数对比" if lg=="zh" else "Specification Comparison"}</h2><p class="sub">{t["src"]}</p>{comp}<p class="small specnote">{"参数仅供参考，以报价为准。" if lg=="zh" else "Specifications are for reference only; final specifications are subject to our quotation."}</p></div></section>{inquiry(lg,"")}'))
     # product pages
     for m in allm:
       if m is CS:
@@ -199,27 +199,34 @@ def build():
 {pvid(lg,m)}
 <div class="pbar" id="pbar" hidden><div class="wrap"><span><code>{m['model']}</code> {nm(m,lg)}</span><a class="btn sm" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a></div></div>
 {f'<section id="features" class="alt"><div class="wrap"><h2>{t["feat"]}</h2>{feats}</div></section>' if feats else ''}
-<section id="specs"><div class="wrap"><h2>{t['spec']}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{t['src'] if m.get('src')!='ppt' else ('数据来源：至尚公司介绍 PPT。' if lg=='zh' else 'Data from the Zhishang company presentation (PPT).')}</p></div></section>
+<section id="specs"><div class="wrap"><h2>{t['spec']}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{t['src'] if m.get('src')!='ppt' else ('数据来源：至尚公司介绍 PPT。' if lg=='zh' else 'Data from the Zhishang company presentation (PPT).')}</p><p class="small specnote">{'参数仅供参考，以报价为准。' if lg=='zh' else 'Specifications are for reference only; final specifications are subject to our quotation.'}</p></div></section>
 {extras(lg,m)}
 {inquiry(lg,m['model'])}'''
       ti=f"{m['model']} {nm(m,lg)} | {'至尚科技' if lg=='zh' else 'Zhishang'}"
-      W(lg,'products/'+m['slug'],page(lg,f'products/{m["slug"]}/',ti,f"{m['model']} {nm(m,lg)}. "+summ,body+ld_product(lg,m,summ)))
+      W(lg,'products/'+m['slug'],page(lg,f'products/{m["slug"]}/',ti,f"{m['model']} {nm(m,lg)}"+('：' if lg=='zh' else '. ')+summ.rstrip('。')+('。东莞市至尚自动化科技有限公司。' if lg=='zh' else ''),body+ld_product(lg,m,summ)))
     # applications
     ap=''.join(f'<div class="card"><h3>{a}</h3><p>{b}</p><p class="small">{"推荐机型" if lg=="zh" else "Machines"}: <code>{c}</code></p></div>' for a,b,c in APPS[lg])
-    W(lg,'applications',page(lg,'applications/',('应用领域 | 天地盒 书型盒 皮壳 坑卡 划胶 - 至尚科技' if lg=='zh' else 'Applications: Rigid Box, Lid and Base Box, Book-Style Box & Case Gluing | Zhishang'),('至尚划胶设备适用的包装产品。' if lg=='zh' else 'Gluing applications for rigid boxes, lid-and-base boxes, book-style boxes, cases and greyboard.'),
+    W(lg,'applications',page(lg,'applications/',('应用领域 | 天地盒 书型盒 皮壳 坑卡 划胶 - 至尚科技' if lg=='zh' else 'Applications: Rigid Box, Lid and Base Box, Book-Style Box & Case Gluing | Zhishang'),('至尚划胶设备适用的包装产品：天地盒、礼盒、书型盒、折叠盒、皮壳、坑卡、首饰盒、化妆品盒、手机盒及皮盒面料喷胶。' if lg=='zh' else 'Gluing applications for rigid boxes, lid-and-base boxes, book-style boxes, cases and greyboard.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][1][1]}</h1>{BEAD}<p>{"以下应用均来自至尚画册各机型的适用说明。" if lg=="zh" else "Applications listed in the Zhishang brochure for each machine."}</p></div></section><section><div class="wrap"><div class="grid g4">{ap}</div></div></section>{inquiry(lg,"")}'))
     # about
     W(lg,'about',page(lg,'about/',('关于我们 - 东莞市至尚自动化科技有限公司' if lg=='zh' else 'About Dongguan Zhishang Automation Technology'),about_p(lg)[:150],about_body(lg)))
     W(lg,'service',page(lg,'service/',('服务承诺 - 至尚科技' if lg=='zh' else 'Service & Commitments | Zhishang'),('划胶枪嘴终身包修包换；国外机器故障维修 7 天；海外安装与技术支持请咨询。' if lg=='zh' else 'Lifetime glue nozzle repair and replacement, 7-day overseas fault repair response. Contact us for overseas installation and support options.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][3][1]}</h1>{BEAD}</div></section><section><div class="wrap">{promises(lg)}<template id="hold-overseas-service"><ul class="pts"><li>远程视频支持 / Remote video support: [待确认]</li><li>工程师出国安装 / Engineer dispatch abroad: [待确认]</li><li>备件国际快递 / Spare parts shipping: [待确认]</li><li>英文说明书 / English manual: [待确认]</li><li>整机质保 / Machine warranty: [待确认]</li></ul></template><h2 style="margin-top:48px">{"服务理念" if lg=="zh" else "Service Concept"}</h2><p>{service_p(lg)}</p></div></section>{inquiry(lg,"")}'))
-    W(lg,'contact',page(lg,'contact/',('联系我们 / 在线询价 - 至尚科技' if lg=='zh' else 'Contact & Request a Quote | Zhishang'),('东莞市至尚自动化科技有限公司联系方式。' if lg=='zh' else 'Contact Dongguan Zhishang Automation Technology.'),
+    W(lg,'contact',page(lg,'contact/',('联系我们 / 在线询价 - 至尚科技' if lg=='zh' else 'Contact & Request a Quote | Zhishang'),('东莞市至尚自动化科技有限公司联系方式与在线询价：地址东莞市东城街道环城东路东城段42号，电话 0769 22250346，手机/微信 +86 158 2092 8436。' if lg=='zh' else 'Contact Dongguan Zhishang Automation Technology and request a quote: WhatsApp / WeChat +86 158 2092 8436, sales@zhishangkj.com, Dongguan, Guangdong, China.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][4][1]}</h1>{BEAD}</div></section>{inquiry(lg,"",full=True)}'))
   # sitemap/robots
   urls=[]
   for root,_,fs in os.walk('.'):
     if 'index.html' in fs and not root.startswith(('./shots','./refs','./.git')): urls.append(URL+root[2:]+('/' if root!='.' else ''))
-  open('sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>{u.replace("//","/").replace("https:/","https://")}</loc></url>' for u in sorted(urls))+'</urlset>\n')
-  open('robots.txt','w').write(f'# preview build: pages carry noindex\nUser-agent: *\nAllow: /\nSitemap: {URL}sitemap.xml\n')
+  ens=sorted(u for u in urls if not u.startswith(URL+'zh/') and u!=URL+'zh/')
+  def zhof(u): return URL+'zh/'+u[len(URL):]
+  sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+  for en in ens:
+    zh=zhof(en)
+    alts=f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/><xhtml:link rel="alternate" hreflang="zh-CN" href="{zh}"/><xhtml:link rel="alternate" hreflang="x-default" href="{en}"/>'
+    for u in (en,zh): sm+=f'<url><loc>{u}</loc>{alts}</url>\n'
+  open('sitemap.xml','w').write(sm+'</urlset>\n')
+  open('robots.txt','w').write(f'User-agent: *\nAllow: /\n\nSitemap: {URL}sitemap.xml\n')
 TBD={'zh':'[待提供]','en':'[to be provided]'}
 def is_hot(m): return any(f is HOT for f in m.get('features',[])) or m['slug'] in ('zs-s088d-4',)
 def is_cold(m): return any(f in (COLD,FLATC) for f in m.get('features',[]))

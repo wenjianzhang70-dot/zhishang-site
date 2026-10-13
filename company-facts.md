@@ -162,7 +162,9 @@
 - 联系方式：Jelly Chen，+8615820928436（电话/微信/WhatsApp），sales@zhishangkj.com，made-in-china 店铺 glue-machine.en.made-in-china.com（PPT P32；老站首页同号同邮箱）
 - 老站首页：「automatic glue marking machines, precision glue sprayers, intelligent cartoning systems」；「7*24 Hours Service」「above 7 years experience」；FB-017 标「CE Certified」（未见证书编号）
 
-### 8.2 与画册对不上（不判断对错，请老板定）
+### 8.2 与画册对不上
+**老板决定（2026-10-13）：参数以画册（宣传手册）为准。** 画册里有的参数，网站一律用画册值；画册里没有、只有 PPT 有的机型（ZS-S088R-3、ZS-S088B-2-R、ZS-FB-007/004/019/026/017）沿用 PPT 值。下表和 8.2b 中 PPT、老网站的不同数值仅作记录，不再使用。所有参数表下方注明「参数仅供参考，以报价为准」。
+
 | 项目 | 画册 | PPT |
 |---|---|---|
 | 速度 S088E-4/R-4/C/C-4/D/D-4 | 1.2M/S | 1M/second |
