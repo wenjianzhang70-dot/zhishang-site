@@ -72,7 +72,7 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=23"></head><body{zhfont}>
+<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=24"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}"><img src="{BASE}img/logo-120h.png" width="240" height="62" alt="{'至尚科技 ZHI SHANG TECHNOLOGY'}"></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main>
 <aside class="fcontact" aria-label="{'快速联系' if lg=='zh' else 'Quick contact'}"><a href="https://wa.me/{MOBN}" target="_blank" rel="noopener" title="WhatsApp {MOB}">WhatsApp</a><a href="mailto:{SALES}" title="{SALES}">Email</a><a href="tel:+{MOBN}" title="{'微信' if lg=='zh' else 'WeChat'}: {MOB}">{'微信' if lg=='zh' else 'WeChat'}<small>{MOB}</small></a></aside>
@@ -259,13 +259,15 @@ def pvid(lg,m):
   v=VIDS.get(m['slug'])
   if not v: return ''
   return vsec(lg,m['slug'],v[1],v[2],'运行视频' if lg=='zh' else 'Machine in Action',m['model']+' '+nm(m,lg))
-OSI={'zs-s088e-4':[('整机其他角度','Another view'),('整机其他角度','Another view'),('盒子侧壁划胶','Gluing box side walls')],'zs-s088r-4':[('热熔胶机与整机','With hot melt unit'),('整机其他角度','Another view')],'zs-s088b':[('整机其他角度','Another view'),('整机其他角度','Another view')],'zs-s088a':[('整机其他角度','Another view'),('整机其他角度','Another view')],'zs-s088a-r':[('热熔胶机与整机','With hot melt unit'),('整机其他角度','Another view')]}
+OSI={'zs-s088e-4':[(3,'盒子侧壁划胶','Gluing box side walls')],'zs-s088r-4':[('热熔胶机与整机','With hot melt unit'),('整机其他角度','Another view')],'zs-s088b':[('整机其他角度','Another view'),('整机其他角度','Another view')],'zs-s088a':[('整机其他角度','Another view'),('整机其他角度','Another view')],'zs-s088a-r':[('热熔胶机与整机','With hot melt unit'),('整机其他角度','Another view')]}
 def dets(lg,m):
   z=lg=='zh';f=[]
   for i,(zz,en,src) in enumerate(DETS.get(m['slug'],[])): f.append((f'det-{m["slug"]}-{i+1}',zz,en))
-  for i,(zz,en) in enumerate(OSI.get(m['slug'],[])): f.append((f'os-{m["slug"]}-{i+1}',zz,en))
+  for i,x in enumerate(OSI.get(m['slug'],[])):
+    k,zz,en=x if len(x)==3 else (i+1,)+tuple(x)
+    f.append((f'os-{m["slug"]}-{k}',zz,en))
   if not f: return ''
-  return '<div class="dets">'+''.join(f'<figure><img src="{BASE}img/{n}.jpg" alt="{m["model"]} {zz if z else en}" loading="lazy"><figcaption>{zz if z else en}</figcaption></figure>' for n,zz,en in f)+'</div>'
+  return f'<div class="dets" style="grid-template-columns:repeat({min(len(f),3) if len(f)%3!=1 or len(f)==1 else 2},1fr)">'+''.join(f'<figure><img src="{BASE}img/{n}.jpg" alt="{m["model"]} {zz if z else en}" loading="lazy"><figcaption>{zz if z else en}</figcaption></figure>' for n,zz,en in f)+'</div>'
 def compare(lg):
   t=L[lg];hd=''.join(f'<th>{x}</th>' for x in [t['lab'][0],t['lab'][1],t['lab'][2],t['lab'][3],t['lab'][4],t['lab'][5],t['lab'][6]])
   rs=''.join(f'<tr><td><a href="{BASE}{t["pre"]}products/{m["slug"]}/"><code>{m["model"]}</code></a></td><td>{nm(m,lg)}</td><td><code>{m["dims"]}</code></td><td><code>{m["size"]}</code></td><td><code>{m["speed"]}</code></td><td><code>{m["power"]}</code></td><td><code>{m["width"] or "—"}</code></td></tr>' for m in MACH)
@@ -276,7 +278,7 @@ def promises(lg):
      ('海外安装与技术支持方案请联系我们。（国内省内客户可先试用一星期再付款）','Contact us for overseas installation and support options.')]
   return '<div class="grid g3 prom">'+''.join(f'<div class="card"><b class="num">0{i+1}</b><p>{a if lg=="zh" else b}</p></div>' for i,(a,b) in enumerate(P))+'</div>'
 def strength(lg):
-  z=lg=='zh';it=[('80',('员工（管理 20 人、操作 60 人）','Employees (20 management, 60 operators)')),('3000㎡',('车间','Workshop')),('500㎡',('办公','Office')),('Yantian · Shekou' if not z else '盐田 · 蛇口',('出货港口','Shipping ports'))]
+  z=lg=='zh';it=[('80',('员工（管理 20 人、操作 60 人）','Employees (20 management, 60 operators)')),('3000㎡',('车间 3000㎡','Workshop 3000㎡')),('500㎡',('办公 500㎡','Office 500㎡')),('Yantian · Shekou' if not z else '盐田 · 蛇口',('出货港口','Shipping ports'))]
   return '<div class="strength">'+''.join(f'<div><b>{a}</b><span>{b[0] if z else b[1]}</span></div>' for a,b in it)+'</div><p class="small">'+('数据来源：至尚公司介绍 PPT。' if z else 'Source: Zhishang company presentation.')+'</p>'
 def about_p(lg):
   return ('东莞市至尚自动化科技有限公司成立于2018年，位于东莞东城。主要研发生产：自动划胶机、喷胶机、压盒机及各种包装行业非标机械。公司是由“至尚精品包装”转型后成立的自动化公司，围绕包装产品优化升级、工艺优化、排拉布线、产能评估、生产计件制度推行等方案提供建议。' if lg=='zh' else
@@ -294,7 +296,7 @@ def about_body(lg):
   return f'''<section class="phead"><div class="wrap"><h1>{t['nav'][2][1]}</h1>{BEAD}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'公司简介' if lg=='zh' else 'Company Profile'}</h2><p>{about_p(lg)}</p></div></div></section>
 <section class="alt"><div class="wrap grid g3"><div class="card"><h3>{'公司使命' if lg=='zh' else 'Mission'}</h3><p>{mission}</p></div><div class="card"><h3>{'团队介绍' if lg=='zh' else 'Team'}</h3><p>{team}</p></div><div class="card"><h3>{'服务理念' if lg=='zh' else 'Service Concept'}</h3><p>{service_p(lg)}</p></div></div></section>
-<section><div class="wrap grid g3"><img class="ph" src="{BASE}img/team.jpg" alt="{'至尚团队' if lg=='zh' else 'Zhishang team'}"><img class="ph" src="{BASE}img/workshop.jpg" alt="{'车间' if lg=='zh' else 'Workshop'}"><img class="ph" src="{BASE}img/certs.jpg" alt="{'企业荣誉证书' if lg=='zh' else 'Certificates'}"></div><div class="wrap grid g3" style="margin-top:24px"><img class="ph" src="{BASE}img/os-expo-1.jpg" alt="{'至尚科技展会展位' if lg=='zh' else 'Zhishang booth at a trade show'}"><img class="ph" src="{BASE}img/os-expo-2.jpg" alt="{'展会现场与客户交流' if lg=='zh' else 'Talking with visitors at a trade show'}"></div><div class="wrap"><p class="small">{'企业荣誉：实用新型专利证书等' if lg=='zh' else 'Corporate honors: utility model patent certificates and more.'}</p></div></section>
+<section><div class="wrap grid g3"><img class="ph" src="{BASE}img/team.jpg" alt="{'至尚团队' if lg=='zh' else 'Zhishang team'}"><img class="ph" src="{BASE}img/workshop.jpg" alt="{'车间' if lg=='zh' else 'Workshop'}"><img class="ph" src="{BASE}img/certs.jpg" alt="{'企业荣誉证书' if lg=='zh' else 'Certificates'}"></div><div class="wrap expo"><img src="{BASE}img/os-expo-1.jpg" alt="{'至尚科技展会展位' if lg=='zh' else 'Zhishang booth at a trade show'}"><img src="{BASE}img/os-expo-2.jpg" alt="{'展会现场与客户交流' if lg=='zh' else 'Talking with visitors at a trade show'}"></div><div class="wrap"><p class="small">{'企业荣誉：实用新型专利证书等' if lg=='zh' else 'Corporate honors: utility model patent certificates and more.'}</p></div></section>
 <section><div class="wrap"><h2>{'公司实力' if lg=='zh' else 'Company Strength'}</h2>{strength(lg)}</div></section>
 <section class="alt"><div class="wrap"><h2>{'关联公司' if lg=='zh' else 'Related Companies'}</h2><div class="grid g2">{rl}</div></div></section>'''
 def inquiry(lg,model,full=False):

@@ -126,3 +126,4 @@ figure.render:not(.soon) figcaption{position:absolute;top:8px;left:8px;right:aut
 .vsec .vbox{background:#0F2A44;border-radius:8px;overflow:hidden;max-width:960px}
 .vsec .vbox.tall{max-width:420px}
 .vsec video{display:block;width:100%;height:auto}
+.expo{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}.expo img,.expo picture{width:100%;max-width:355px;height:auto;border-radius:6px}
