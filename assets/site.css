@@ -116,3 +116,4 @@ body.pbar-on footer,body:has(.pbar) footer{padding-bottom:30px}@media(max-width:
 figure.render{padding:0;position:relative}figure.render img{aspect-ratio:4/3;object-fit:contain;width:100%;display:block}figure.render figcaption{position:absolute;left:0;right:0;bottom:6px}
 figure.soon figcaption{bottom:auto;top:62%;font-weight:600;color:#5B6B7A}
 .dets{grid-template-columns:repeat(3,1fr)}
+figure.render:not(.soon) figcaption{position:static;padding:4px 0 6px}
