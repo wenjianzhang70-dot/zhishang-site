@@ -169,7 +169,7 @@ def build():
         grp+=f'<h2 id="other">{"其他机械" if lg=="zh" else "Other Machines"}</h2><div class="grid g4"><a class="pcard" href="{BASE}{t["pre"]}products/box-punching-ribbon-machine/"><img src="{BASE}img/os-ribbon-1.jpg" alt="{"盒子自动冲孔机与自动贴丝带机" if lg=="zh" else "Box punching and ribbon attaching machines"}" loading="lazy"><div><h3>{"盒子自动冲孔机与自动贴丝带机" if lg=="zh" else "Box Punching & Ribbon Attaching Machines"}</h3><p>{"冲丝带孔 + 自动贴丝带，可单机或连线" if lg=="zh" else "Ribbon-hole punching plus automatic ribbon bonding, standalone or inline"}</p><span class="more">{t["view"]} →</span></div></a></div><h2 id="ns">{cz if lg=="zh" else ce}</h2><p class="sub">{"可定制各种非标规格，适用各种需求。" if lg=="zh" else "We build custom machines to your specifications and requirements."}</p><div class="grid g3">{ns}</div>'
         continue
       ms=[m for m in allm if grpof(m)==c]
-      grp+=f'<h2 id="{c}" class="rv">{cz if lg=="zh" else ce}</h2><p class="sub">{dz if lg=="zh" else de}</p><div class="grid g4">{"".join(card(m,lg) for m in ms)}</div>'
+      grp+=f'<h2 id="{c}" class="rv">{cz if lg=="zh" else ce}</h2><p class="sub">{dz if lg=="zh" else de}</p><div class="grid g4">{"".join(card(m,lg) for m in ms)}{SPRAYX(lg) if c=="spray" else ""}</div>'
     comp=compare(lg)
     W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Rigid Box Gluing, Glue Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数：随线、柜式、双工位划胶机（冷胶/热胶），喷胶机、压泡机、半自动小皮壳机及非标定制机。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][0][1]}</h1>{BEAD}<p>{"按工艺浏览：冷胶、热胶、喷胶、压泡、皮壳成型、非标定制。" if lg=="zh" else "Browse by process: cold glue, hot glue, spraying, bubble pressing, case making and custom machines."}</p></div></section><section><div class="wrap">{grp}</div></section><section class="alt"><div class="wrap"><h2>{"参数对比" if lg=="zh" else "Specification Comparison"}</h2><p class="sub">{t["src"]}</p>{comp}<p class="small specnote">{"参数仅供参考，以报价为准。" if lg=="zh" else "Specifications are for reference only; final specifications are subject to our quotation."}</p></div></section>{inquiry(lg,"")}'))
@@ -298,7 +298,7 @@ def about_body(lg):
   mission=('打造优质的服务平台，以专业的水平为包装行业服务，整合资源为包装行业赋能。' if lg=='zh' else 'To build a high-quality service platform, serve the packaging industry professionally, and integrate resources to empower it.')
   team=('公司团队人员都有包装管理经验，同时对行业内各种小设备使用率、生产适用性具有丰富的经验。' if lg=='zh' else 'Our team members all have packaging management experience, plus extensive hands-on knowledge of how small equipment is used and fits production in this industry.')
   rel=[('广东九州顺驰环保新材料有限公司','Guangdong Jiuzhou Shunchi Environmental Protection New Materials Co., Ltd','至尚科技旗下的项目类公司，主要生产并销售纸品类万能胶。万能胶型号：DC-805 DC-402 DC-806 SC-906 DC-206；热熔胶：Q-8313D、Q-8501BA。','A project company under Zhishang Technology producing universal adhesives for paper products. Universal adhesive models: DC-805 DC-402 DC-806 SC-906 DC-206; hot melt: Q-8313D, Q-8501BA.'),
-       ('东莞市三狮精密模具制造有限公司','Dongguan Sanshi Precision Mold Manufacturing Co., Ltd','非标准模具、工装夹具设计加工，以及自动化设备零部件精密加工。正常订单 24 小时发货，加急订单 8 小时内发货。','Non-standard molds and fixtures, plus precision machining of automation parts. Normal orders ship within 24 hours, urgent orders within 8 hours.')]
+       ('东莞市三狮精密模具制造有限公司','Dongguan Sanshi Precision Mold Manufacturing Co., Ltd','成立于 2020 年，非标准模具、工装夹具设计加工，以及自动化设备零部件精密加工。正常订单 24 小时发货，加急订单 8 小时内发货。','Founded in 2020: non-standard molds and fixtures, plus precision machining of automation parts. Normal orders ship within 24 hours, urgent orders within 8 hours.')]
   rl=''.join(f'<div class="card"><h3>{a if lg=="zh" else b}</h3><p>{c if lg=="zh" else d}</p></div>' for a,b,c,d in rel)
   return f'''<section class="phead"><div class="wrap"><h1>{t['nav'][2][1]}</h1>{BEAD}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'公司简介' if lg=='zh' else 'Company Profile'}</h2><p>{about_p(lg)}</p></div></div></section>
@@ -382,13 +382,34 @@ def build2():
     W(lg,'glue',page(lg,'glue/',t,lead,body))
     # molds
     t=('模具 | 东莞市三狮精密模具制造有限公司' if z else 'Molds | Dongguan Sanshi Precision Mold Manufacturing')
-    lead=('三狮精密模具是至尚科技的关联公司，设计和加工非标模具、工装夹具，以及自动化设备零部件的精密加工。' if z else 'Sanshi Precision Mold is Zhishang Technology\'s affiliated mold shop. It designs and machines non-standard molds and fixtures, and precision parts for automation equipment.')
+    lead=('三狮精密模具是至尚科技的关联公司，2020 年成立，设计和加工非标模具、工装夹具，以及自动化设备零部件的精密加工。' if z else 'Sanshi Precision Mold is Zhishang Technology\'s affiliated mold shop, set up in 2020. It designs and machines non-standard molds and fixtures, and precision parts for automation equipment.')
     body=phead(lg,'模具' if z else 'Molds',lead)+f'''<section><div class="wrap two top"><div><h2>{'业务范围' if z else 'What we make'}</h2><ul class="pts"><li>{'自动化零部件精密加工' if z else 'Precision machining of automation parts'}</li><li>{'设备配件加工' if z else 'Machine accessories'}</li><li>{'非标模具设计与制造' if z else 'Non-standard mold design and manufacturing'}</li></ul>
 <p>{'可按客户需要做各类模具，例如：成型贴角四件套、六边形压泡模、天地盒成型机模、纸管卷边模、切管+冲孔模、手机盒吸塑压泡模、拆分模、包角模、冲压模、自动化设备工装夹具等。我们掌握市面常见成型机的安装孔位，可直接配做。' if z else 'We build molds to order, for example: four-piece corner forming sets, hexagonal bubble-press molds, lid-and-base box forming machine molds, paper-tube curling molds, tube cutting and punching molds, blister press molds for phone boxes, split molds, corner molds, stamping molds and fixtures for automation equipment. We hold the mounting-hole layouts of the common forming machines on the market, so molds fit straight on.'}</p></div>
 <div><h2>{'加工能力' if z else 'Capacity'}</h2><div class="tbl"><table class="spec"><tr><th>CNC</th><td><code>2</code></td></tr><tr><th>{'铣床' if z else 'Milling machines'}</th><td><code>8</code></td></tr><tr><th>{'车床' if z else 'Lathe'}</th><td><code>1</code></td></tr><tr><th>{'磨床' if z else 'Grinders'}</th><td><code>2</code></td></tr><tr><th>{'库存材料' if z else 'Material in stock'}</th><td><code>{'各规格约 5 吨' if z else 'about 5 tonnes, various sizes'}</code></td></tr><tr><th>{'发货' if z else 'Shipping'}</th><td>{'正常订单 24 小时内，加急订单 8 小时内' if z else 'Standard orders within 24 hours, urgent orders within 8 hours'}</td></tr></table></div></div></div>
 <div class="wrap">{gal(['os-mold-1','os-mold-2','os-mold-3','os-mold-4','os-mold-5','os-mold-6'],[('模具' if z else 'Mold')]*6)}<p class="small">{'资料来源：至尚画册、公司介绍 PPT、至尚官网。' if z else 'Sources: Zhishang brochure, company presentation and website.'}</p></div></section>{inquiry(lg,'')}'''
     W(lg,'molds',page(lg,'molds/',t,lead,body))
 
+SPX_SLUG='inline-4-axis-glue-spraying-machine'
+def SPRAYX(lg):
+  z=lg=='zh';t=L[lg]
+  return f'<a class="pcard" href="{BASE}{t["pre"]}products/{SPX_SLUG}/"><img src="{BASE}img/os-spray-inline-1.jpg" alt="{"随线四轴喷胶机-冷胶" if z else "Inline 4-axis cold glue spraying machine"}" loading="lazy"><div><small>{"基于 ZS-S088E-4" if z else "Based on ZS-S088E-4"}</small><h3>{"随线四轴喷胶机-冷胶" if z else "Inline 4-Axis Cold Glue Spraying Machine"}</h3><p>{"ZS-S088E-4 机身，装喷胶头" if z else "ZS-S088E-4 platform fitted with a spray head"}</p><span class="more">{t["view"]} →</span></div></a>'
+def build3():
+  e4={m['slug']:m for m in MACH}['zs-s088e-4']
+  for lg in ('en','zh'):
+    z=lg=='zh';t=L[lg];P=BASE+t['pre']
+    name='随线四轴喷胶机-冷胶' if z else 'Inline 4-Axis Cold Glue Spraying Machine'
+    lead=('这台机与随线四轴划胶机 ZS-S088E-4 是同一机身，区别只在于胶头：它装的是喷胶头，把胶水喷涂在盒子上，而不是划胶线。其余参数与 ZS-S088E-4 相同。' if z else 'This machine shares its frame with the ZS-S088E-4 inline gluing machine. The only difference is the head: it carries a spray head (喷胶头) that sprays glue onto the box instead of drawing a glue line. All other specifications match the ZS-S088E-4.')
+    vals=[(t['lab'][0],'— ('+('基于' if z else 'based on')+' ZS-S088E-4)'),(t['lab'][1],name),(t['lab'][2],e4['dims']),(t['lab'][3],e4['size']),(t['lab'][4],e4['speed']),(t['lab'][5],e4['power']),(t['lab'][7],e4['volt']),(t['lab'][8],e4['air']),('胶头' if z else 'Head','喷胶头' if z else 'Spray head (喷胶头)')]
+    rows=''.join(f'<tr><th>{a}</th><td><code>{e(v)}</code></td></tr>' for a,v in vals)
+    pts=[('可随线作业，搭配手工流水线或自动天地盒机连线','Runs inline, with manual assembly lines or automatic lid-and-base box machines'),('适用冷胶：白胶、黄胶、万能胶等','For cold glues: white glue, yellow glue, universal glue and similar'),('机器可根据生产需要摆放在任意位置','Can be placed anywhere along the line to suit production')]
+    ptsh=''.join(f'<li>{a if z else b}</li>' for a,b in pts)
+    lk=('查看 ZS-S088E-4 划胶机' if z else 'See the ZS-S088E-4 gluing machine')
+    sn=('参数同 ZS-S088E-4（数据来源：至尚产品画册），喷胶宽度待提供。' if z else 'Specifications as ZS-S088E-4 (source: Zhishang product brochure); spray width to be provided.')
+    g=gal(['os-spray-inline-1','os-spray-inline-2','os-spray-inline-3'],[name]*3)
+    body=phead(lg,name,lead,('products/',t['nav'][0][1]))+f'<section><div class="wrap">{g}<ul class="pts">{ptsh}</ul><p><a class="btn ghost dark" href="{P}products/zs-s088e-4/">{lk} →</a></p></div></section><section id="specs" class="alt"><div class="wrap"><h2>{t["spec"]}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{sn} {NOTE_Q[lg]}</p></div></section>'+inquiry(lg,'ZS-S088E-4')
+    W(lg,'products/'+SPX_SLUG,page(lg,f'products/{SPX_SLUG}/',name+(' | 至尚科技' if z else ' | Zhishang'),lead,body))
+
 build()
 build2()
+build3()
 sitemap()
