@@ -118,3 +118,7 @@ figure.soon figcaption{bottom:auto;top:62%;font-weight:600;color:#5B6B7A}
 .dets{grid-template-columns:repeat(3,1fr)}
 figure.render:not(.soon) figcaption{position:static;padding:4px 0 6px}
 figure.render:not(.soon) figcaption{position:absolute;top:8px;left:8px;right:auto;bottom:auto;padding:2px 8px;background:rgba(15,42,68,.75);color:#fff;border-radius:3px;font-size:.72rem}
+/* v21 uniform card media */
+.pcard>img,.pcard>picture,.pcard>figure{display:block;height:240px;width:100%;flex:none;overflow:hidden;background:#fff;border-bottom:1px solid var(--line)}
+.pcard>picture img,.pcard>img,.pcard>figure img{width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:contain!important;border:0!important;border-radius:0!important;box-shadow:none!important;display:block}
+@media(max-width:520px){.pcard>img,.pcard>picture,.pcard>figure{height:150px}}
