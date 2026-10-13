@@ -146,3 +146,55 @@
 ## 8. 用户确认（2026-10-12）
 - P5 p08「四轴柜式划胶机-热胶」：页标题印 ZS-S088C-4，参数表印 ZS-S088R-4。**用户确认型号为 ZS-S088C-4**，网站已统一使用 ZS-S088C-4。
 - 型号统一使用 S088（数字 0）；ZS-S088D-4 为三轴。
+
+## 8. 新来源：PPT（英文公司介绍，32 页）与老网站 glue-machine.com（2026-10-13 自动流程整理）
+来源 PPT = 用户 10-13 上传的 .pptx（下记 PPT P页码）；老站 = http://www.glue-machine.com/ 首页（仅首页，其他页未抓到）。
+
+### 8.1 画册里没有的新信息
+- 英文定位语「One-Stop Adhesive Dispensing Solutions Provider Since 2018」，应用：Packaging / Apparel & Textile / Furniture / Automotive Parts（PPT P1）
+- 员工 80 人（管理 20、操作 60）；车间 3000㎡、办公 500㎡；出货港 Yantian and Shekou；总经理 Mr Zhang（PPT P2）
+- 愿景与使命英文原文（PPT P3）
+- 关联公司时间线：2018 至尚成立；2020 三狮精密模具；2021 九州供应链（进出口）；2022 九州顺驰环保新材料（胶水）；2024 星洲环保材料（印刷表面处理）；2024 深圳小川创意设计；2026 至尚包装制品（PPT P4）
+- 新机型（画册无）：ZS-S088R-3 随线三轴热胶（P8）；ZS-S088A-4 双工位三轴热胶（P11）；ZS-S088B-2-R 双工位四轴热胶（P12）；ZS-413 半自动万能折边机（P19）；非标 ZS-FB-007 在线冲孔开槽机（P21）、ZS-FB-004 全自动酒盒内托成型机（P22）、ZS-FB-019 在线三轴冷胶（P23）、ZS-FB-026 护角半自动成型机（P24）、ZS-FB-017 塑料卡扣分料组装机（P25）
+- 各机型新增「应用场景/设备功能」英文描述、适用盒型（lid and base box, book-shaped box, wine box, box in box, mobile phone box, cosmetics box…）（PPT P7–P18）
+- 喷胶机案例：「used for Dyson air duct leather boxes and small can tea production lines」（PPT P17）← 涉及客户品牌，需老板同意
+- 研发团队、一站式服务说明（PPT P29）；客户 logo 两页（PPT P30–31）← 需授权
+- 联系方式：Jelly Chen，+8615820928436（电话/微信/WhatsApp），sales@zhishangkj.com，made-in-china 店铺 glue-machine.en.made-in-china.com（PPT P32；老站首页同号同邮箱）
+- 老站首页：「automatic glue marking machines, precision glue sprayers, intelligent cartoning systems」；「7*24 Hours Service」「above 7 years experience」；FB-017 标「CE Certified」（未见证书编号）
+
+### 8.2 与画册对不上（不判断对错，请老板定）
+| 项目 | 画册 | PPT |
+|---|---|---|
+| 速度 S088E-4/R-4/C/C-4/D/D-4 | 1.2M/S | 1M/second |
+| 速度 双工位 A/B 系列 | 0.9M/S | 0.8M/second |
+| 划胶宽度 | 3-10MM | 5-12mm |
+| 最小尺寸 随线机 | 50*50*25MM | L60*W60*H30MM |
+| 最大尺寸 柜式 C/C-4/D-4 | 900*600*150 | L800*W600*H130 |
+| C-4 功率 / 高度 | 5300W / H1600 | 4500W / H1500 |
+| D-4 功率 | 4000W | 3500W |
+| D 功率 | 2000W | （PPT 无 D） |
+| B-2 加大最大尺寸 | 540*420*2*130 | L500*W400*2*H130 |
+| A 系列加大最大尺寸 | 500*420*2*150 | L500*W400*2*H150 |
+| A-R 热胶型号 | ZS-S088A-R / A-2-R | ZS-S088A-4（P11）——同一机？ |
+| P 喷胶机最大尺寸 / 宽度 | 880*520*130 / 3-20MM | L880*W630*H130 / 50-200MM |
+| 压泡机型号 | ZS-YH4040 | ZS-YH4040-1；另写 3 工位 3600pcs/小时 |
+| 小皮壳机 | CS4539 | ZS-413「万能折边机」，参数相同（15-34pcs/分、1.2 秒、约 490kg）——同一机换型号？ |
+| 酒盒内托 | ZS-FB-002 自动折内托机 | ZS-FB-004 全自动酒盒内托成型机 |
+| 邮箱 | 362804136@qq.com | sales@zhishangkj.com |
+| D-4 英文名 | Four-axis | Three-axis（PPT P14，与中文一致） |
+
+#### 8.2b 老网站 glue-machine.com 产品页参数（2026-10-13 v17 整理；网站仍用画册值，未改）
+老网站页面没有写型号，以下按页面标题对应。老网站的速度 1M/second、0.8M/second、宽度 5-12mm、随线最小 L60*W60*H30 与 PPT 一致，与画册不同（见上表）。另外：
+| 机型（按老站标题） | 画册（网站现用） | 老网站 | 页面 |
+|---|---|---|---|
+| S088C 四轴柜式冷胶 | 2300W，最大 900*600*150 | 4500W，最大 L900*W600*H130；「应用场景」文字是双工位机的（一人可操作两台），疑似复制错 | Cabinet-Type-Four-Axis-Glue-Dispensing-Machine-Cold-Glue-PG12025968 |
+| S088D-4 三轴柜式热胶 | 4000W，H1500，最大 900*600 | 4500W，H1600，最大 L880*W630*H130；照片与网站现用 D-4 图不同（白色机罩、橙色孔板） | Cabinet-Type-Three-axis-Hot-melt-…（5 个页面相同） |
+| S088B / B-2 双工位四轴冷胶 | 0.9M/S | 0.8M/second | Double-Station-Four-Axis-…-PG12025969 |
+| S088A 双工位三轴冷胶 | 加大 1140*890*1350，最大 500*420*2*150 | 同（L1140*W890*H1350，L500*W420*2*H150） | …-PG12025996 |
+| S088A-R 双工位三轴热胶 | 1400W，H1590，加大 1140*890，最大 480*300 / 540*420*2*130 | 3500W（含热熔胶机），H1350，加大 L1140*W860，最大 L450*W300 / L550*W400*2*H150 | Double-Station-Three-Axis-Glue-Dispensing-Machine-Hot-Glue-PG12026001 |
+| S088R-4 随线四轴热胶 | 1.2M/S，最小 50*50*25 | 1M/second，最小 L60*W60*H30；电压写「220W」（笔误） | In-Line-Four-Axis-…-Hot-Glue-PG12026043 |
+| 随线四轴冷胶（E-4） | 2300W | 「In-Line 4 Axis Automatic Dispenser Robot」页标题像冷胶，但参数是热胶（5300W、压敏胶/热熔胶）——疑似复制错 | …-PG12026052 |
+| 气压 | 0.6MPa | 写成「0.6Pa」（笔误） | 所有产品页 |
+
+### 8.3 可用图片
+PPT 内含 86 个媒体文件（解压于 /workspace/zs-ppt/x/ppt/media/），尚未逐张筛选；客户 logo 页（P30–31）、带客户品牌的图需授权。

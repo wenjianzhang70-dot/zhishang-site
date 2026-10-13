@@ -259,9 +259,13 @@ def pvid(lg,m):
   v=VIDS.get(m['slug'])
   if not v: return ''
   return vsec(lg,m['slug'],v[1],v[2],'运行视频' if lg=='zh' else 'Machine in Action',m['model']+' '+nm(m,lg))
+OSI={'zs-s088e-4':[('整机其他角度','Another view'),('整机其他角度','Another view'),('盒子侧壁划胶','Gluing box side walls')],'zs-s088r-4':[('热熔胶机与整机','With hot melt unit'),('整机其他角度','Another view')],'zs-s088b':[('整机其他角度','Another view'),('整机其他角度','Another view')],'zs-s088a':[('整机其他角度','Another view'),('整机其他角度','Another view')],'zs-s088a-r':[('热熔胶机与整机','With hot melt unit'),('整机其他角度','Another view')]}
 def dets(lg,m):
-  if m['slug'] not in DETS: return ''
-  return '<div class="dets">'+''.join(f'<figure><img src="{BASE}img/det-{m["slug"]}-{i+1}.jpg" alt="{m["model"]} {z if lg=="zh" else en}"><figcaption>{z if lg=="zh" else en}</figcaption></figure>' for i,(z,en,src) in enumerate(DETS[m['slug']]))+'</div>'
+  z=lg=='zh';f=[]
+  for i,(zz,en,src) in enumerate(DETS.get(m['slug'],[])): f.append((f'det-{m["slug"]}-{i+1}',zz,en))
+  for i,(zz,en) in enumerate(OSI.get(m['slug'],[])): f.append((f'os-{m["slug"]}-{i+1}',zz,en))
+  if not f: return ''
+  return '<div class="dets">'+''.join(f'<figure><img src="{BASE}img/{n}.jpg" alt="{m["model"]} {zz if z else en}" loading="lazy"><figcaption>{zz if z else en}</figcaption></figure>' for n,zz,en in f)+'</div>'
 def compare(lg):
   t=L[lg];hd=''.join(f'<th>{x}</th>' for x in [t['lab'][0],t['lab'][1],t['lab'][2],t['lab'][3],t['lab'][4],t['lab'][5],t['lab'][6]])
   rs=''.join(f'<tr><td><a href="{BASE}{t["pre"]}products/{m["slug"]}/"><code>{m["model"]}</code></a></td><td>{nm(m,lg)}</td><td><code>{m["dims"]}</code></td><td><code>{m["size"]}</code></td><td><code>{m["speed"]}</code></td><td><code>{m["power"]}</code></td><td><code>{m["width"] or "—"}</code></td></tr>' for m in MACH)
@@ -290,7 +294,7 @@ def about_body(lg):
   return f'''<section class="phead"><div class="wrap"><h1>{t['nav'][2][1]}</h1>{BEAD}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'公司简介' if lg=='zh' else 'Company Profile'}</h2><p>{about_p(lg)}</p></div></div></section>
 <section class="alt"><div class="wrap grid g3"><div class="card"><h3>{'公司使命' if lg=='zh' else 'Mission'}</h3><p>{mission}</p></div><div class="card"><h3>{'团队介绍' if lg=='zh' else 'Team'}</h3><p>{team}</p></div><div class="card"><h3>{'服务理念' if lg=='zh' else 'Service Concept'}</h3><p>{service_p(lg)}</p></div></div></section>
-<section><div class="wrap grid g3"><img class="ph" src="{BASE}img/team.jpg" alt="{'至尚团队' if lg=='zh' else 'Zhishang team'}"><img class="ph" src="{BASE}img/workshop.jpg" alt="{'车间' if lg=='zh' else 'Workshop'}"><img class="ph" src="{BASE}img/certs.jpg" alt="{'企业荣誉证书' if lg=='zh' else 'Certificates'}"></div><div class="wrap"><p class="small">{'企业荣誉：实用新型专利证书等' if lg=='zh' else 'Corporate honors: utility model patent certificates and more.'}</p></div></section>
+<section><div class="wrap grid g3"><img class="ph" src="{BASE}img/team.jpg" alt="{'至尚团队' if lg=='zh' else 'Zhishang team'}"><img class="ph" src="{BASE}img/workshop.jpg" alt="{'车间' if lg=='zh' else 'Workshop'}"><img class="ph" src="{BASE}img/certs.jpg" alt="{'企业荣誉证书' if lg=='zh' else 'Certificates'}"></div><div class="wrap grid g3" style="margin-top:24px"><img class="ph" src="{BASE}img/os-expo-1.jpg" alt="{'至尚科技展会展位' if lg=='zh' else 'Zhishang booth at a trade show'}"><img class="ph" src="{BASE}img/os-expo-2.jpg" alt="{'展会现场与客户交流' if lg=='zh' else 'Talking with visitors at a trade show'}"></div><div class="wrap"><p class="small">{'企业荣誉：实用新型专利证书等' if lg=='zh' else 'Corporate honors: utility model patent certificates and more.'}</p></div></section>
 <section><div class="wrap"><h2>{'公司实力' if lg=='zh' else 'Company Strength'}</h2>{strength(lg)}</div></section>
 <section class="alt"><div class="wrap"><h2>{'关联公司' if lg=='zh' else 'Related Companies'}</h2><div class="grid g2">{rl}</div></div></section>'''
 def inquiry(lg,model,full=False):
