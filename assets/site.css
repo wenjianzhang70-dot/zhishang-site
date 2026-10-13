@@ -156,3 +156,4 @@ figure.render:not(.soon) figcaption{position:absolute;top:8px;left:8px;right:aut
 
 @media(max-width:900px){.navdd.open .ddmenu{display:block}}
 .card.one{position:relative}.card.one .small a::after{content:'';position:absolute;inset:0}
+.navopen .mcta,.navopen .fcontact,.navopen .pbar{display:none!important}
