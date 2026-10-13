@@ -33,3 +33,6 @@
 - 建议补充 A 记录 185.199.110.153、185.199.111.153，以及 AAAA 记录（GitHub 官方推荐填满 4 个 IP）。
 - **建议在 GitHub 做域名验证（Verified domain）**：GitHub 账户 Settings → Pages → Add a domain，按提示在 DNS 加一条 TXT 记录（_github-pages-challenge-wenjianzhang70-dot.zhishangkj.com）。这样别人无法把 zhishangkj.com 接到自己的仓库上，防止域名被接管。
 - 仍保留 noindex，正式上线时按上面的清单去掉。
+
+## 非标机照片（2026-10-13）
+- ZS-FB-019、ZS-FB-026 现在只有车间实拍（背景杂），请提供**白底整机照片**（整机完整入镜、横拍）。FB-026 目前用模糊放大的同图做两侧背景，原图未裁切。
