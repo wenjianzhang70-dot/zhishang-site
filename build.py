@@ -67,12 +67,12 @@ DIV='<div class="divider" aria-hidden="true"><svg viewBox="0 0 180 14"><path d="
 e=html.escape
 def page(lg,path,title,desc,body):
   t=L[lg];here=t['pre']+path;alt=L['zh' if lg=='en' else 'en']['pre']+path
-  nav=''.join(f'<a href="{BASE}{t["pre"]}{h}">{n}</a>' for h,n in t['nav'])
+  nav=''.join(f'<a href="{BASE}{t["pre"]}{h}">{n}</a>' for h,n in [t['nav'][i] for i in ((0,1,5,6,2,3,4) if len(t['nav'])>5 else range(len(t['nav'])))])
   zhfont='' if lg=='en' else ' class="zh"'
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=24"></head><body{zhfont}>
+<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=25"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}"><img src="{BASE}img/logo-120h.png" width="240" height="62" alt="{'至尚科技 ZHI SHANG TECHNOLOGY'}"></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main>
 <aside class="fcontact" aria-label="{'快速联系' if lg=='zh' else 'Quick contact'}"><a href="https://wa.me/{MOBN}" target="_blank" rel="noopener" title="WhatsApp {MOB}">WhatsApp</a><a href="mailto:{SALES}" title="{SALES}">Email</a><a href="tel:+{MOBN}" title="{'微信' if lg=='zh' else 'WeChat'}: {MOB}">{'微信' if lg=='zh' else 'WeChat'}<small>{MOB}</small></a></aside>
@@ -166,7 +166,7 @@ def build():
           d=NSD.get(m);desc=(d[0] if zz else d[1]) if d else ("非标机，按需定制" if zz else "Non-standard machine, built to order.")
           return f'<div class="pcard static">{fig}<div><small>{m}</small><h3>{z if zz else en_n}</h3><p>{desc}</p>{"<ul class=keys>"+sp+"</ul><p class=small>"+("数据来源：至尚公司介绍 PPT。" if zz else "Data from the Zhishang company presentation (PPT).")+" "+("参数仅供参考，以报价为准。" if zz else "Specifications are for reference only; final specifications are subject to our quotation.")+"</p>" if sp else ""}</div></div>'
         ns=''.join(_nsc(*x) for x in NS)
-        grp+=f'<h2 id="ns">{cz if lg=="zh" else ce}</h2><p class="sub">{"可定制各种非标规格，适用各种需求。" if lg=="zh" else "We build custom machines to your specifications and requirements."}</p><div class="grid g3">{ns}</div>'
+        grp+=f'<h2 id="other">{"其他机械" if lg=="zh" else "Other Machines"}</h2><div class="grid g4"><a class="pcard" href="{BASE}{t["pre"]}products/box-punching-ribbon-machine/"><img src="{BASE}img/os-ribbon-1.jpg" alt="{"盒子自动冲孔机与自动贴丝带机" if lg=="zh" else "Box punching and ribbon attaching machines"}" loading="lazy"><div><h3>{"盒子自动冲孔机与自动贴丝带机" if lg=="zh" else "Box Punching & Ribbon Attaching Machines"}</h3><p>{"冲丝带孔 + 自动贴丝带，可单机或连线" if lg=="zh" else "Ribbon-hole punching plus automatic ribbon bonding, standalone or inline"}</p><span class="more">{t["view"]} →</span></div></a></div><h2 id="ns">{cz if lg=="zh" else ce}</h2><p class="sub">{"可定制各种非标规格，适用各种需求。" if lg=="zh" else "We build custom machines to your specifications and requirements."}</p><div class="grid g3">{ns}</div>'
         continue
       ms=[m for m in allm if grpof(m)==c]
       grp+=f'<h2 id="{c}" class="rv">{cz if lg=="zh" else ce}</h2><p class="sub">{dz if lg=="zh" else de}</p><div class="grid g4">{"".join(card(m,lg) for m in ms)}</div>'
@@ -214,7 +214,7 @@ def build():
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][3][1]}</h1>{BEAD}</div></section><section><div class="wrap">{promises(lg)}<template id="hold-overseas-service"><ul class="pts"><li>远程视频支持 / Remote video support: [待确认]</li><li>工程师出国安装 / Engineer dispatch abroad: [待确认]</li><li>备件国际快递 / Spare parts shipping: [待确认]</li><li>英文说明书 / English manual: [待确认]</li><li>整机质保 / Machine warranty: [待确认]</li></ul></template><h2 style="margin-top:48px">{"服务理念" if lg=="zh" else "Service Concept"}</h2><p>{service_p(lg)}</p></div></section>{inquiry(lg,"")}'))
     W(lg,'contact',page(lg,'contact/',('联系我们 / 在线询价 - 至尚科技' if lg=='zh' else 'Contact & Request a Quote | Zhishang'),('东莞市至尚自动化科技有限公司联系方式与在线询价：地址东莞市东城街道环城东路东城段42号，电话 0769 22250346，手机/微信 +86 158 2092 8436。' if lg=='zh' else 'Contact Dongguan Zhishang Automation Technology and request a quote: WhatsApp / WeChat +86 158 2092 8436, sales@zhishangkj.com, Dongguan, Guangdong, China.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][4][1]}</h1>{BEAD}</div></section>{inquiry(lg,"",full=True)}'))
-  # sitemap/robots
+def sitemap():
   urls=[]
   for root,_,fs in os.walk('.'):
     if 'index.html' in fs and not root.startswith(('./shots','./refs','./.git')): urls.append(URL+root[2:]+('/' if root!='.' else ''))
@@ -298,7 +298,7 @@ def about_body(lg):
   mission=('打造优质的服务平台，以专业的水平为包装行业服务，整合资源为包装行业赋能。' if lg=='zh' else 'To build a high-quality service platform, serve the packaging industry professionally, and integrate resources to empower it.')
   team=('公司团队人员都有包装管理经验，同时对行业内各种小设备使用率、生产适用性具有丰富的经验。' if lg=='zh' else 'Our team members all have packaging management experience, plus extensive hands-on knowledge of how small equipment is used and fits production in this industry.')
   rel=[('广东九州顺驰环保新材料有限公司','Guangdong Jiuzhou Shunchi Environmental Protection New Materials Co., Ltd','至尚科技旗下的项目类公司，主要生产并销售纸品类万能胶。万能胶型号：DC-805 DC-402 DC-806 SC-906 DC-206；热熔胶：Q-8313D、Q-8501BA。','A project company under Zhishang Technology producing universal adhesives for paper products. Universal adhesive models: DC-805 DC-402 DC-806 SC-906 DC-206; hot melt: Q-8313D, Q-8501BA.'),
-       ('东莞市三狮精密模具制造有限公司','Dongguan Sanshi Precision Mold Manufacturing Co., Ltd','成立于 2017 年，非标准模具、工装夹具设计加工，以及自动化设备零部件精密加工。正常订单 24 小时发货，加急订单 8 小时内发货。','Founded in 2017: non-standard molds and fixtures, plus precision machining of automation parts. Normal orders ship within 24 hours, urgent orders within 8 hours.')]
+       ('东莞市三狮精密模具制造有限公司','Dongguan Sanshi Precision Mold Manufacturing Co., Ltd','非标准模具、工装夹具设计加工，以及自动化设备零部件精密加工。正常订单 24 小时发货，加急订单 8 小时内发货。','Non-standard molds and fixtures, plus precision machining of automation parts. Normal orders ship within 24 hours, urgent orders within 8 hours.')]
   rl=''.join(f'<div class="card"><h3>{a if lg=="zh" else b}</h3><p>{c if lg=="zh" else d}</p></div>' for a,b,c,d in rel)
   return f'''<section class="phead"><div class="wrap"><h1>{t['nav'][2][1]}</h1>{BEAD}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'公司简介' if lg=='zh' else 'Company Profile'}</h2><p>{about_p(lg)}</p></div></div></section>
@@ -323,4 +323,72 @@ HL.update({'zs-s088r-3':('热熔胶随线划胶，可跨线使用','Inline Rigid
 FACTS.update({'zs-s088r-3':(('天地盒、书型盒、酒盒、盒中盒、手机盒、化妆品盒、首饰盒','Lid-and-base, book-shaped, wine, box-in-box, phone, cosmetics and jewelry boxes'),('亚敏胶、热熔胶','Sub-sensitive glue, hot melt glue'),('三轴 · 随线 · 平面划胶','3-axis · inline · flat gluing')),
 'zs-s088b-2-r':(('折叠盒、书型盒、皮盒、海绵、EVA','Folding, book-shaped and leather boxes, sponge, EVA'),('压敏胶（喷胶）、热熔胶','Pressure-sensitive (spray), hot melt'),('四轴 · 双工位 · 一人可操作两台','4-axis · dual-station · one operator runs two machines'))})
 for _m in MACH+[CS]: _m['en']=ENT[_m['slug']]
+# ---- v21 additions ----
+L['en']['nav']+=[('glue/','Glue'),('molds/','Molds')]
+L['zh']['nav']+=[('glue/','胶水'),('molds/','模具')]
+OSI['zs-yh4040']=[('整机其他角度','Another view'),('整机其他角度','Another view'),('压头与模具特写','Press head and mold close-up')]
+NOTE_Q={'zh':'参数仅供参考，以报价为准。','en':'Specifications are for reference only; final specifications are subject to our quotation.'}
+CAR=[('zs-s088e-4',1280,720,'zs-s088e-4'),('zs-s088d-4',720,1280,'zs-s088d-4'),('zs-s088a',720,1280,'zs-s088a'),('e4-line',720,1280,'zs-s088e-4'),('home-line',480,854,None),('overview',480,854,None)]
+def carousel(lg):
+  z=lg=='zh';P=BASE+L[lg]['pre'];bm={m['slug']:m for m in MACH};n=len(CAR);sl=''
+  for i,(v,w,h,slug) in enumerate(CAR):
+    if slug: m=bm[slug];cap=f'<a href="{P}products/{slug}/"><code>{m["model"]}</code> {e(nm(m,lg))} →</a>';alt=m['model']+' '+nm(m,lg)
+    else: cap='生产线实拍' if z else 'See Our Machines at Work';alt=cap
+    sl+=f'<figure class="vc-slide"{"" if i==0 else " hidden"} data-i="{i}"><div class="vc-box"><video muted loop playsinline controls preload="none" width="{w}" height="{h}" poster="{BASE}video/{v}.jpg" aria-label="{e(alt)}"><source src="{BASE}video/{v}.mp4" type="video/mp4"></video></div><figcaption>{cap}</figcaption></figure>'
+  dots=''.join(f'<button type="button" class="vc-dot" aria-label="{i+1} / {n}"{" aria-current=true" if i==0 else ""}></button>' for i in range(n))
+  js='''<script>(function(){var r=document.getElementById('vcar');if(!r)return;var S=r.querySelectorAll('.vc-slide'),D=r.querySelectorAll('.vc-dot'),C=r.querySelector('.vc-count'),n=S.length,k=0,vis=false,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function vid(i){return S[i].querySelector('video')}
+function go(i){vid(k).pause();S[k].hidden=true;D[k].removeAttribute('aria-current');k=(i+n)%n;S[k].hidden=false;D[k].setAttribute('aria-current','true');C.textContent=(k+1)+' / '+n;if(vis&&!rm){var v=vid(k);v.preload='auto';var p=v.play();if(p)p.catch(function(){})}}
+r.querySelector('.vc-prev').onclick=function(){go(k-1)};r.querySelector('.vc-next').onclick=function(){go(k+1)};D.forEach(function(d,i){d.onclick=function(){go(i)}});
+var x0=null;r.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(k+(dx<0?1:-1));x0=null});
+if('IntersectionObserver' in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting;var v=vid(k);if(vis&&!rm){v.preload='auto';var p=v.play();if(p)p.catch(function(){})}else v.pause()},{threshold:.4}).observe(r.querySelector('.vc-stage'))})()</script>'''
+  return f'<section class="vcar" id="vcar"><div class="wrap"><h2>{"运行视频" if z else "Machines in Action"}</h2><div class="vc-stage">{sl}<button type="button" class="vc-prev" aria-label="{"上一个" if z else "Previous"}">‹</button><button type="button" class="vc-next" aria-label="{"下一个" if z else "Next"}">›</button></div><div class="vc-nav"><div class="vc-dots">{dots}</div><span class="vc-count">1 / {n}</span></div><p class="small">{"视频来源：至尚官网 glue-machine.com。" if z else "Videos from the Zhishang website (glue-machine.com)."}</p></div></section>{js}'
+_vsec0=vsec
+def vsec(lg,name,w,h,title,alt):
+  if name=='home-line': return carousel(lg)
+  return _vsec0(lg,name,w,h,title,alt)
+def phead(lg,title,lead,crumb=None):
+  P=BASE+L[lg]['pre'];z=lg=='zh'
+  cr=f'<a href="{P}">{"首页" if z else "Home"}</a>'+(f' / <a href="{P}{crumb[0]}">{crumb[1]}</a>' if crumb else '')
+  return f'<section class="phead"><div class="wrap"><div class="crumbs">{cr}</div><h1>{title}</h1>{BEAD}<p>{lead}</p></div></section>'
+def gal(names,alts):
+  return '<div class="grid g3 osgal">'+''.join(f'<img class="ph" src="{BASE}img/{n}.jpg" alt="{e(a)}" loading="lazy">' for n,a in zip(names,alts))+'</div>'
+def tbl(rows,lg):
+  z=lg=='zh'
+  return '<div class="tbl"><table class="spec">'+''.join(f'<tr><th>{a if z else b}</th><td><code>{v}</code></td></tr>' for a,b,v in rows)+'</table></div>'
+RIB_P=[('电压','Voltage','220V'),('气压','Air pressure','0.6MPa'),('速度','Speed','23-28 pcs/min'),('最大盒子尺寸','Max. box size','250*300*80mm'),('最小盒子尺寸','Min. box size','45*45*20mm'),('总功率','Total power','2.5KW'),('重量','Weight','200KG'),('设备尺寸','Machine size','1260*710*1450mm')]
+RIB_R=[('电压','Voltage','220V'),('气压','Air pressure','0.6MPa'),('丝带宽度','Ribbon width','5-20mm'),('丝带外露长度','Exposed ribbon length','10-60mm'),('丝带贴盒长度','Ribbon length bonded to the box','7-20mm'),('板厚','Board thickness','不限 / no limit'),('纸板宽度','Board width','30-500mm'),('纸板长度','Board length','不限 / no limit'),('最大盒子尺寸','Max. box size','450*400*120mm'),('最小盒子尺寸','Min. box size','50*50*15mm'),('总功率','Total power','1.5KW'),('重量','Weight','200KG'),('设备尺寸','Machine size','1240*620*1650mm')]
+def build2():
+  for lg in ('en','zh'):
+    z=lg=='zh';P=BASE+L[lg]['pre'];note=f'<p class="small">{"数据来源：至尚官网 glue-machine.com。" if z else "Data from the Zhishang website (glue-machine.com)."} {NOTE_Q[lg]}</p>'
+    # ribbon machine
+    t=('盒子自动冲孔机与自动贴丝带机' if z else 'Automatic Box Punching Machine & Ribbon Attaching Machine')
+    lead=('两台可单独使用、也可连线的设备：先在盒子上冲出丝带孔，再自动把丝带贴到盒内。适用于酒盒、首饰盒、月饼盒、化妆品盒、奢侈品盒、手表盒等。' if z else 'Two machines that work alone or as a line: the first punches ribbon holes in the box, the second feeds the ribbon and bonds it inside. Used on wine, jewelry, mooncake, cosmetic, luxury and watch boxes.')
+    p1=('全伺服定位冲孔，精度稳定。可冲立体盒的丝带孔、钉孔，并处理冲下的废料。可单机使用，也可接入产线。' if z else 'Full servo positioning keeps every hole accurate. Punches ribbon holes and nail holes in 3D boxes and clears the scrap. Runs on its own or inline.')
+    p2=('适用涤纶、丝绸、缎带等常见丝带，也可用雪纱带。' if z else 'Handles polyester, silk and satin ribbons; snow gauze tape can also be used.')
+    body=phead(lg,t,lead,('products/',L[lg]['nav'][0][1]))+f'''<section><div class="wrap">{gal(['os-ribbon-1','os-ribbon-2','os-ribbon-3'],[t,t,t])}</div></section>
+<section class="alt"><div class="wrap two top"><div><h2>{'自动冲孔机' if z else 'Automatic box punching machine'}</h2><p>{p1}</p>{tbl(RIB_P,lg)}</div><div><h2>{'自动贴丝带机' if z else 'Automatic ribbon attaching machine'}</h2><p>{p2}</p>{tbl(RIB_R,lg)}</div></div><div class="wrap">{note}</div></section>
+<section><div class="wrap">{gal(['os-ribbon-4','os-ribbon-5'],[t,t])}</div></section>{inquiry(lg,'')}'''
+    W(lg,'products/box-punching-ribbon-machine',page(lg,'products/box-punching-ribbon-machine/',t+(' | 至尚科技' if z else ' | Zhishang'),lead,body))
+    # glue
+    t=('胶水 | 广东九州顺驰环保新材料有限公司' if z else 'Glue | Guangdong Jiuzhou Shunchi Environmental Protection New Materials')
+    lead=('九州顺驰是至尚科技旗下的胶水公司，2022 年成立，研发、生产和销售包装用胶：水性白胶、万能胶、黄胶、热熔胶、压敏胶等，可与至尚划胶机配套使用。' if z else 'Jiuzhou Shunchi is Zhishang Technology\'s glue company, set up in 2022. It develops, makes and sells adhesives for packaging: water-based white glue, universal glue, yellow glue, hot melt and pressure-sensitive adhesive, matched to our gluing machines.')
+    hm=[('型号','Model','Q-8313D','Q-8501BA'),('颜色','Color','黄色透明' if z else 'Yellow, transparent','浅色透明' if z else 'Light, transparent'),('软化点','Softening point','76-86°C','97-107°C'),('使用温度','Working temperature','160-180°C','160-180°C')]
+    ht='<div class="tbl"><table class="cmp"><tbody>'+''.join(f'<tr><th>{a if z else b}</th><td><code>{c}</code></td><td><code>{d}</code></td></tr>' for a,b,c,d in hm)+'</tbody></table></div>'
+    body=phead(lg,'胶水' if z else 'Glue',lead)+f'''<section><div class="wrap two top"><div><h2>{'九州多彩热熔胶' if z else 'Jiuzhou Duocai hot melt adhesive'}</h2>{ht}
+<ul class="pts"><li>{'初粘快、粘接强、无异味，洁净度高；可通过 VOC 检测。' if z else 'Fast initial tack, strong bond, no odor and high cleanliness; passes VOC testing.'}</li><li>{'耐高低温性能一般，适用温度约 -10～50°C。出口产品风险较高，请按客户要求谨慎选用。' if z else 'Limited heat and cold resistance: about -10 to 50°C in use. Export products carry more risk, so choose it carefully against your customer\'s requirements.'}</li></ul></div>
+<div><h2>{'九州多彩万能胶' if z else 'Jiuzhou Duocai universal glue'}</h2><p>{'型号' if z else 'Models'}: <code>DC-805</code> <code>DC-402</code> <code>DC-806</code> <code>SC-906</code> <code>DC-206</code></p><p>{'涂胶后 1-2 分钟初粘力开始增强。' if z else 'Initial tack starts building 1-2 minutes after application.'}</p></div></div>
+<div class="wrap">{gal(['os-glue-1','os-glue-2','os-glue-3'],['热熔胶' if z else 'Hot melt adhesive','热熔胶' if z else 'Hot melt adhesive','九州多彩万能胶' if z else 'Jiuzhou Duocai universal glue'])}<p class="small">{'资料来源：至尚画册、公司介绍 PPT、至尚官网。' if z else 'Sources: Zhishang brochure, company presentation and website.'} {NOTE_Q[lg]}</p></div></section>{inquiry(lg,'')}'''
+    W(lg,'glue',page(lg,'glue/',t,lead,body))
+    # molds
+    t=('模具 | 东莞市三狮精密模具制造有限公司' if z else 'Molds | Dongguan Sanshi Precision Mold Manufacturing')
+    lead=('三狮精密模具是至尚科技的关联公司，设计和加工非标模具、工装夹具，以及自动化设备零部件的精密加工。' if z else 'Sanshi Precision Mold is Zhishang Technology\'s affiliated mold shop. It designs and machines non-standard molds and fixtures, and precision parts for automation equipment.')
+    body=phead(lg,'模具' if z else 'Molds',lead)+f'''<section><div class="wrap two top"><div><h2>{'业务范围' if z else 'What we make'}</h2><ul class="pts"><li>{'自动化零部件精密加工' if z else 'Precision machining of automation parts'}</li><li>{'设备配件加工' if z else 'Machine accessories'}</li><li>{'非标模具设计与制造' if z else 'Non-standard mold design and manufacturing'}</li></ul>
+<p>{'可按客户需要做各类模具，例如：成型贴角四件套、六边形压泡模、天地盒成型机模、纸管卷边模、切管+冲孔模、手机盒吸塑压泡模、拆分模、包角模、冲压模、自动化设备工装夹具等。我们掌握市面常见成型机的安装孔位，可直接配做。' if z else 'We build molds to order, for example: four-piece corner forming sets, hexagonal bubble-press molds, lid-and-base box forming machine molds, paper-tube curling molds, tube cutting and punching molds, blister press molds for phone boxes, split molds, corner molds, stamping molds and fixtures for automation equipment. We hold the mounting-hole layouts of the common forming machines on the market, so molds fit straight on.'}</p></div>
+<div><h2>{'加工能力' if z else 'Capacity'}</h2><div class="tbl"><table class="spec"><tr><th>CNC</th><td><code>2</code></td></tr><tr><th>{'铣床' if z else 'Milling machines'}</th><td><code>8</code></td></tr><tr><th>{'车床' if z else 'Lathe'}</th><td><code>1</code></td></tr><tr><th>{'磨床' if z else 'Grinders'}</th><td><code>2</code></td></tr><tr><th>{'库存材料' if z else 'Material in stock'}</th><td><code>{'各规格约 5 吨' if z else 'about 5 tonnes, various sizes'}</code></td></tr><tr><th>{'发货' if z else 'Shipping'}</th><td>{'正常订单 24 小时内，加急订单 8 小时内' if z else 'Standard orders within 24 hours, urgent orders within 8 hours'}</td></tr></table></div></div></div>
+<div class="wrap">{gal(['os-mold-1','os-mold-2','os-mold-3','os-mold-4','os-mold-5','os-mold-6'],[('模具' if z else 'Mold')]*6)}<p class="small">{'资料来源：至尚画册、公司介绍 PPT、至尚官网。' if z else 'Sources: Zhishang brochure, company presentation and website.'}</p></div></section>{inquiry(lg,'')}'''
+    W(lg,'molds',page(lg,'molds/',t,lead,body))
+
 build()
+build2()
+sitemap()

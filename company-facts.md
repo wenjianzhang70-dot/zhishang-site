@@ -198,5 +198,17 @@
 | 随线四轴冷胶（E-4） | 2300W | 「In-Line 4 Axis Automatic Dispenser Robot」页标题像冷胶，但参数是热胶（5300W、压敏胶/热熔胶）——疑似复制错 | …-PG12026052 |
 | 气压 | 0.6MPa | 写成「0.6Pa」（笔误） | 所有产品页 |
 
+#### 8.2c v21 老网站分类页（2026-10-13）
+| 项目 | 现有资料 | 老网站 | 处理 |
+|---|---|---|---|
+| 三狮模具成立年份 | 画册 P3：2017；PPT P4：2020 | 「Zhishang Mould Manufacturing was established in 2017」 | 网站不写年份（About 页已删除「2017」），等老板定 |
+| 九州顺驰成立年份 | PPT P4：2022 | 无 | 胶水页写 2022 |
+| 压泡机 YH4040 | 画册：1200W，20pcs/minute | 同；另写「三工位同时压，每小时 3600pcs」、「Exterior Dimensions L400*W400*H120」（应为最大尺寸） | 网站沿用画册值，只加照片 |
+| 「In-line Four-axis Cold Adhesive Glue Spraying Machine」(PG12025965) | 画册喷胶机是三轴 ZS-S088P（1400W） | 标题四轴随线喷胶，参数却与 S088E-4 划胶机完全相同；照片是白色机罩随线机 | 未发布，待老板确认是否另有随线喷胶机型 |
+| FB-017 | PPT：1200*1170*1780mm 和 650*650*1020mm，537kg | 1820*1200*1780mm；气压 0.4-0.6MPa；质保 12 个月；交期 35 天(1台)/45 天(2-3台)；包装 200*159*181cm，772kg | 卡片沿用 PPT 值；老网站新增信息未上网站 |
+| FB-004 质保 | 无 | 「24-month warranty」「24/7 technical support」 | 与 FB-017 的 12 个月不一致，未采用 |
+| 冲孔 + 贴丝带机 | 画册/PPT 无 | 两台设备参数（见 products/box-punching-ribbon-machine/） | 采用老网站值并加「以报价为准」；中文名「自动贴丝带机」是我们的译法（原文 connecting ribbon），请老板确认叫法和型号 |
+| 热熔胶「can pass VOC」 | 画册无 | 有 | 写成「可通过 VOC 检测」，请老板确认有无检测报告 |
+
 ### 8.3 可用图片
 PPT 内含 86 个媒体文件（解压于 /workspace/zs-ppt/x/ppt/media/），尚未逐张筛选；客户 logo 页（P30–31）、带客户品牌的图需授权。
