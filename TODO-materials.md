@@ -36,3 +36,13 @@
 
 ## 非标机照片（2026-10-13）
 - ZS-FB-019、ZS-FB-026 现在只有车间实拍（背景杂），请提供**白底整机照片**（整机完整入镜、横拍）。FB-026 目前用模糊放大的同图做两侧背景，原图未裁切。
+
+## 旧站视频（v16，来源 glue-machine.com，原片在 refs/oldsite-videos/）
+已上线：ZS-S088E-4（-JeG0…）、ZS-S088D-4（4YeK0…）、ZS-S088A（8JyG0…）、首页生产线（ipaK0…）。
+未上线（待定）：
+- ABUIABA6GAAg-LiQ0AYopP_y1AE.mp4：字幕称"in-line four-axis cold"，与 S088E-4 重复，备用。
+- ABUIABA6GAAg9pmG0AYogMKZ6QM.mp4：家具用随线四轴冷胶，与 S088E-4 重复，备用。
+- ABUIABA6GAAgxoyK0AYonLuOlgM.mp4：S088E-4 视频的 480p 版本，重复。
+- ABUIABA6GAAghYaK0AYorOXH5gE.mp4：S088D-4 视频加闪光特效版，重复。
+- ABUIABA6GAAgmaaQ0AYo5PXx1QM.mp4：S088D-4 同类（AV1 编码，画面含手机号/Jelly 字样），备用。
+- ABUIABA6GAAgmrWQ0AYo6YKa8gU.mp4：123 秒"Hot sale"混剪，含多台不同机器，无法对应单一型号。

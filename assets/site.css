@@ -123,3 +123,6 @@ figure.render:not(.soon) figcaption{position:absolute;top:8px;left:8px;right:aut
 .pcard>picture img,.pcard>img,.pcard>figure img{width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:contain!important;border:0!important;border-radius:0!important;box-shadow:none!important;display:block}
 @media(max-width:520px){.pcard>img,.pcard>picture,.pcard>figure{height:150px}}
 .pcard>picture img,.pcard>img,.pcard>figure img{background:#fff!important}.pcard>figure.soon img{background:#F3F5F7!important}figure.soon figcaption{top:auto!important;bottom:22px!important}
+.vsec .vbox{background:#0F2A44;border-radius:8px;overflow:hidden;max-width:960px}
+.vsec .vbox.tall{max-width:420px}
+.vsec video{display:block;width:100%;height:auto}
