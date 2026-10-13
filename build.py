@@ -1,5 +1,5 @@
 import os,json,html,shutil
-BASE='/zhishang-site/';URL='https://wenjianzhang70-dot.github.io/zhishang-site/'
+BASE='/';URL='https://zhishangkj.com/'
 F3=('机器可以根据划胶需求进行任意位置摆放','The machine can be placed at any position according to gluing requirements.')
 F5=('全新升级控制系统，速度更快，性能更稳定','Fully upgraded control system: faster speed, more stable performance.')
 FL2=('划胶尺寸大，划胶产品通用性强，灵活性高，操作简便','Large gluing size, strong versatility across glued products, high flexibility and easy operation.')

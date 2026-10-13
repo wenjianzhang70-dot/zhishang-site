@@ -27,3 +27,9 @@
 - [ ] build.py 里的 URL/BASE 从 `https://wenjianzhang70-dot.github.io/zhishang-site/` 换成官方域名，重新生成：canonical、hreflang、JSON-LD 链接、sitemap.xml、robots.txt 的 Sitemap 地址
 - [ ] 绑定自定义域名（GitHub Pages CNAME + DNS），开启 HTTPS
 - [ ] 确认后提交 sitemap 到 Google Search Console / 百度站长
+
+## 自定义域名 zhishangkj.com（2026-10-13）
+- 已绑定 GitHub Pages：A 记录指向 185.199.108.153 / 185.199.109.153，www 用 CNAME 指向 wenjianzhang70-dot.github.io，仓库根目录有 CNAME 文件。
+- 建议补充 A 记录 185.199.110.153、185.199.111.153，以及 AAAA 记录（GitHub 官方推荐填满 4 个 IP）。
+- **建议在 GitHub 做域名验证（Verified domain）**：GitHub 账户 Settings → Pages → Add a domain，按提示在 DNS 加一条 TXT 记录（_github-pages-challenge-wenjianzhang70-dot.zhishangkj.com）。这样别人无法把 zhishangkj.com 接到自己的仓库上，防止域名被接管。
+- 仍保留 noindex，正式上线时按上面的清单去掉。
