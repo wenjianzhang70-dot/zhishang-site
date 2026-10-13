@@ -10,6 +10,16 @@ INL2=('可以配手工流水线，也可以搭配自动天地盒机连线作业'
 SMALL=('适用于小尺寸盒子、皮壳、首饰盒，奢侈品盒，代妆品盒，坑卡类产品进行划胶','Suited to small boxes, cases, jewelry boxes, luxury boxes, cosmetic boxes and recessed card insert products.')
 FLATC=('可以划白胶、黄胶、万能胶，可以划盒子底部、皮壳，坑卡盒类平面划胶','Applies white glue, yellow glue and universal glue to box bottoms, cases and flat recessed card insert surfaces.')
 LC=('适用于大尺寸皮壳、坑卡类产品进行划胶','Suited to large cases and recessed card insert products.')
+R3A=('适用于各种车间流水线、全自动生产线，可跨线使用，灵活方便','Suitable for any workshop assembly line or fully automatic production line, and can be used across the line; flexible and convenient.')
+R3B=('独立流水线带启停功能，有助于提升效率、保证产品质量','Separate assembly line with start-stop function, helping to improve efficiency and ensure product quality.')
+R3C=('半自动使用时，在机器流道上放木板，人工搬运','In semi-automatic use, a wooden board is placed on the machine runner and handled manually.')
+R3D=('适用于天地盒、书型盒、酒盒、盒中盒、手机盒、化妆品盒、首饰盒等','For lid-and-base boxes, book-shaped boxes, wine boxes, box-in-box, mobile phone boxes, cosmetics boxes, jewelry boxes and more.')
+R3E=('平面划胶；适用亚敏胶、热熔胶；划胶宽度 5-12mm（更换不同枪嘴调节）','Flat gluing; for sub-sensitive glue and hot melt glue; glue width 5-12mm (adjusted with different gun nozzles).')
+B2A=('适用于手工流水线，机器可自由移动，机器与底座可分开使用','Suitable for manual production lines; the machine can be moved freely, and the machine and base can be used separately.')
+B2B=('人工放置产品，划胶后取出，一人可操作两台机器','Products are placed and removed manually after gluing; one person can operate two machines.')
+B2C=('可根据生产需要，在台板上放置不同高度、不同胶位的多种产品','Multiple products with different heights and glue positions can be placed on the platen as production requires.')
+B2D=('适用于折叠盒、书型盒、皮盒、海绵、EVA 等','For folding boxes, book-shaped boxes, leather boxes, sponge, EVA and more.')
+B2E=('平面划胶、喷压敏胶、螺旋喷胶；划胶宽度 5-12mm（更换不同枪嘴调节）','Flat gluing, pressure-sensitive glue spraying and spiral spraying; glue width 5-12mm (adjusted with different gun nozzles).')
 def M(slug,model,zh,en,cat,img,dims,size,speed,power,width,features,ph=1):
   return dict(slug=slug,model=model,zh=zh,en=en,cat=cat,img=img,dims=dims,size=size,speed=speed,power=power,width=width,volt='220V/AC——50Hz',air='0.6MPa',features=features,page=ph)
 MACH=[
@@ -22,14 +32,24 @@ MACH=[
  M('zs-s088b','ZS-S088B /ZS-S088B-2','四轴双工位划胶机(标准/加大)','Four-Axis Dual-Station Glue Dispensing Machine (Standard / Large)','dual','s088b','890*840*1590MM / 1140*890*1590MM','480*300*2*130MM / 540*420*2*130MM','0.9M/S','1400W','3-10MM',[SMALL,FL2,F3,COLD,F5],'P7 p11'),
  M('zs-s088a','ZS-S088A /ZS-S088A-2','三轴双工位划胶机(标准/加大)','Three-Axis Dual-Station Glue Dispensing Machine (Standard / Large)','dual','s088a','890*840*1350MM / 1140*890*1350MM','450*300*2*150MM / 500*420*2*150MM','0.9M/S','1400W','3-10MM',[LC,FL2,F3,FLATC,F5],'P7 p12'),
  M('zs-s088a-r','ZS-S088A-R /ZS-S088A-2-R','三轴双工位划胶机-热胶(标准/加大)','Three-Axis Dual-Station Glue Dispensing Machine – Hot Glue (Standard / Large)','dual','s088a-r','890*840*1590MM / 1140*890*1590MM','480*300*2*130MM / 540*420*2*130MM','0.9M/S','1400W','3-10MM',[SMALL,FL2,F3,HOT,F5],'P8 p13'),
+ M('zs-s088r-3','ZS-S088R-3','随线三轴划胶机-热胶','','inline','s088r-3','L1600*W1080*H1550MM','L600*W600*H130MM / L60*W60*H30MM','1M/second','5300W','5-12mm',[R3A,R3B,R3C,R3D,R3E],'PPT P8'),
+ M('zs-s088b-2-r','ZS-S088B-2-R','四轴双工位划胶机-热胶(标准/加大)','','dual','placeholder','L890*W840*H1350MM / L1140*W890*H1350MM','L450*W300*2*H150MM / L500*W400*2*H150MM; min L50*W50*H10MM','0.8M/second','3500W','5-12mm',[B2A,B2B,B2C,B2D,B2E],'PPT P12'),
  M('zs-s088p','ZS-S088P','三轴喷胶机','Three-Axis Glue Spraying Machine','spray','s088p','1400*1100*1500MM','880*520*130MM / 50*50*1MM','1M/S','1400W','3-20MM',[('适用于平面喷胶类产品，主要用于皮盒面料类喷胶','For flat glue-spraying work, mainly spraying adhesive on leather-box covering materials.'),('喷胶均匀，减少胶水浪费，提升喷涂效率','Even spraying, less glue waste, higher spraying efficiency.'),F3,('可以喷白乳胶、万能胶喷胶类胶水','Sprays white latex glue, universal glue and other sprayable adhesives.'),F5],'P8 p14'),
  M('zs-yh4040','ZS-YH4040','随线压泡机','Inline Bubble Press Machine','press','yh4040','1500*1500*1500MM','400*400*120MM / 60*60*30MM','20pcs/minute','1200W',None,[('适用于压底部，压吸塑，压纸托，适用于手机盒，平板盒，香水盒等','Presses box bottoms, blister inserts and paper trays; for phone boxes, tablet boxes, perfume boxes and more.'),('可以一次压一个或者两个，模式可以切换，提升效率','Presses one or two at a time with switchable modes for higher efficiency.'),F3,('单头可以压100-1200个，双头可以压2000-2400','Single head can press 100-1200 pieces; double head can press 2000-2400 pieces.')],'P9 p16'),
 ]
 CS=dict(slug='cs4539',model='CS4539',zh='半自动小皮壳机',en='Semi-Automatic Small Case Making Machine',cat='case',img='cs4539',page='P9 p15',rows=[
  ('设备型号','Device model','半自动小皮壳机 CS4539'),('成型时间','Forming time','约1.2秒/个'),('最大成型尺寸','Maximum molding size','450-390mm'),('最小成型尺寸','Minimum molding size','35mm-35mm'),('纸板厚度','Cardboard thickness','0.8*20mm'),('工作速度','Working speed','15-34个/分钟'),('面纸厚度','Paper thickness','70-300g'),('电源','Power supply','220V/50ZH'),('气压','Air pressure','0.6-0.8Mpa'),('整机功率','Total machine power','1KW'),('出口木架尺寸','Export wooden crate size','长1450*宽1000*高1850mm'),('机器重量','Total weight','约490KG'),('外形尺寸','Overall dimensions','长1400*宽950*高1700mm')])
-NS=[('ZS-FB-001','酒盒装板机','Wine Box Board Assembly Machine (custom)','fb-001','P10 p17'),('ZS-FB-002','自动折内托机露','Automatic Paper Tray / Insert Folding Machine',None,'P10 p18')]
+NSX={'ZS-FB-007':(('外形尺寸','Exterior dimensions','L3100*W1400*H1200MM'),('工作尺寸','Working dimensions','950*210MM'),('净重','Net weight','850kg'),('速度','Work speed','1200pcs/Hour'),('功率','Rated power','0.9KW'),('气压','Air pressure','0.6Mpa'),('电压','Voltage','220AC')),
+'ZS-FB-004':(('外形尺寸','Exterior dimensions','L4705*W1130*H2076MM'),('工作尺寸','Working dimensions','350*320MM'),('净重','Net weight','1100kg'),('速度','Work speed','800-1000pcs/Hour'),('功率','Rated power','10KW'),('气压','Air pressure','0.6Mpa'),('电压','Voltage','220AC')),
+'ZS-FB-019':(('外形尺寸','Exterior dimensions','L3150*W1850*H1530MM'),('工作尺寸','Working dimensions','1200*1200MM'),('净重','Net weight','606kg'),('速度','Work speed','500-800pcs/hour'),('功率','Rated power','6KW'),('气压','Air pressure','0.6Mpa'),('电压','Voltage','220AC')),
+'ZS-FB-026':(('外形尺寸','Exterior dimensions','L2260*W1200*H1600MM'),('工作尺寸','Working dimensions','800*150*80MM'),('净重','Net weight','370kg'),('速度','Work speed','600-700pcs/hour'),('功率','Rated power','4KW'),('气压','Air pressure','0.6Mpa'),('电压','Voltage','220AC')),
+'ZS-FB-017':(('外形尺寸','Exterior dimensions','1200*1170*1780mm and 650*650*1020mm'),('净重','Net weight','537kg'),('速度','Work speed','2S/pc'),('功率','Rated power','2.5KW'),('气压','Air pressure','0.6Mpa'),('电压','Voltage','220AC'))}
+NSD={'ZS-FB-007':('适用于折叠盒冲孔开槽','Punching and slotting of folding boxes'),'ZS-FB-004':('适用于酒盒内托成型','Forming of wine box inner trays'),'ZS-FB-019':('适用于在线生产线，机器较重，运行速度快','For on-line production lines; heavy-duty machine running at high speed'),'ZS-FB-026':('适用于蜂窝纸板护角粘合','Honeycomb paperboard corner bonding'),'ZS-FB-017':('塑料卡扣（公母扣）分料与组装','Material separation and assembly for plastic snap fasteners (male and female)')}
+NS=[('ZS-FB-001','酒盒装板机','Wine Box Board Assembly Machine (custom)','fb-001','P10 p17'),('ZS-FB-002','自动折内托机露','Automatic Paper Tray / Insert Folding Machine',None,'P10 p18'),
+ ('ZS-FB-007','折叠盒在线冲孔开槽机','On-line Punching and Slotting Machine for Folding Boxes','fb-007','PPT P21'),('ZS-FB-004','全自动酒盒内托成型机','Fully Automatic Wine Box Inner Tray Forming Machine','fb-004','PPT P22'),('ZS-FB-019','在线三轴冷胶点胶机','On-line Three-Axis Cold Glue Dispensing Machine','fb-019','PPT P23'),('ZS-FB-026','护角半自动成型机','Corner Guard Semi-Automatic Forming Machine','fb-026','PPT P24'),('ZS-FB-017','塑料卡扣分料组装机','Plastic Snap Fastener Splitting and Assembly Machine','fb-017','PPT P25')]
 CATS={'inline':('随线划胶机','Inline Gluing Machines'),'cabinet':('柜式划胶机','Cabinet Gluing Machines'),'dual':('双工位划胶机','Dual-Station Glue Dispensing Machines'),'spray':('喷胶机','Glue Spraying Machine'),'press':('压泡机','Bubble Press Machine'),'case':('皮壳机','Case Making Machine'),'ns':('非标定制','Custom (Non-Standard) Machines')}
-EM='362804136@qq.com';TEL='0769 22250346'
+EM='362804136@qq.com';TEL='0769 22250346';SALES='sales@zhishangkj.com';MOB='+86 158 2092 8436';MOBN='8615820928436';CP='Jelly Chen'
+def em(lg): return SALES if lg=='en' else EM
 ADDR=('东莞市东城街道环城东路东城段 42号','No. 42, Dongcheng Section, Huancheng East Road, Dongcheng Subdistrict, Dongguan, Guangdong, China')
 L={'en':dict(lang='en',pre='',other='zh/',sw='中文',co='Dongguan Zhishang Automation Technology Co., Ltd',brand='Zhishang Technology',tag='Focused on gluing equipment',
  nav=[('products/','Products'),('applications/','Applications'),('about/','About'),('service/','Service'),('contact/','Contact')],quote='Request a Quote',ask='Ask about this machine',
@@ -52,14 +72,14 @@ def page(lg,path,title,desc,body):
   return f'''<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{URL}{here}"><link rel="alternate" hreflang="en" href="{URL}{'' if lg=='en' else ''}{path if lg=='en' else alt}"><link rel="alternate" hreflang="zh-CN" href="{URL}{'zh/'+path if lg=='en' else here}">
-<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":EM,"telephone":"+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=15"></head><body{zhfont}>
+<link rel="icon" href="{BASE}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{BASE}img/favicon-32.png"><link rel="apple-touch-icon" href="{BASE}img/favicon-180.png"><script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":t['co'],"alternateName":"至尚科技 ZHI SHANG TECHNOLOGY","url":URL+t['pre'],"logo":URL+"img/logo.png","email":em(lg),"telephone":"+86 158 2092 8436" if lg=="en" else "+86 769 22250346"},ensure_ascii=False)}</script><link rel="stylesheet" href="{BASE}assets/fonts.css"><link rel="stylesheet" href="{BASE}assets/site.css?v=16"></head><body{zhfont}>
 <header><div class="wrap"><a class="logo" href="{BASE}{t['pre']}"><img src="{BASE}img/logo-120h.png" width="240" height="62" alt="{'至尚科技 ZHI SHANG TECHNOLOGY'}"></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav">{nav}<a class="navq" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a></nav><a class="btn sm" href="{BASE}{t['pre']}contact/">{t['quote']}</a><a class="lang" href="{BASE}{alt}">{t['sw']}</a></div></header>
 <main>{body}</main>
-<template id="hold-float-contact"><aside class="fcontact"><a href="#">WhatsApp</a><a href="mailto:{EM}">Email</a><a href="#">WeChat</a></aside></template>
+<aside class="fcontact" aria-label="{'快速联系' if lg=='zh' else 'Quick contact'}"><a href="https://wa.me/{MOBN}" target="_blank" rel="noopener" title="WhatsApp {MOB}">WhatsApp</a><a href="mailto:{SALES}" title="{SALES}">Email</a><a href="tel:+{MOBN}" title="{'微信' if lg=='zh' else 'WeChat'}: {MOB}">{'微信' if lg=='zh' else 'WeChat'}<small>{MOB}</small></a></aside>
 <template id="hold-video"><section class="vslot"><div class="wrap"><video controls preload="none" playsinline poster=""><source src="" type="video/mp4"></video></div></section></template>
 <template id="hold-dark-hero"><section class="hero dark"><div class="wrap"><div><h1></h1></div></div></section></template>
 <script>(function(){{var a=document.getElementById('askcta'),b=document.getElementById('pbar');if(a&&b&&'IntersectionObserver' in window){{new IntersectionObserver(function(es){{var v=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;b.hidden=!v;document.body.style.paddingBottom=v?b.offsetHeight+'px':''}}).observe(a)}}else if(b){{b.hidden=false;document.body.style.paddingBottom=b.offsetHeight+'px'}}}})();(function(){{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('mo');var io=new IntersectionObserver(function(es){{es.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target)}}}})}},{{rootMargin:'0px 0px -8% 0px'}});document.querySelectorAll('main section h2,.pcard,.card,.entry,.bead,.glue').forEach(function(el){{el.classList.add('rv');io.observe(el)}})}})()</script><a class="mcta" href="{BASE}{t['pre']}contact/#quote">{t['quote']}</a>
-<footer><div class="wrap fgrid"><div><span class="flogo"><img src="{BASE}img/logo-120h.png" width="186" height="48" alt="至尚科技 ZHI SHANG TECHNOLOGY" loading="lazy"></span><br><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL} · <a href="mailto:{EM}">{EM}</a></div><div class="small">© 2026 {t['co']}</div></div></footer></body></html>'''
+<footer><div class="wrap fgrid"><div><span class="flogo"><img src="{BASE}img/logo-120h.png" width="186" height="48" alt="至尚科技 ZHI SHANG TECHNOLOGY" loading="lazy"></span><br><b>{t['co']}</b><br>{ADDR[0] if lg=='zh' else ADDR[1]}<br>{('电话/传真: '+TEL+' · 手机/微信: '+MOB) if lg=='zh' else (CP+' · Tel / WhatsApp / WeChat: '+MOB)} · <a href="mailto:{em(lg)}">{em(lg)}</a></div><div class="small">© 2026 {t['co']}</div></div></footer></body></html>'''
 import re as _re
 from PIL import Image as _I
 _SZ={}
@@ -84,6 +104,7 @@ ENT={'zs-s088e-4': 'Inline 4-Axis Cold Glue Dispensing Machine for Rigid Boxes',
 HL={'zs-s088e-4': ('一台机节省两个人划胶，可与自动天地盒机连线作业', 'Inline Rigid Box Gluing Machine – Replaces Two Operators, Links to Automatic Lid-and-Base Box Lines'), 'zs-s088r-4': ('一台机节省两个人划胶，可与自动天地盒机连线作业', 'Inline Rigid Box Gluing Machine – Replaces Two Operators, Links to Automatic Lid-and-Base Box Lines'), 'zs-s088c': ('白胶、黄胶、万能胶都能划，盒底和侧面同时划', 'Cabinet Glue Dispensing Machine – Runs White Glue, Yellow Glue and Universal Glue, Glues Box Bottom and Sides at Once'), 'zs-s088c-4': ('大尺寸盒子划胶、刮胶，替代双面胶', 'Cabinet Hot Melt Gluing Machine – Glues and Scrapes Large Boxes Instead of Double-Sided Tape'), 'zs-s088d': ('一台机替代 2 人', '3-Axis Cold Glue Dispensing Machine – One Machine Replaces Two Operators'), 'zs-s088d-4': ('刮热胶替代双面胶，省去撕离型纸的人工', '3-Axis Hot Melt Gluing Machine – Replaces Double-Sided Tape, No More Peeling Release Liners'), 'zs-s088b': ('专做小尺寸盒、皮壳、首饰盒和奢侈品盒', 'Dual-Station Glue Dispensing Machine for Small Rigid Boxes, Cases, Jewelry and Luxury Boxes'), 'zs-s088a-r': ('专做小尺寸盒、皮壳、首饰盒和奢侈品盒', 'Dual-Station Glue Dispensing Machine for Small Rigid Boxes, Cases, Jewelry and Luxury Boxes'), 'zs-s088a': ('大尺寸皮壳、坑卡平面划胶，双工位', 'Dual-Station Glue Dispensing Machine – Flat Gluing for Large Cases and Recessed Card Inserts'), 'zs-s088p': ('皮盒面料喷胶均匀，减少胶水浪费', 'Glue Spraying Machine – Even Coating on Box Covering Materials, Less Glue Waste'), 'zs-yh4040': ('一次压一个或两个', 'Rigid Box Bubble Pressing Machine – Presses One or Two Boxes per Cycle'), 'cs4539': ('约 1.2 秒成型一个', 'Semi-Automatic Case Making Machine – About 1.2 s per Case')}
 GROUPS=[('cold',('冷胶划胶机','Cold Glue Machines'),('白胶、黄胶、万能胶','White, yellow and universal glue')),('hot',('热胶划胶机','Hot Glue Machines'),('热熔胶、压敏胶','Hot melt and pressure-sensitive adhesive')),('spray',('喷胶机','Glue Spraying'),('白乳胶、万能胶等喷胶类胶水','White latex, universal and other sprayable glues')),('press',('压泡机','Bubble Pressing'),('压底部、压吸塑、压纸托','Bottoms, blister inserts, paper trays')),('case',('皮壳机','Case Making'),('半自动小皮壳成型','Semi-automatic small case forming'))]
 def grpof(m):
+  if m.get('grp'): return m['grp']
   if m['cat'] in ('spray','press','case'): return m['cat']
   return 'hot' if is_hot(m) else 'cold'
 def csen(v):
@@ -124,6 +145,7 @@ def build():
 <section class="wideimg"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div class="wrap"><p>{'东莞东城 · 2018 年成立' if lg=='zh' else 'Dongcheng, Dongguan · Founded 2018'}</p></div></section>
 <section><div class="wrap"><div class="grid g3">{en_}</div></div></section>
 <section><div class="wrap"><h2>{'主推机型' if lg=='zh' else 'Featured Machines'}</h2><div class="grid g4">{''.join(card(m,lg) for m in feat)}</div><p><a class="btn" href="{P}products/">{t['allp']}</a></p></div></section>
+<section><div class="wrap"><h2>{'公司实力' if lg=='zh' else 'Company Strength'}</h2>{strength(lg)}</div></section>
 <section class="alt"><div class="wrap"><h2>{'三项承诺' if lg=='zh' else 'Our Three Commitments'}</h2>{prom}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'关于至尚' if lg=='zh' else 'About Zhishang'}</h2><p>{about_p(lg)}</p><a class="btn ghost dark" href="{P}about/">{'了解更多' if lg=='zh' else 'Learn more'}</a></div></div></section>
 {inquiry(lg,'')}'''
@@ -134,7 +156,15 @@ def build():
     grp=''
     for c,(cz,ce),(dz,de) in GROUPS+[('ns',CATS['ns'],('',''))]:
       if c=='ns':
-        ns=''.join(f'<div class="pcard static">{f"<figure class=render><img src={chr(34)}{BASE}img/{i}.jpg{chr(34)} alt={chr(34)}{m}{chr(34)} loading=lazy><figcaption>{'效果图' if lg=='zh' else 'Rendering'}</figcaption></figure>" if i else ""}<div><small>{m}</small><h3>{z if lg=="zh" else en_n}</h3><p>{"非标机，按需定制" if lg=="zh" else "Non-standard machine, built to order."}</p></div></div>' for m,z,en_n,i,pg in NS)
+        def _nsc(m,z,en_n,i,pg):
+          zz=lg=="zh";ren=pg.startswith('P10')
+          if i and ren: fig=f'<figure class="render"><img src="{BASE}img/{i}.jpg" alt="{m}" loading="lazy"><figcaption>{"效果图" if zz else "Rendering"}</figcaption></figure>'
+          elif i: fig=f'<img src="{BASE}img/{i}.jpg" alt="{m} {z if zz else en_n}" loading="lazy">'
+          else: fig=''
+          sp=''.join(f'<li><span>{a if zz else b}</span><code>{v}</code></li>' for a,b,v in NSX.get(m,()))
+          d=NSD.get(m);desc=(d[0] if zz else d[1]) if d else ("非标机，按需定制" if zz else "Non-standard machine, built to order.")
+          return f'<div class="pcard static">{fig}<div><small>{m}</small><h3>{z if zz else en_n}</h3><p>{desc}</p>{"<ul class=keys>"+sp+"</ul><p class=small>"+("数据来源：至尚公司介绍 PPT。" if zz else "Data from the Zhishang company presentation (PPT).")+"</p>" if sp else ""}</div></div>'
+        ns=''.join(_nsc(*x) for x in NS)
         grp+=f'<h2 id="ns">{cz if lg=="zh" else ce}</h2><p class="sub">{"可定制各种非标规格，适用各种需求。" if lg=="zh" else "We build custom machines to your specifications and requirements."}</p><div class="grid g3">{ns}</div>'
         continue
       ms=[m for m in allm if grpof(m)==c]
@@ -162,12 +192,12 @@ def build():
         pts='<dl class="facts">'+''.join(f'<div><dt>{l[0] if lg=="zh" else l[1]}</dt><dd>{e(v[0] if lg=="zh" else v[1])}</dd></div>' for l,v in zip(labs,fx) if v)+'</dl>'
       body=f'''<section class="phead"><div class="wrap crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a> / <a href="{P}products/">{t['nav'][0][1]}</a> / {cz if lg=='zh' else ce}</div></section>
 <section><div class="wrap pdetail"><div class="pinfo"><small class="model">{m['model']}</small><p class="pname">{nm(m,lg)}</p>{hh}{BEAD}{pts}
-<div class="cta" id="askcta"><a class="btn" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a><a class="btn ghost dark" href="mailto:{EM}?subject={('询价 ' if lg=='zh' else 'Inquiry ')+m['model']}">Email</a></div>
-<p class="small">{'电话/传真' if lg=='zh' else 'Tel/Fax'}: {TEL}</p>
+<div class="cta" id="askcta"><a class="btn" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a><a class="btn ghost dark" href="mailto:{em(lg)}?subject={('询价 ' if lg=='zh' else 'Inquiry ')+m['model']}">Email</a></div>
+<p class="small">{('电话/传真: '+TEL) if lg=='zh' else ('Tel / WhatsApp / WeChat: '+MOB)}</p>
 <nav class="tabs">{'' if m is CS else '<a href="#features">'+t['feat']+'</a>'}<a href="#specs">{t['spec']}</a></nav></div><div class="gallery"><img src="{BASE}img/{m['img']}.jpg" alt="{e(nm(m,lg))} {m['model']}" data-eager>{dets(lg,m)}</div></div></section>
 <div class="pbar" id="pbar" hidden><div class="wrap"><span><code>{m['model']}</code> {nm(m,lg)}</span><a class="btn sm" href="{P}contact/?model={m['model'].replace(' ','')}#quote">{t['ask']}</a></div></div>
 {f'<section id="features" class="alt"><div class="wrap"><h2>{t["feat"]}</h2>{feats}</div></section>' if feats else ''}
-<section id="specs"><div class="wrap"><h2>{t['spec']}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{t['src']}</p></div></section>
+<section id="specs"><div class="wrap"><h2>{t['spec']}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{t['src'] if m.get('src')!='ppt' else ('数据来源：至尚公司介绍 PPT。' if lg=='zh' else 'Data from the Zhishang company presentation (PPT).')}</p></div></section>
 {extras(lg,m)}
 {inquiry(lg,m['model'])}'''
       ti=f"{m['model']} {nm(m,lg)} | {'至尚科技' if lg=='zh' else 'Zhishang'}"
@@ -236,6 +266,9 @@ def promises(lg):
      ('售后时效：国外机器故障维修 7 天。（国内：市内4小时，省内24小时，省外3天）','Overseas service response: machine faults are handled within 7 days.'),
      ('海外安装与技术支持方案请联系我们。（国内省内客户可先试用一星期再付款）','Contact us for overseas installation and support options.')]
   return '<div class="grid g3 prom">'+''.join(f'<div class="card"><b class="num">0{i+1}</b><p>{a if lg=="zh" else b}</p></div>' for i,(a,b) in enumerate(P))+'</div>'
+def strength(lg):
+  z=lg=='zh';it=[('80',('员工（管理 20 人、操作 60 人）','Employees (20 management, 60 operators)')),('3000㎡',('车间','Workshop')),('500㎡',('办公','Office')),('Yantian · Shekou' if not z else '盐田 · 蛇口',('出货港口','Shipping ports'))]
+  return '<div class="strength">'+''.join(f'<div><b>{a}</b><span>{b[0] if z else b[1]}</span></div>' for a,b in it)+'</div><p class="small">'+('数据来源：至尚公司介绍 PPT。' if z else 'Source: Zhishang company presentation.')+'</p>'
 def about_p(lg):
   return ('东莞市至尚自动化科技有限公司成立于2018年，位于东莞东城。主要研发生产：自动划胶机、喷胶机、压盒机及各种包装行业非标机械。公司是由“至尚精品包装”转型后成立的自动化公司，围绕包装产品优化升级、工艺优化、排拉布线、产能评估、生产计件制度推行等方案提供建议。' if lg=='zh' else
    'Dongguan Zhishang Automation Technology Co., Ltd was founded in 2018 in Dongcheng, Dongguan. We develop and build automatic gluing machines, glue spraying machines, box pressing machines and non-standard machinery for the packaging industry. The company grew out of Zhishang Boutique Packaging, so we also advise on packaging product upgrades, process optimization, line layout, capacity evaluation and piece-rate production systems.')
@@ -253,16 +286,23 @@ def about_body(lg):
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'公司简介' if lg=='zh' else 'Company Profile'}</h2><p>{about_p(lg)}</p></div></div></section>
 <section class="alt"><div class="wrap grid g3"><div class="card"><h3>{'公司使命' if lg=='zh' else 'Mission'}</h3><p>{mission}</p></div><div class="card"><h3>{'团队介绍' if lg=='zh' else 'Team'}</h3><p>{team}</p></div><div class="card"><h3>{'服务理念' if lg=='zh' else 'Service Concept'}</h3><p>{service_p(lg)}</p></div></div></section>
 <section><div class="wrap grid g3"><img class="ph" src="{BASE}img/team.jpg" alt="{'至尚团队' if lg=='zh' else 'Zhishang team'}"><img class="ph" src="{BASE}img/workshop.jpg" alt="{'车间' if lg=='zh' else 'Workshop'}"><img class="ph" src="{BASE}img/certs.jpg" alt="{'企业荣誉证书' if lg=='zh' else 'Certificates'}"></div><div class="wrap"><p class="small">{'企业荣誉：实用新型专利证书等' if lg=='zh' else 'Corporate honors: utility model patent certificates and more.'}</p></div></section>
+<section><div class="wrap"><h2>{'公司实力' if lg=='zh' else 'Company Strength'}</h2>{strength(lg)}</div></section>
 <section class="alt"><div class="wrap"><h2>{'关联公司' if lg=='zh' else 'Related Companies'}</h2><div class="grid g2">{rl}</div></div></section>'''
 def inquiry(lg,model,full=False):
   t=L[lg];z=lg=='zh'
   opts=''.join(f'<option{" selected" if m["model"]==model else ""}>{m["model"]} {nm(m,lg)}</option>' for m in MACH+[CS])
   return f'''<section id="quote" class="alt"><div class="wrap contact"><div><h2>{t['quote']}</h2><p class="sub">{'请留下您的需求，我们会尽快回复。' if z else 'Tell us about your boxes and glue. We will reply as soon as possible.'}</p>
-<form action="mailto:{EM}" method="post" enctype="text/plain"><div><label>{'姓名' if z else 'Name'}</label><input name="name" required></div><div><label>{'邮箱/电话' if z else 'Email / phone'}</label><input name="contact" required></div>
+<form action="mailto:{em(lg)}" method="post" enctype="text/plain"><div><label>{'姓名' if z else 'Name'}</label><input name="name" required></div><div><label>{'邮箱/电话' if z else 'Email / phone'}</label><input name="contact" required></div>
 <div class="full"><label>{'机型' if z else 'Machine'}</label><select name="model" id="model"><option value="">{'不确定，需要建议' if z else 'Not sure, need advice'}</option>{opts}</select></div>
 <div class="full"><label>{'产品与需求（盒型、尺寸、胶水类型）' if z else 'Your product (box type, size, glue type)'}</label><textarea name="message"></textarea></div>
 <div class="full"><button class="btn" type="submit">{'发送询价' if z else 'Send inquiry'}</button> <span class="small">{'（预览版：提交将打开您的邮件程序）' if z else '(Preview: opens your email app)'}</span></div></form></div>
-<div class="cbox"><h3>{'联系方式' if z else 'Contact'}</h3><p><b>{t['co']}</b></p><p>{'地址' if z else 'Address'}: {ADDR[0] if z else ADDR[1]}</p><p>{'电话/传真' if z else 'Tel/Fax'}: <a href="tel:+8676922250346">{TEL}</a></p><p>{'邮箱' if z else 'Email'}: <a href="mailto:{EM}">{EM}</a></p><p class="trust">{'划胶嘴拥有发明专利和实用新型专利' if z else 'Nozzle covered by invention and utility model patents'}</p></div></div>
+<div class="cbox"><h3>{'联系方式' if z else 'Contact'}</h3><p><b>{t['co']}</b></p><p>{'地址' if z else 'Address'}: {ADDR[0] if z else ADDR[1]}</p><p>{'联系人' if z else 'Contact'}: {CP}</p><p>{'手机 / 微信 / WhatsApp' if z else 'Tel / WhatsApp / WeChat'}: <a href="tel:+{MOBN}">{MOB}</a></p>{('<p>电话/传真: <a href="tel:+8676922250346">'+TEL+'</a></p>') if z else ''}<p>{'邮箱' if z else 'Email'}: <a href="mailto:{SALES}">{SALES}</a>{('<br><a href="mailto:'+EM+'">'+EM+'</a>') if z else ''}</p><p class="trust">{'划胶嘴拥有发明专利和实用新型专利' if z else 'Nozzle covered by invention and utility model patents'}</p></div></div>
 <script>(function(){{var m=new URLSearchParams(location.search).get('model');if(!m)return;var s=document.getElementById('model');for(var o of s.options)if(o.text.replace(/ /g,'').indexOf(m)===0){{o.selected=true;break}}}})()</script></section>'''
+ENT.update({'zs-s088r-3':'Inline 3-Axis Hot Melt Gluing Machine for Rigid Boxes','zs-s088b-2-r':'4-Axis Dual-Station Hot Melt Gluing Machine (Standard / Large)'})
+for _m in MACH:
+  if _m['slug'] in ('zs-s088r-3','zs-s088b-2-r'): _m.update(volt='220AC',air='0.6Mpa',src='ppt',grp='hot')
+HL.update({'zs-s088r-3':('热熔胶随线划胶，可跨线使用','Inline Rigid Box Gluing Machine – 3-Axis Hot Melt, Works Across Assembly Lines'),'zs-s088b-2-r':('一人可操作两台机器','Dual-Station Hot Melt Gluing Machine – One Operator Runs Two Machines')})
+FACTS.update({'zs-s088r-3':(('天地盒、书型盒、酒盒、盒中盒、手机盒、化妆品盒、首饰盒','Lid-and-base, book-shaped, wine, box-in-box, phone, cosmetics and jewelry boxes'),('亚敏胶、热熔胶','Sub-sensitive glue, hot melt glue'),('三轴 · 随线 · 平面划胶','3-axis · inline · flat gluing')),
+'zs-s088b-2-r':(('折叠盒、书型盒、皮盒、海绵、EVA','Folding, book-shaped and leather boxes, sponge, EVA'),('压敏胶（喷胶）、热熔胶','Pressure-sensitive (spray), hot melt'),('四轴 · 双工位 · 一人可操作两台','4-axis · dual-station · one operator runs two machines'))})
 for _m in MACH+[CS]: _m['en']=ENT[_m['slug']]
 build()
