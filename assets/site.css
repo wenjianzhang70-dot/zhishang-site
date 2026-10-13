@@ -143,3 +143,13 @@ figure.render:not(.soon) figcaption{position:absolute;top:8px;left:8px;right:aut
 .vc-slide{text-align:left}
 .osgal img{height:260px;width:100%;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:6px}
 .vc-nav{flex-wrap:wrap}
+.navdd{position:relative;display:flex;align-items:center;gap:2px}
+.ddbtn{background:none;border:0;color:var(--steel);cursor:pointer;font-size:.8rem;padding:4px}
+.ddmenu{display:none;position:absolute;top:100%;left:-12px;z-index:50;min-width:260px;margin:0;padding:8px 0;list-style:none;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 24px rgba(15,42,68,.15)}
+.ddmenu a{display:block;padding:8px 16px;color:var(--ink)}.ddmenu a:hover{background:#F2F5F8}
+.navdd.open .ddmenu,.navdd:focus-within .ddmenu{display:block}
+@media(hover:hover) and (min-width:901px){.navdd:hover .ddmenu{display:block}}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}.jump a{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}.jump a:hover{border-color:var(--accent)}
+[id^="app-"]{scroll-margin-top:90px}.card [href] code{text-decoration:underline}
+@media(max-width:900px){.navdd{display:block;border-bottom:1px solid var(--line)}.navdd>a{display:block;padding:12px 0;color:var(--ink);font-weight:600;border:0!important}.ddbtn{display:none}
+ .ddmenu{display:block;position:static;box-shadow:none;border:0;padding:0 0 8px 12px;min-width:0}.ddmenu a{padding:8px 0!important;border:0!important;font-weight:400!important;color:var(--steel)!important}}
