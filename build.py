@@ -276,7 +276,7 @@ def ld_product(lg,m,summ):
   t=L[lg];P=URL+t['pre']
   d={"@context":"https://schema.org","@type":"Product","name":nm(m,lg),"model":m['model'],"mpn":m['model'],"image":URL+'img/'+m['img']+'.jpg',"description":summ,"brand":{"@type":"Brand","name":t['brand']},"manufacturer":{"@type":"Organization","name":t['co']},"url":P+'products/'+m['slug']+'/'}
   bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":'首页' if lg=='zh' else 'Home',"item":P},{"@type":"ListItem","position":2,"name":t['nav'][0][1],"item":P+'products/'},{"@type":"ListItem","position":3,"name":m['model'],"item":P+'products/'+m['slug']+'/'}]}
-  return f'<script type="application/ld+json">{json.dumps(d,ensure_ascii=False)}</script><script type="application/ld+json">{json.dumps(bc,ensure_ascii=False)}</script>'
+  return f'<script type="application/ld+json">{json.dumps(bc,ensure_ascii=False)}</script>'
 DETS={'zs-s088r-4':[('胶头特写','Glue head close-up','PPT P7')],'zs-s088e-4':[('胶头特写','Glue head close-up','PPT P9')],'zs-s088r-3':[('胶头特写','Glue head close-up','PPT P8')],'zs-s088b':[('手持控制器与胶头','Handheld controller and glue head','PPT P13')]}
 VIDS={'zs-s088e-4':('v',1280,720),'zs-s088d-4':('p',720,1280),'zs-s088a':('p',720,1280)}
 def vsec(lg,name,w,h,title,alt):
