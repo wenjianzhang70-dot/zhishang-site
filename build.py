@@ -168,7 +168,7 @@ def build():
 <section class="alt"><div class="wrap"><h2>{'三项承诺' if lg=='zh' else 'Our Three Commitments'}</h2>{prom}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'关于至尚' if lg=='zh' else 'About Zhishang'}</h2><p>{about_p(lg)}</p><a class="btn ghost dark" href="{P}about/">{'了解更多' if lg=='zh' else 'Learn more'}</a></div></div></section>
 {inquiry(lg,'')}'''
-    title=('至尚科技 | 划胶机、点胶机、喷胶机、压泡机 - 东莞市至尚自动化科技有限公司' if lg=='zh' else 'Rigid Box Gluing & Dispensing Machines | Zhishang')
+    title=('至尚科技 | 划胶机 点胶机 喷胶机' if lg=='zh' else 'Rigid Box Gluing & Dispensing Machines | Zhishang')
     desc=('东莞市至尚自动化科技有限公司，专注划胶设备行业：随线/柜式/双工位划胶机、喷胶机、压泡机、半自动小皮壳机，冷胶热胶机型齐全。' if lg=='zh' else 'Dongguan Zhishang Automation: rigid box gluing, glue dispensing & spraying machines, hot melt models, plus bubble pressing and case making machines.')
     W(lg,'',page(lg,'',title,desc,body))
     # PRODUCTS overview
@@ -189,7 +189,7 @@ def build():
       ms=[m for m in allm if grpof(m)==c]
       grp+=f'<h2 id="{c}" class="rv">{cz if lg=="zh" else ce}</h2><p class="sub">{dz if lg=="zh" else de}</p><div class="grid g4">{"".join(card(m,lg) for m in ms)}{SPRAYX(lg) if c=="spray" else ""}</div>'
     comp=compare(lg)
-    W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Rigid Box Gluing, Glue Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数：随线、柜式、双工位划胶机（冷胶/热胶），喷胶机、压泡机、半自动小皮壳机及非标定制机。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
+    W(lg,'products',page(lg,'products/',('产品中心 | 划胶机 点胶机 喷胶机 - 至尚科技' if lg=='zh' else 'Box Gluing, Dispensing & Spraying Machines | Zhishang'),('至尚全部机型与参数：随线、柜式、双工位划胶机（冷胶/热胶），喷胶机、压泡机、半自动小皮壳机及非标定制机。' if lg=='zh' else 'All Zhishang machines with specifications: rigid box gluing machines, glue dispensing machine, glue spraying machine, case making machine.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][0][1]}</h1>{BEAD}<p>{"按工艺浏览：冷胶、热胶、喷胶、压泡、皮壳成型、非标定制。" if lg=="zh" else "Browse by process: cold glue, hot glue, spraying, bubble pressing, case making and custom machines."}</p></div></section><section><div class="wrap">{grp}</div></section><section class="alt"><div class="wrap"><h2>{"参数对比" if lg=="zh" else "Specification Comparison"}</h2><p class="sub">{t["src"]}</p>{comp}<p class="small specnote">{"参数仅供参考，以报价为准。" if lg=="zh" else "Specifications are for reference only; final specifications are subject to our quotation."}</p></div></section>{inquiry(lg,"")}'))
     # product pages
     for m in allm:
@@ -220,12 +220,13 @@ def build():
 <section id="specs"><div class="wrap"><h2>{t['spec']}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{t['src'] if m.get('src')!='ppt' else ('数据来源：至尚公司介绍 PPT。' if lg=='zh' else 'Data from the Zhishang company presentation (PPT).')}</p><p class="small specnote">{'参数仅供参考，以报价为准。' if lg=='zh' else 'Specifications are for reference only; final specifications are subject to our quotation.'}</p></div></section>
 {extras(lg,m)}
 {inquiry(lg,m['model'])}'''
-      ti=f"{m['model']} {nm(m,lg)} | {'至尚科技' if lg=='zh' else 'Zhishang'}"
+      _seot=(SEOT.get(m['slug']) if lg=='en' else ZHOT.get(m['slug']))
+      ti=(_seot+(' | Zhishang' if lg=='en' else ' | 至尚科技') if _seot else f"{m['model']} {nm(m,lg)} | {'至尚科技' if lg=='zh' else 'Zhishang'}")
       W(lg,'products/'+m['slug'],page(lg,f'products/{m["slug"]}/',ti,f"{m['model']} {nm(m,lg)}"+('：' if lg=='zh' else '. ')+summ.rstrip('。')+('。东莞市至尚自动化科技有限公司。' if lg=='zh' else ''),body+ld_product(lg,m,summ)))
     # applications
     ap=''.join(f'<div class="card{" one" if _nm(c)==1 else ""}" id="app-{i+1}"><h3>{a}</h3><p>{b}</p><p class="small">{"推荐机型" if lg=="zh" else "Recommended machines"}: {_mods(lg,c)}</p></div>' for i,(a,b,c) in enumerate(APPS[lg]))
     jump='<nav class="jump" aria-label="'+('应用领域' if lg=='zh' else 'Applications')+'">'+''.join(f'<a href="#app-{i+1}">{a}</a>' for i,(a,b,c) in enumerate(APPS[lg]))+'</nav>'
-    W(lg,'applications',page(lg,'applications/',('应用领域 | 天地盒 书型盒 皮壳 坑卡 划胶 - 至尚科技' if lg=='zh' else 'Applications: Rigid Box, Lid and Base Box, Book-Style Box & Case Gluing | Zhishang'),('至尚划胶设备适用的包装产品：天地盒、礼盒、书型盒、折叠盒、皮壳、坑卡、首饰盒、化妆品盒、手机盒及皮盒面料喷胶。' if lg=='zh' else 'Gluing applications for rigid boxes, lid-and-base boxes, book-style boxes, cases and greyboard.'),
+    W(lg,'applications',page(lg,'applications/',('应用领域 | 天地盒 书型盒 皮壳 划胶 - 至尚科技' if lg=='zh' else 'Applications: Box, Case & Greyboard Gluing | Zhishang'),('至尚划胶设备适用的包装产品：天地盒、礼盒、书型盒、折叠盒、皮壳、坑卡、首饰盒、化妆品盒、手机盒及皮盒面料喷胶。' if lg=='zh' else 'Gluing applications for rigid boxes, lid-and-base boxes, book-style boxes, cases and greyboard.'),
       f'<section class="phead"><div class="wrap"><div class="crumbs"><a href="{P}">{'首页' if lg=='zh' else 'Home'}</a></div><h1>{t["nav"][1][1]}</h1>{BEAD}<p>{"以下应用均来自至尚画册各机型的适用说明。" if lg=="zh" else "Applications listed in the Zhishang brochure for each machine."}</p></div></section><section><div class="wrap">{jump}<div class="grid g4">{ap}</div></div></section>{inquiry(lg,"")}'))
     # about
     W(lg,'about',page(lg,'about/',('关于我们 - 东莞市至尚自动化科技有限公司' if lg=='zh' else 'About Dongguan Zhishang Automation Technology'),about_p(lg)[:150],about_body(lg)))
@@ -249,6 +250,20 @@ def sitemap():
 TBD={'zh':'[待提供]','en':'[to be provided]'}
 def is_hot(m): return any(f is HOT for f in m.get('features',[])) or m['slug'] in ('zs-s088d-4',)
 def is_cold(m): return any(f in (COLD,FLATC) for f in m.get('features',[]))
+def _relmodels(m):
+  # related models: same category first, then line partners (press<->inline),
+  # then same glue group, then the rest; deduped, capped at 6
+  allm=MACH+[CS]
+  same=[x for x in allm if x['cat']==m['cat'] and x is not m]
+  line=[]
+  if m['cat']=='press': line=[x for x in allm if x['cat']=='inline']
+  elif m['cat']=='inline': line=[x for x in allm if x['cat']=='press']
+  grp=[x for x in allm if grpof(x)==grpof(m) and x['cat']!=m['cat'] and x is not m]
+  rest=[x for x in allm if x is not m]
+  out=[]
+  for x in same+line+grp+rest:
+    if x not in out: out.append(x)
+  return out[:6]
 def extras(lg,m):
   z=lg=='zh';T=TBD[lg]
   pack=('出口木架尺寸：长1450*宽1000*高1850mm' if z else 'Export wooden crate size: L1450*W1000*H1850mm') if m is CS else T
@@ -267,8 +282,8 @@ def extras(lg,m):
         ('海外安装和技术支持怎么安排？','How are overseas installation and support arranged?','海外安装与技术支持方案请联系我们。国内省内客户可先试用一星期再付款。' if z else 'Contact us for overseas installation and support options.'),
         ('价格和交期？','Price and lead time?',T)]
   faq=''.join(f'<details><summary>{a if z else b_}</summary><p>{c}</p></details>' for a,b_,c in fq)
-  rel=[x for x in MACH+[CS] if x['cat']==m['cat'] and x is not m] or [x for x in MACH if x['cat'] in ('inline','cabinet')][:3]
-  relh=''.join(card(x,lg) for x in rel[:4])
+  rel=_relmodels(m)
+  relh=''.join(card(x,lg) for x in rel)
   ldf={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":(a if z else b_),"acceptedAnswer":{"@type":"Answer","text":c}} for a,b_,c in fq if c!=T]}
   return f'''<template id="hold-trade-faq"><section class="alt"><div class="wrap two top"><div><h2>{'贸易信息' if z else 'Trade Information'}</h2><div class="tbl"><table class="spec">{trade}</table></div></div><div><h2>{'常见问题' if z else 'FAQ'}</h2><div class="faq">{faq}</div></div></div></section></template>
 <section><div class="wrap"><h2>{'相关机型' if z else 'Related Models'}</h2><div class="grid g4">{relh}</div></div></section>'''
@@ -341,6 +356,10 @@ HL.update({'zs-s088r-3':('热熔胶随线划胶，可跨线使用','Inline Rigid
 FACTS.update({'zs-s088r-3':(('天地盒、书型盒、酒盒、盒中盒、手机盒、化妆品盒、首饰盒','Lid-and-base, book-shaped, wine, box-in-box, phone, cosmetics and jewelry boxes'),('亚敏胶、热熔胶','Sub-sensitive glue, hot melt glue'),('三轴 · 随线 · 平面划胶','3-axis · inline · flat gluing')),
 'zs-s088b-2-r':(('折叠盒、书型盒、皮盒、海绵、EVA','Folding, book-shaped and leather boxes, sponge, EVA'),('压敏胶（喷胶）、热熔胶','Pressure-sensitive (spray), hot melt'),('四轴 · 双工位 · 一人可操作两台','4-axis · dual-station · one operator runs two machines'))})
 for _m in MACH+[CS]: _m['en']=ENT[_m['slug']]
+# SEO titles (EN): keep <title> under 60 chars; on-page names (ENT) stay untouched
+SEOT={'zs-s088e-4':'ZS-S088E-4 Inline Cold Glue Dispensing Machine','zs-s088r-4':'ZS-S088R-4 Inline Hot Melt Gluing Machine','zs-s088c':'ZS-S088C 4-Axis Cabinet Cold Glue Machine','zs-s088c-4':'ZS-S088C-4 4-Axis Cabinet Hot Melt Machine','zs-s088d':'ZS-S088D 3-Axis Cabinet Cold Glue Machine','zs-s088d-4':'ZS-S088D-4 3-Axis Cabinet Hot Melt Machine','zs-s088b':'ZS-S088B Dual-Station Cold Glue Machine','zs-s088a':'ZS-S088A Dual-Station Cold Glue Machine','zs-s088a-r':'ZS-S088A-R Dual-Station Hot Melt Machine','zs-s088r-3':'ZS-S088R-3 Inline Hot Melt Gluing Machine','zs-s088b-2-r':'ZS-S088B-2-R Dual-Station Hot Melt Machine','zs-s088p':'ZS-S088P 3-Axis Glue Spraying Machine','zs-yh4040':'ZS-YH4040 Inline Bubble Press Machine'}
+# SEO titles (ZH): only the dual-station variants need trimming
+ZHOT={'zs-s088b':'ZS-S088B 双工位四轴划胶机','zs-s088b-2-r':'ZS-S088B-2-R 双工位热胶划胶机','zs-s088a':'ZS-S088A 双工位三轴划胶机','zs-s088a-r':'ZS-S088A-R 双工位热胶划胶机'}
 # ---- v21 additions ----
 L['en']['nav']+=[('glue/','Glue'),('molds/','Molds')]
 L['zh']['nav']+=[('glue/','胶水'),('molds/','模具')]
@@ -387,9 +406,10 @@ def build2():
     body=phead(lg,t,lead,('products/',L[lg]['nav'][0][1]))+f'''<section><div class="wrap">{gal(['os-ribbon-1','os-ribbon-2','os-ribbon-3'],[t,t,t])}</div></section>
 <section class="alt"><div class="wrap two top"><div><h2>{'自动冲孔机' if z else 'Automatic box punching machine'}</h2><p>{p1}</p>{tbl(RIB_P,lg)}</div><div><h2>{'自动贴丝带机' if z else 'Automatic ribbon attaching machine'}</h2><p>{p2}</p>{tbl(RIB_R,lg)}</div></div><div class="wrap">{note}</div></section>
 <section><div class="wrap">{gal(['os-ribbon-4','os-ribbon-5'],[t,t])}</div></section>{inquiry(lg,'')}'''
-    W(lg,'products/box-punching-ribbon-machine',page(lg,'products/box-punching-ribbon-machine/',t+(' | 至尚科技' if z else ' | Zhishang'),lead,body))
+    _bt=('盒子自动冲孔机与自动贴丝带机 | 至尚科技' if z else 'Box Punching & Ribbon Attaching Machine | Zhishang')
+    W(lg,'products/box-punching-ribbon-machine',page(lg,'products/box-punching-ribbon-machine/',_bt,lead,body))
     # glue
-    t=('胶水 | 广东九州顺驰环保新材料有限公司' if z else 'Glue | Guangdong Jiuzhou Shunchi Environmental Protection New Materials')
+    t=('胶水 | 广东九州顺驰环保新材料有限公司' if z else 'Glue | Jiuzhou Shunchi Adhesives')
     lead=('九州顺驰是至尚科技旗下的胶水公司，2022 年成立，研发、生产和销售包装用胶：水性白胶、万能胶、黄胶、热熔胶、压敏胶等，可与至尚划胶机配套使用。' if z else 'Jiuzhou Shunchi is Zhishang Technology\'s glue company, set up in 2022. It develops, makes and sells adhesives for packaging: water-based white glue, universal glue, yellow glue, hot melt and pressure-sensitive adhesive, matched to our gluing machines.')
     hm=[('型号','Model','Q-8313D','Q-8501BA'),('颜色','Color','黄色透明' if z else 'Yellow, transparent','浅色透明' if z else 'Light, transparent'),('软化点','Softening point','76-86°C','97-107°C'),('使用温度','Working temperature','160-180°C','160-180°C')]
     ht='<div class="tbl"><table class="spec"><tbody>'+''.join(f'<tr><th>{a if z else b}</th><td>{c}</td><td>{d}</td></tr>' for a,b,c,d in hm)+'</tbody></table></div>'
