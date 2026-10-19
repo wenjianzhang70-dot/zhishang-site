@@ -168,8 +168,8 @@ def build():
 <section class="alt"><div class="wrap"><h2>{'三项承诺' if lg=='zh' else 'Our Three Commitments'}</h2>{prom}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'关于至尚' if lg=='zh' else 'About Zhishang'}</h2><p>{about_p(lg)}</p><a class="btn ghost dark" href="{P}about/">{'了解更多' if lg=='zh' else 'Learn more'}</a></div></div></section>
 {inquiry(lg,'')}'''
-    title=('至尚科技 | 划胶机、点胶机、喷胶机、压泡机 - 东莞市至尚自动化科技有限公司' if lg=='zh' else 'Rigid Box Gluing Machine, Hot Melt Gluing Machine & Glue Dispensing Machine | Zhishang')
-    desc=('东莞市至尚自动化科技有限公司，专注划胶设备行业：随线/柜式/双工位划胶机、喷胶机、压泡机、半自动小皮壳机，冷胶热胶机型齐全。' if lg=='zh' else 'Dongguan Zhishang Automation Technology: rigid box gluing machines, hot melt gluing machines for rigid boxes, glue dispensing and glue spraying machines, rigid box bubble pressing machines and case making machines.')
+    title=('至尚科技 | 划胶机、点胶机、喷胶机、压泡机 - 东莞市至尚自动化科技有限公司' if lg=='zh' else 'Rigid Box Gluing & Dispensing Machines | Zhishang')
+    desc=('东莞市至尚自动化科技有限公司，专注划胶设备行业：随线/柜式/双工位划胶机、喷胶机、压泡机、半自动小皮壳机，冷胶热胶机型齐全。' if lg=='zh' else 'Dongguan Zhishang Automation: rigid box gluing, glue dispensing & spraying machines, hot melt models, plus bubble pressing and case making machines.')
     W(lg,'',page(lg,'',title,desc,body))
     # PRODUCTS overview
     grp=''
@@ -274,7 +274,6 @@ def extras(lg,m):
 <section><div class="wrap"><h2>{'相关机型' if z else 'Related Models'}</h2><div class="grid g4">{relh}</div></div></section>'''
 def ld_product(lg,m,summ):
   t=L[lg];P=URL+t['pre']
-  d={"@context":"https://schema.org","@type":"Product","name":nm(m,lg),"model":m['model'],"mpn":m['model'],"image":URL+'img/'+m['img']+'.jpg',"description":summ,"brand":{"@type":"Brand","name":t['brand']},"manufacturer":{"@type":"Organization","name":t['co']},"url":P+'products/'+m['slug']+'/'}
   bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":'首页' if lg=='zh' else 'Home',"item":P},{"@type":"ListItem","position":2,"name":t['nav'][0][1],"item":P+'products/'},{"@type":"ListItem","position":3,"name":m['model'],"item":P+'products/'+m['slug']+'/'}]}
   return f'<script type="application/ld+json">{json.dumps(bc,ensure_ascii=False)}</script>'
 DETS={'zs-s088r-4':[('胶头特写','Glue head close-up','PPT P7')],'zs-s088e-4':[('胶头特写','Glue head close-up','PPT P9')],'zs-s088r-3':[('胶头特写','Glue head close-up','PPT P8')],'zs-s088b':[('手持控制器与胶头','Handheld controller and glue head','PPT P13')]}
