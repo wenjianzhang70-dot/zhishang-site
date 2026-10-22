@@ -108,8 +108,23 @@ def _pic(m):
   tag=tag.replace(' data-eager','').replace(' loading="lazy"','').replace(' loading=lazy','')
   tag=tag[:-1]+f' width="{w}" height="{h}" decoding="async"'+(' fetchpriority="high"' if eager else ' loading="lazy"')+'>'
   return f'<picture><source srcset="{BASE}img/{name}.webp" type="image/webp">{tag}</picture>'
+TAWK_SNIPPET = """<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6ad9f510033a93345a73c9b8/1k5hmaiv5';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+"""
 def W(lg,path,html_):
   html_=_re.sub(r'<img src="'+BASE+r'img/([\w-]+)\.jpg"[^>]*>',_pic,html_)
+  if 'embed.tawk.to' not in html_: html_=html_.replace('</body>',TAWK_SNIPPET+'</body>',1)
   d=os.path.join(L[lg]['pre'],path);os.makedirs(d or '.',exist_ok=True);open(os.path.join(d,'index.html'),'w').write(html_)
 def nm(m,lg): return m['zh'] if lg=='zh' else m['en']
 def card(m,lg):
