@@ -163,7 +163,7 @@ def build():
 {vsec(lg,'home-line',480,854,'生产线实拍' if lg=='zh' else 'See Our Machines at Work','Zhishang inline gluing line')}
 <section class="wideimg"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div class="wrap"><p>{'东莞东城 · 2018 年成立' if lg=='zh' else 'Dongcheng, Dongguan · Founded 2018'}</p></div></section>
 <section><div class="wrap"><div class="grid g3">{en_}</div></div></section>
-<section><div class="wrap"><h2>{'主推机型' if lg=='zh' else 'Featured Machines'}</h2><div class="grid g4">{''.join(card(m,lg) for m in feat)}</div><p><a class="btn" href="{P}products/">{t['allp']}</a></p></div></section>
+<section><div class="wrap"><h2>{'主推机型' if lg=='zh' else 'Featured Machines'}</h2><div class="grid g4">{''.join(card(m,lg) for m in feat)}{SPRAYX(lg)}</div><p><a class="btn" href="{P}products/">{t['allp']}</a></p></div></section>
 <section><div class="wrap"><h2>{'公司实力' if lg=='zh' else 'Company Strength'}</h2>{strength(lg)}</div></section>
 <section class="alt"><div class="wrap"><h2>{'三项承诺' if lg=='zh' else 'Our Three Commitments'}</h2>{prom}</div></section>
 <section><div class="wrap two"><img src="{BASE}img/factory.jpg" alt="{'至尚科技厂房外观' if lg=='zh' else 'Zhishang factory building'}"><div><h2>{'关于至尚' if lg=='zh' else 'About Zhishang'}</h2><p>{about_p(lg)}</p><a class="btn ghost dark" href="{P}about/">{'了解更多' if lg=='zh' else 'Learn more'}</a></div></div></section>
@@ -433,19 +433,35 @@ def SPRAYX(lg):
   return f'<a class="pcard" href="{BASE}{t["pre"]}products/{SPX_SLUG}/"><img src="{BASE}img/os-spray-inline-1.jpg" alt="{"随线四轴喷胶机-冷胶" if z else "Inline 4-axis cold glue spraying machine"}" loading="lazy"><div><small>{"基于 ZS-S088E-4" if z else "Based on ZS-S088E-4"}</small><h3>{"随线四轴喷胶机-冷胶" if z else "Inline 4-Axis Cold Glue Spraying Machine"}</h3><p>{"ZS-S088E-4 机身，装喷胶头" if z else "ZS-S088E-4 platform fitted with a spray head"}</p><span class="more">{t["view"]} →</span></div></a>'
 def build3():
   e4={m['slug']:m for m in MACH}['zs-s088e-4']
+  bys={m['slug']:m for m in MACH}
   for lg in ('en','zh'):
     z=lg=='zh';t=L[lg];P=BASE+t['pre']
     name='随线四轴喷胶机-冷胶' if z else 'Inline 4-Axis Cold Glue Spraying Machine'
     lead=('这台机与随线四轴划胶机 ZS-S088E-4 是同一机身，区别只在于胶头：它装的是喷胶头，把胶水喷涂在盒子上，而不是划胶线。其余参数与 ZS-S088E-4 相同。' if z else 'This machine shares its frame with the ZS-S088E-4 inline gluing machine. The only difference is the head: it carries a spray head (喷胶头) that sprays glue onto the box instead of drawing a glue line. All other specifications match the ZS-S088E-4.')
+    intro1=('随线四轴喷胶机-冷胶与随线四轴划胶机 ZS-S088E-4 共用同一机身平台，区别只在胶头：本机装喷胶头，把胶水喷涂到盒子表面；ZS-S088E-4 装划胶头，划出线状胶路。需要把胶水覆盖到一个面上时选喷胶，需要精确胶线时选划胶，两款同平台机器按工艺互补。' if z else 'The inline 4-axis cold glue spraying machine shares its platform with the ZS-S088E-4 inline gluing machine; only the head differs. This machine carries a spray head that coats the box surface with glue, while the ZS-S088E-4 draws a precise glue line. Choose spraying when a surface has to be coated, and line gluing when an exact glue line is needed: the two machines on the same platform complement each other by process.')
+    intro2=('它用在盒类产品的连线生产中：可以配手工流水线，也可以搭配自动天地盒机连线作业，机器可根据生产需要摆放在产线任意位置。除胶头外，外形尺寸、工作尺寸、速度、功率、电源与气压都与 ZS-S088E-4 相同，参数见下表。' if z else 'It works inline on box production: with a manual assembly line, or linked to an automatic lid-and-base box machine, and it can be placed anywhere along the line. Apart from the head, dimensions, working size, speed, power, voltage and air pressure are all the same as the ZS-S088E-4; see the specification table below.')
+    fx=[(('适用产品','Products'),('盒子类产品（连线作业）','Box products (inline work)')),(('胶水','Glue'),('冷胶：白胶、黄胶、万能胶','Cold glue: white glue, yellow glue, universal glue')),(('结构','Build'),('四轴 · 随线 · 喷胶头','4-axis · inline · spray head'))]
+    facts='<dl class="facts">'+''.join(f'<div><dt>{l[0] if z else l[1]}</dt><dd>{v[0] if z else v[1]}</dd></div>' for l,v in fx)+'</dl>'
+    feats=[('与 ZS-S088E-4 同机身平台，仅胶头不同：喷胶头喷涂成面，划胶头划线成路','Same platform as the ZS-S088E-4, only the head differs: the spray head coats a surface, the gluing head draws a line'),('适用于盒子类产品进行连线作业','Suited to inline operation on box products'),INL2,('适用冷胶：白胶、黄胶、万能胶等','For cold glues: white glue, yellow glue, universal glue and similar'),('机器可以根据生产需要进行任意位置摆放','The machine can be placed at any position as production requires'),F5]
+    featsh='<ol class="feats">'+''.join(f'<li>{a if z else b}</li>' for a,b in feats)+'</ol>'
+    apps=('典型用法是把这台机接在盒类产品产线上做随线喷胶：盒子随流水线经过时完成喷涂，再进入后续工序。天地盒、礼盒等盒类产品需要大面积涂胶时，用它替代人工涂胶工位。' if z else 'The typical setup puts this machine on a box production line for inline spraying: boxes are coated as they pass on the line, then move to the next process. On lid-and-base boxes, gift boxes and other box products that need a coated surface, it replaces a manual gluing station.')
     vals=[(t['lab'][0],'— ('+('基于' if z else 'based on')+' ZS-S088E-4)'),(t['lab'][1],name),(t['lab'][2],e4['dims']),(t['lab'][3],e4['size']),(t['lab'][4],e4['speed']),(t['lab'][5],e4['power']),(t['lab'][7],e4['volt']),(t['lab'][8],e4['air']),('胶头' if z else 'Head','喷胶头' if z else 'Spray head (喷胶头)')]
     rows=''.join(f'<tr><th>{a}</th><td><code>{e(v)}</code></td></tr>' for a,v in vals)
-    pts=[('可随线作业，搭配手工流水线或自动天地盒机连线','Runs inline, with manual assembly lines or automatic lid-and-base box machines'),('适用冷胶：白胶、黄胶、万能胶等','For cold glues: white glue, yellow glue, universal glue and similar'),('机器可根据生产需要摆放在任意位置','Can be placed anywhere along the line to suit production')]
-    ptsh=''.join(f'<li>{a if z else b}</li>' for a,b in pts)
     lk=('查看 ZS-S088E-4 划胶机' if z else 'See the ZS-S088E-4 gluing machine')
-    sn=('参数同 ZS-S088E-4（数据来源：至尚产品画册），喷胶宽度待提供。' if z else 'Specifications as ZS-S088E-4 (source: Zhishang product brochure); spray width to be provided.')
+    sn=('参数同 ZS-S088E-4（数据来源：至尚产品画册）。' if z else 'Specifications as ZS-S088E-4 (source: Zhishang product brochure).')
+    fq=[('这台机和 ZS-S088E-4 是什么关系？','How is this machine related to the ZS-S088E-4?','同一机身平台，区别只在胶头：本机装喷胶头，ZS-S088E-4 装划胶头；外形尺寸、工作尺寸、速度、功率、电源与气压都相同。' if z else 'They share the same platform and differ only in the head: this machine carries a spray head, the ZS-S088E-4 a gluing head. Dimensions, working size, speed, power, voltage and air pressure are the same.'),
+        ('能用哪些胶水？','Which glues can it use?','冷胶：白胶、黄胶、万能胶等。' if z else 'Cold glues: white glue, yellow glue, universal glue and similar.'),
+        ('喷胶和划胶怎么选？','Should I choose spraying or line gluing?','需要把胶水覆盖到一个面上选喷胶；需要精确线状胶路选划胶机 ZS-S088E-4。两款同平台，可按工艺搭配使用。' if z else 'Choose spraying when a surface has to be coated; choose the ZS-S088E-4 gluing machine when an exact glue line is needed. The two share one platform and can be combined by process.'),
+        ('需要什么电源和气源？','What power and air supply are needed?',f"{e4['volt']}，{e4['air']}" if z else f"{e4['volt']}, {e4['air']}"),
+        ('能接入现有产线吗？','Can it fit into my existing line?','可以配手工流水线，也可以搭配自动天地盒机连线作业；机器可根据生产需要摆放在任意位置。' if z else 'It works with manual assembly lines or inline with automatic lid-and-base box machines, and can be placed anywhere along the line.'),
+        ('机器坏了多久能修？','How fast is after-sales service?','机器故障维修：国外7天；国内市内4小时，省内24小时，省外3天。' if z else 'Overseas machine faults: service response within 7 days.')]
+    faqh='<div class="faq">'+''.join(f'<details><summary>{a if z else b}</summary><p>{c}</p></details>' for a,b,c in fq)+'</div>'
+    ldf={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":(a if z else b),"acceptedAnswer":{"@type":"Answer","text":c}} for a,b,c in fq]}
+    ld=f'<script type="application/ld+json">{json.dumps(ldf,ensure_ascii=False)}</script>'
+    relh=''.join(card(bys[s],lg) for s in ('zs-s088e-4','zs-s088r-4','zs-s088p'))
     g=gal(['os-spray-inline-1','os-spray-inline-2','os-spray-inline-3'],[name]*3)
-    body=phead(lg,name,lead,('products/',t['nav'][0][1]))+f'<section><div class="wrap">{g}<ul class="pts">{ptsh}</ul><p><a class="btn ghost dark" href="{P}products/zs-s088e-4/">{lk} →</a></p></div></section><section id="specs" class="alt"><div class="wrap"><h2>{t["spec"]}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{sn} {NOTE_Q[lg]}</p></div></section>'+inquiry(lg,'ZS-S088E-4')
-    W(lg,'products/'+SPX_SLUG,page(lg,f'products/{SPX_SLUG}/',name+(' | 至尚科技' if z else ' | Zhishang'),lead,body))
+    body=phead(lg,name,lead,('products/',t['nav'][0][1]))+f'<section><div class="wrap">{g}{facts}<p>{intro1}</p><p>{intro2}</p><p><a class="btn ghost dark" href="{P}products/zs-s088e-4/">{lk} →</a></p></div></section><section id="features" class="alt"><div class="wrap"><h2>{t["feat"]}</h2>{featsh}</div></section><section><div class="wrap"><h2>{"应用场景" if z else "Applications"}</h2><p>{apps}</p><p><a href="{P}applications/">{"查看应用领域" if z else "See all applications"} →</a></p></div></section><section id="specs" class="alt"><div class="wrap"><h2>{t["spec"]}</h2><div class="tbl"><table class="spec">{rows}</table></div><p class="small">{sn} {NOTE_Q[lg]}</p></div></section><section><div class="wrap"><h2>{"常见问题" if z else "FAQ"}</h2>{faqh}</div></section><section class="alt"><div class="wrap"><h2>{"相关机型" if z else "Related Models"}</h2><div class="grid g4">{relh}</div></div></section>'+inquiry(lg,'ZS-S088E-4')
+    W(lg,'products/'+SPX_SLUG,page(lg,f'products/{SPX_SLUG}/',name+(' | 至尚科技' if z else ' | Zhishang'),lead,body+ld))
 
 import guides as _G
 def build4():
