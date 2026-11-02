@@ -1,0 +1,40 @@
+# Zhishang (Dongguan Zhishang Technology Co., Ltd.)
+
+> Zhishang is a Dongguan, China manufacturer of glue dispensing and gluing machines for packaging and box production: hot melt and cold glue application, inline gluing lines, and custom non-standard gluing machines built to order. The site is available in English and Chinese (Chinese pages under /zh/).
+
+## Products
+
+- [All Products](https://zhishangkj.com/products/): Full product range, English and Chinese.
+- [Custom Automated Meal Box Gluing Machine](https://zhishangkj.com/products/custom-automated-meal-box-gluing-machine/): Fully enclosed cabinet conveyor line with a multi-axis gluing head for automatic cold-glue application on paper meal boxes.
+- [Inline 4-Axis Glue Spraying Machine](https://zhishangkj.com/products/inline-4-axis-glue-spraying-machine/): Inline multi-axis glue spraying line.
+- [Box Punching Ribbon Machine](https://zhishangkj.com/products/box-punching-ribbon-machine/): Box punching and ribbon machine.
+- [ZS-S088A](https://zhishangkj.com/products/zs-s088a/) / [ZS-S088A-R](https://zhishangkj.com/products/zs-s088a-r/): S088A series gluing machines.
+- [ZS-S088B](https://zhishangkj.com/products/zs-s088b/) / [ZS-S088B-2-R](https://zhishangkj.com/products/zs-s088b-2-r/): S088B series gluing machines.
+- [ZS-S088C](https://zhishangkj.com/products/zs-s088c/) / [ZS-S088C-4](https://zhishangkj.com/products/zs-s088c-4/): S088C series gluing machines.
+- [ZS-S088D](https://zhishangkj.com/products/zs-s088d/) / [ZS-S088D-4](https://zhishangkj.com/products/zs-s088d-4/): S088D series gluing machines.
+- [ZS-S088E-4](https://zhishangkj.com/products/zs-s088e-4/): S088E-4 gluing machine.
+- [ZS-S088P](https://zhishangkj.com/products/zs-s088p/): S088P gluing machine.
+- [ZS-S088R-3](https://zhishangkj.com/products/zs-s088r-3/) / [ZS-S088R-4](https://zhishangkj.com/products/zs-s088r-4/): S088R series gluing machines.
+- [ZS-YH4040](https://zhishangkj.com/products/zs-yh4040/): YH4040 machine.
+- [CS4539](https://zhishangkj.com/products/cs4539/): CS4539 machine.
+
+## Guides and troubleshooting
+
+- [All Guides](https://zhishangkj.com/guides/): Gluing troubleshooting guides, English and Chinese.
+- [Hot Glue Not Sticking? Causes and Fixes](https://zhishangkj.com/guides/hot-glue-not-sticking/)
+- [Glue Not Drying in Cold Weather](https://zhishangkj.com/guides/glue-not-drying-cold-weather/)
+- [Hot Melt Glue Stringing](https://zhishangkj.com/guides/hot-melt-glue-stringing/)
+- [Hot Melt Nozzle Clogging and Charring](https://zhishangkj.com/guides/hot-melt-nozzle-clogging-charring/)
+- [Hot Melt vs White PVA Glue](https://zhishangkj.com/guides/hot-melt-vs-white-pva-glue/)
+- [Rigid Box Warping](https://zhishangkj.com/guides/rigid-box-warping/)
+- [Hot Melt Ordering Checklist](https://zhishangkj.com/guides/hot-melt-ordering-checklist/)
+
+## Company
+
+- [About](https://zhishangkj.com/about/): Company profile.
+- [Applications](https://zhishangkj.com/applications/): Where Zhishang machines are used.
+- [Glue Knowledge](https://zhishangkj.com/glue/): Glue types and selection notes.
+- [Molds](https://zhishangkj.com/molds/): Mold information.
+- [Service](https://zhishangkj.com/service/): After-sales service.
+- [Quiz](https://zhishangkj.com/quiz/): Machine selection quiz.
+- [Contact](https://zhishangkj.com/contact/): Inquiry form and contact details.
