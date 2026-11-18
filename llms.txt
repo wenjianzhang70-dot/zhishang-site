@@ -18,6 +18,10 @@
 - [ZS-YH4040](https://zhishangkj.com/products/zs-yh4040/): YH4040 machine.
 - [CS4539](https://zhishangkj.com/products/cs4539/): CS4539 machine.
 
+## Tools
+
+- [Rigid Box Machine Matcher & Plant Calculator](https://zhishangkj.com/tools/): Enter box dimensions to find the right Zhishang machine, calculate workshop footprint, power, shipping volume, and generate an RFQ spec sheet.
+
 ## Guides and troubleshooting
 
 - [All Guides](https://zhishangkj.com/guides/): Gluing troubleshooting guides, English and Chinese.
@@ -28,6 +32,17 @@
 - [Hot Melt vs White PVA Glue](https://zhishangkj.com/guides/hot-melt-vs-white-pva-glue/)
 - [Rigid Box Warping](https://zhishangkj.com/guides/rigid-box-warping/)
 - [Hot Melt Ordering Checklist](https://zhishangkj.com/guides/hot-melt-ordering-checklist/)
+- [Rigid Box Bubble Pressing Guide](https://zhishangkj.com/guides/rigid-box-bubble-pressing-guide/)
+
+## Key Facts & Overseas Support
+
+- Founded 2018 in Dongcheng, Dongguan (grown out of Zhishang Boutique Packaging)
+- 3,000 m2 workshop, 80 staff
+- Affiliated Jiuzhou Shunchi adhesives (VOC-tested hot melt & universal glue)
+- Affiliated Sanshi Precision Mold (24h standard / 8h urgent custom molds)
+- Shipping from Yantian & Shekou ports
+- Lifetime patented glue nozzle repair/trade-in
+- 7-day overseas fault repair response
 
 ## Company
 
@@ -38,3 +53,8 @@
 - [Service](https://zhishangkj.com/service/): After-sales service.
 - [Quiz](https://zhishangkj.com/quiz/): Machine selection quiz.
 - [Contact](https://zhishangkj.com/contact/): Inquiry form and contact details.
+
+## Contact
+
+- WhatsApp/WeChat: +86 158 2092 8436 (Jelly Chen)
+- Email: sales@zhishangkj.com

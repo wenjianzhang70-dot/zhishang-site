@@ -1,0 +1,645 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="msvalidate.01" content="AC72F99CA17886800FFF19197C936275" />
+<title>Rigid Box Machine Matcher &amp; Plant Calculator | Zhishang</title><meta name="description" content="Enter your box dimensions to find the right Zhishang gluing machine, calculate workshop footprint, power, shipping volume, and generate an RFQ spec sheet.">
+<link rel="canonical" href="https://zhishangkj.com/tools/"><link rel="alternate" hreflang="en" href="https://zhishangkj.com/tools/"><link rel="alternate" hreflang="zh-CN" href="https://zhishangkj.com/zh/tools/"><link rel="alternate" hreflang="x-default" href="https://zhishangkj.com/tools/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Zhishang Technology"><meta property="og:title" content="Rigid Box Machine Matcher &amp; Plant Calculator | Zhishang"><meta property="og:description" content="Enter your box dimensions to find the right Zhishang gluing machine, calculate workshop footprint, power, shipping volume, and generate an RFQ spec sheet."><meta property="og:url" content="https://zhishangkj.com/tools/"><meta property="og:image" content="https://zhishangkj.com/img/factory.jpg"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png"><link rel="apple-touch-icon" href="/img/favicon-180.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Dongguan Zhishang Automation Technology Co., Ltd", "alternateName": "至尚科技 ZHI SHANG TECHNOLOGY", "url": "https://zhishangkj.com/", "logo": "https://zhishangkj.com/img/logo.png", "foundingDate": "2018", "address": {"@type": "PostalAddress", "streetAddress": "No. 42, Dongcheng Section, Huancheng East Road, Dongcheng Subdistrict", "addressLocality": "Dongguan", "addressRegion": "Guangdong", "addressCountry": "CN"}, "email": "sales@zhishangkj.com", "telephone": "+86 158 2092 8436"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Zhishang Rigid Box Machine Matcher & Plant Calculator", "url": "https://zhishangkj.com/tools/", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Dongguan Zhishang Automation Technology Co., Ltd", "url": "https://zhishangkj.com/"}, "inLanguage": "en"}</script><link rel="stylesheet" href="/assets/fonts.css"><link rel="stylesheet" href="/assets/site.css?v=30"><script async src="https://www.googletagmanager.com/gtag/js?id=G-J8L2PBZ1GS"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8L2PBZ1GS');</script></head><body>
+<header><div class="wrap"><a class="logo" href="/"><img src="/img/logo-120h.png" width="240" height="62" alt="至尚科技 ZHI SHANG TECHNOLOGY"></a><button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav" onclick="var o=document.body.classList.toggle('navopen');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><nav id="mnav" onclick="if(event.target.closest('a'))document.body.classList.remove('navopen')"><a href="/products/">Products</a><a href="/guides/">Guides</a><div class="navdd"><a href="/applications/">Applications</a><button type="button" class="ddbtn" aria-expanded="false" aria-label="Applications" onclick="var o=this.parentNode.classList.toggle('open');this.setAttribute('aria-expanded',o)">▾</button><ul class="ddmenu"><li><a href="/applications/#app-1">Rigid / gift boxes</a></li><li><a href="/applications/#app-2">Lid-and-base boxes</a></li><li><a href="/applications/#app-3">Book-style & folding boxes</a></li><li><a href="/applications/#app-4">Cases & leather covers</a></li><li><a href="/applications/#app-5">Recessed card inserts</a></li><li><a href="/applications/#app-6">Jewelry, luxury & cosmetic boxes</a></li><li><a href="/applications/#app-7">Phone, tablet & perfume boxes</a></li><li><a href="/applications/#app-8">Leather-box covering materials</a></li></ul></div><a href="/service/">Service</a><a href="/about/">About</a><a href="/contact/">Contact</a><a class="navq" href="/contact/#quote">Request a Quote</a></nav><a class="btn sm" href="/contact/">Request a Quote</a><a class="lang" href="/zh/tools/">中文</a></div></header>
+<main><style>
+/* ── Tools workbench ── */
+.tw{max-width:1180px;margin:0 auto;padding:0 20px;overflow-x:hidden}
+.tw *{box-sizing:border-box}
+.tw h1{font-size:2.2rem;margin:0 0 6px;color:#0F2A44;line-height:1.15}
+.tw .lead{font-size:1.05rem;color:#5B6B7A;margin:0 0 20px;max-width:62ch}
+.tw-tabs{display:flex;gap:0;border-bottom:2px solid #dde2e8;margin-bottom:24px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw-tab{background:none;border:none;border-bottom:3px solid transparent;padding:12px 18px;font:inherit;font-size:1rem;font-weight:600;color:#5B6B7A;cursor:pointer;margin-bottom:-2px;white-space:nowrap}
+.tw-tab[aria-selected="true"]{color:#0F2A44;border-bottom-color:#F2A900}
+.tw-tab:hover{color:#0F2A44}
+.tw-pane{display:none}.tw-pane.active{display:block}
+.tw-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px}
+.tw-row.r3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:600px){.tw-row,.tw-row.r3{grid-template-columns:1fr}}
+.tw-field label{display:block;font-size:.85rem;color:#5B6B7A;margin-bottom:4px}
+.tw-field input,.tw-field select{width:100%;padding:10px;border:1px solid #dde2e8;border-radius:4px;font:inherit;font-size:16px;background:#fff}
+.tw-field input[type="number"]{font-variant-numeric:tabular-nums}
+.tw-seg{display:inline-flex;border:1px solid #dde2e8;border-radius:4px;overflow:hidden;position:relative}
+.tw-seg label{padding:8px 14px;font-size:.9rem;cursor:pointer;border-right:1px solid #dde2e8;color:#5B6B7A;user-select:none}
+.tw-seg label:last-child{border-right:0}
+.tw-seg input{position:absolute;opacity:0;pointer-events:none;width:0;height:0;overflow:hidden}
+.tw-seg input:checked+span{background:#0F2A44;color:#fff}
+.tw-seg span{display:block;padding:0;border-radius:0;transition:background-color .15s ease-out,color .15s ease-out}
+.tw-seg label{padding:0}.tw-seg label span{padding:8px 14px}
+@media(prefers-reduced-motion:reduce){.tw-seg span{transition:none}}
+
+.tw-results{margin-top:20px}
+.tw-match{background:#fff;border:1px solid #dde2e8;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.tw-match.best{border-left:4px solid #F2A900}
+.tw-match h3{margin:0 0 4px;font-size:1.05rem;color:#0F2A44}
+.tw-match .specs{font-variant-numeric:tabular-nums;font-size:.9rem;color:#5B6B7A;margin:0 0 6px}
+.tw-match .reason{font-size:.95rem;margin:0 0 8px}
+.tw-match-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tw-match-actions a,.tw-match-actions button{font-size:.9rem}
+.tw-match-actions a{color:#0F2A44;text-decoration:underline}
+.tw-add{background:#F2A900;color:#0F2A44;border:none;padding:6px 12px;border-radius:4px;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.tw-add:hover{background:#d99500}
+.tw-note{background:#FFF8E6;border-left:4px solid #F2A900;padding:12px 16px;font-size:.93rem;margin:14px 0;border-radius:0 4px 4px 0}
+
+/* SVG diagram */
+.tw-svg-wrap{background:#fff;border:1px solid #dde2e8;border-radius:6px;padding:16px;margin:16px 0;text-align:center;min-height:200px}
+.tw-svg-wrap svg{max-width:100%;height:auto}
+
+/* Section 2: line planner */
+.tw-line-item{display:grid;grid-template-columns:2fr 80px 60px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #dde2e8;font-size:.95rem}
+.tw-line-item input[type="number"]{width:60px;padding:6px;text-align:center;font-variant-numeric:tabular-nums}
+.tw-line-item button{background:none;border:none;color:#dc2626;cursor:pointer;font-size:1.1rem;padding:4px 8px}
+.tw-totals{background:#F3F5F7;border-radius:6px;padding:16px 18px;margin-top:16px}
+.tw-totals dt{font-size:.85rem;color:#5B6B7A}.tw-totals dd{font-variant-numeric:tabular-nums;font-weight:600;color:#0F2A44;margin:0 0 10px}
+.tw-totals .warn{color:#dc2626;font-weight:600}
+
+/* Section 3: RFQ */
+.tw-rfq-box{background:#fff;border:1px solid #dde2e8;border-radius:6px;padding:16px 18px;margin-top:16px;white-space:pre-wrap;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.85rem;font-variant-numeric:tabular-nums;line-height:1.6;max-height:420px;overflow-y:auto;color:#0F2A44}
+.tw-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.tw-actions button,.tw-actions a{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:4px;font:inherit;font-size:.95rem;font-weight:600;text-decoration:none;cursor:pointer;border:none}
+.tw-btn-primary{background:#F2A900;color:#0F2A44}.tw-btn-primary:hover{background:#d99500}
+.tw-btn-wa{background:#1F8F4E;color:#fff}.tw-btn-wa:hover{background:#17753e}
+.tw-btn-copy{background:#0F2A44;color:#fff}.tw-btn-copy:hover{background:#1a3f5c}
+
+.tw-ck label{display:flex;gap:8px;align-items:flex-start;font-size:.93rem;padding:6px 0;cursor:pointer}
+.tw-ck input[type="checkbox"]{margin-top:3px;accent-color:#F2A900}
+.tw-facts{font-size:.93rem;line-height:1.65;color:#0F2A44}
+.tw-facts b{color:#0F2A44}
+
+.tw-h2{font-size:1.5rem;color:#0F2A44;margin:28px 0 12px;font-weight:700}
+.tw-sep{height:1px;background:#dde2e8;margin:24px 0;border:none}
+
+@media(max-width:390px){
+  .tw h1{font-size:1.6rem}
+  .tw-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tw-tab{padding:10px 12px;font-size:.9rem}
+  .tw-match{padding:12px 14px}
+}
+</style>
+<section style="padding-top:24px;padding-bottom:0">
+<div class="tw">
+<h1>Rigid box machine matcher & plant workbench</h1>
+<p class="lead">Enter your box dimensions, select a process and glue type, and find the right Zhishang machine. Calculate workshop footprint, power and shipping volume, then generate an RFQ spec sheet.</p>
+
+<div class="tw-tabs" role="tablist">
+  <button class="tw-tab" role="tab" aria-selected="true" aria-controls="tw-p1">Box size & machine matcher</button>
+  <button class="tw-tab" role="tab" aria-selected="false" aria-controls="tw-p2">Workshop & shipping calculator</button>
+  <button class="tw-tab" role="tab" aria-selected="false" aria-controls="tw-p3">RFQ spec sheet</button>
+</div>
+
+<!-- ═══ Tab 1: Machine Matcher ═══ -->
+<div class="tw-pane active" id="tw-p1">
+
+<div style="margin-bottom:14px">
+  <span style="font-size:.85rem;color:#5B6B7A;margin-right:8px">mm / inch:</span>
+  <span class="tw-seg">
+    <label><input type="radio" name="tw-unit" value="mm" checked><span>mm</span></label>
+    <label><input type="radio" name="tw-unit" value="inch"><span>inch</span></label>
+  </span>
+</div>
+
+<div class="tw-row r3">
+  <div class="tw-field"><label for="tw-l">Length</label><input type="number" id="tw-l" min="0" step="1" placeholder="e.g. 300"></div>
+  <div class="tw-field"><label for="tw-w">Width</label><input type="number" id="tw-w" min="0" step="1" placeholder="e.g. 200"></div>
+  <div class="tw-field"><label for="tw-h">Height</label><input type="number" id="tw-h" min="0" step="1" placeholder="e.g. 80"></div>
+</div>
+
+<div class="tw-row">
+  <div class="tw-field"><label for="tw-proc">Process</label>
+    <select id="tw-proc">
+      <option value="bead">Bead / line gluing</option>
+      <option value="spray">Surface glue spraying</option>
+      <option value="press">Bubble pressing</option>
+      <option value="case">Case making</option>
+    </select>
+  </div>
+  <div class="tw-field"><label for="tw-line">Line setup</label>
+    <select id="tw-line">
+      <option value="any">Any</option>
+      <option value="inline">Inline conveyor</option>
+      <option value="cabinet">Standalone cabinet</option>
+      <option value="dual">Dual-station</option>
+    </select>
+  </div>
+</div>
+
+<div class="tw-row">
+  <div class="tw-field"><label for="tw-glue">Glue type</label>
+    <select id="tw-glue">
+      <option value="any">Not sure</option>
+      <option value="cold">Cold PVA / universal</option>
+      <option value="hot">Hot melt / PSA</option>
+    </select>
+  </div>
+  <div class="tw-field"><label for="tw-path">Glue path</label>
+    <select id="tw-path">
+      <option value="any">Not sure</option>
+      <option value="flat">Flat 2D surface only (3-axis eligible)</option>
+      <option value="3d">Bottom + side walls (requires 4-axis)</option>
+    </select>
+  </div>
+</div>
+
+<button type="button" class="tw-add" id="tw-find" style="padding:10px 20px;font-size:1rem">Find matching machines</button>
+
+<div class="tw-svg-wrap">
+  <svg id="tw-diagram" viewBox="0 0 500 230" xmlns="http://www.w3.org/2000/svg" aria-label="Box and glue path diagram"></svg>
+</div>
+
+<div id="tw-results" class="tw-results"></div>
+
+</div>
+
+<!-- ═══ Tab 2: Workshop & Shipping Calculator ═══ -->
+<div class="tw-pane" id="tw-p2">
+
+<h2 class="tw-h2">Your line plan</h2>
+<div id="tw-line-list"></div>
+
+<div class="tw-row" style="margin-top:14px">
+  <div class="tw-field"><label for="tw-add-sel">Add a machine</label>
+    <select id="tw-add-sel">
+      <option value="">--</option>
+      <option value="e4">ZS-S088E-4 Inline 4-axis cold glue</option><option value="r4">ZS-S088R-4 Inline 4-axis hot melt</option><option value="r3">ZS-S088R-3 Inline 3-axis hot melt (flat gluing)</option><option value="c">ZS-S088C 4-axis cabinet cold glue</option><option value="c4">ZS-S088C-4 4-axis cabinet hot melt</option><option value="d">ZS-S088D 3-axis cabinet cold glue (flat)</option><option value="d4">ZS-S088D-4 3-axis cabinet hot melt (flat)</option><option value="b">ZS-S088B Dual-station 4-axis cold glue (standard)</option><option value="b2">ZS-S088B-2 Dual-station 4-axis cold glue (large)</option><option value="a">ZS-S088A Dual-station 3-axis cold glue (standard)</option><option value="a2">ZS-S088A-2 Dual-station 3-axis cold glue (large)</option><option value="ar">ZS-S088A-R Dual-station 3-axis hot melt (standard)</option><option value="ar2">ZS-S088A-2-R Dual-station 3-axis hot melt (large)</option><option value="b2r">ZS-S088B-2-R Dual-station 4-axis hot melt (standard)</option><option value="b2r2">ZS-S088B-2-R (large) Dual-station 4-axis hot melt (large)</option><option value="p">ZS-S088P 3-axis glue sprayer</option><option value="spi">Inline 4-axis sprayer Inline 4-axis cold glue sprayer</option><option value="yh">ZS-YH4040 Inline bubble press</option><option value="cs">CS4539 Semi-auto small case maker</option>
+    </select>
+  </div>
+  <div class="tw-field"><label for="tw-door">Doorway width (mm)</label>
+    <input type="number" id="tw-door" min="0" step="1" value="1200">
+  </div>
+</div>
+
+<div class="tw-row">
+  <div class="tw-field"><label for="tw-pvolt">Plant voltage</label>
+    <select id="tw-pvolt">
+      <option value="220">220V 50Hz (standard)</option>
+      <option value="110">110-120V 60Hz</option>
+      <option value="380">380-415V 50Hz</option>
+      <option value="480">480V 60Hz</option>
+    </select>
+  </div>
+</div>
+
+<div class="tw-totals" id="tw-totals"></div>
+
+</div>
+
+<!-- ═══ Tab 3: RFQ Spec Sheet ═══ -->
+<div class="tw-pane" id="tw-p3">
+
+<h2 class="tw-h2">Zhishang overseas support</h2>
+<div class="tw-facts">
+  <p>• Dongguan factory grown out of Zhishang Boutique Packaging, est. 2018</p>
+  <p>• In-house Jiuzhou Shunchi VOC-tested adhesives</p>
+  <p>• In-house Sanshi Precision Mold: 24h standard / 8h urgent mold & fixture shop</p>
+  <p>• Lifetime patented glue nozzle repair and trade-in</p>
+  <p>• 7-day overseas fault response</p>
+  <p>• Pre-shipment sample video verification</p>
+</div>
+
+<hr class="tw-sep">
+
+<div class="tw-ck">
+  <label><input type="checkbox"> Confirm local voltage build</label>
+  <label><input type="checkbox"> Request sample box trial video</label>
+  <label><input type="checkbox"> Confirm export crate dimensions</label>
+  <label><input type="checkbox"> Include spare parts kit</label>
+</div>
+
+<h2 class="tw-h2">RFQ specification sheet</h2>
+<div class="tw-rfq-box" id="tw-rfq-text"></div>
+
+<div class="tw-actions">
+  <button type="button" class="tw-btn-primary" id="tw-btn-form">Pre-fill inquiry form</button>
+  <button type="button" class="tw-btn-wa" id="tw-btn-wa">Send via WhatsApp</button>
+  <button type="button" class="tw-btn-copy" id="tw-btn-copy">Copy spec sheet</button>
+</div>
+
+</div>
+
+</div>
+</section>
+<section id="quote" class="alt"><div class="wrap contact"><div><h2>Request a Quote</h2><p class="sub">Tell us about your boxes and glue. We will reply as soon as possible.</p>
+<form id="quote-form" action="https://formsubmit.co/cf0139bb7277c987a97f70d45832d921" method="POST"><input type="hidden" name="_subject" value="New inquiry from zhishangkj.com"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://zhishangkj.com/contact/#quote"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"><div><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div><div><label for="f-contact">Email / phone</label><input id="f-contact" name="contact" required></div>
+<div class="full"><label for="model">Machine</label><select name="model" id="model"><option value="">Not sure, need advice</option><option>ZS-S088E-4 Inline 4-Axis Cold Glue Dispensing Machine for Rigid Boxes</option><option>ZS-S088R-4 Inline 4-Axis Hot Melt Gluing Machine for Rigid Boxes</option><option>ZS-S088C 4-Axis Cabinet Cold Glue Dispensing Machine</option><option>ZS-S088C-4 4-Axis Cabinet Hot Melt Glue Dispensing Machine</option><option>ZS-S088D 3-Axis Cabinet Cold Glue Dispensing Machine</option><option>ZS-S088D-4 3-Axis Cabinet Hot Melt Glue Dispensing Machine</option><option>ZS-S088B /ZS-S088B-2 4-Axis Dual-Station Glue Dispensing Machine (Standard / Large)</option><option>ZS-S088A /ZS-S088A-2 3-Axis Dual-Station Glue Dispensing Machine (Standard / Large)</option><option>ZS-S088A-R /ZS-S088A-2-R 3-Axis Dual-Station Hot Melt Gluing Machine (Standard / Large)</option><option>ZS-S088R-3 Inline 3-Axis Hot Melt Gluing Machine for Rigid Boxes</option><option>ZS-S088B-2-R 4-Axis Dual-Station Hot Melt Gluing Machine (Standard / Large)</option><option>ZS-S088P 3-Axis Glue Spraying Machine</option><option>ZS-YH4040 Inline Rigid Box Bubble Pressing Machine</option><option>CS4539 Semi-Automatic Small Case Making Machine</option></select></div>
+<div class="full"><label for="f-msg">Your product (box type, size, glue type)</label><textarea id="f-msg" name="message"></textarea></div>
+<div class="full"><button class="btn" type="submit" id="q-submit">Send inquiry</button> <span class="small" id="q-status"></span></div></form><script>(function(){var f=document.getElementById('quote-form');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();var b=document.getElementById('q-submit'),s=document.getElementById('q-status');b.disabled=true;s.textContent='Sending…';var d={};new FormData(f).forEach(function(v,k){d[k]=v});fetch('https://formsubmit.co/ajax/cf0139bb7277c987a97f70d45832d921',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(res){if(String(res.success)==='true'){f.innerHTML='<p style="padding:18px;border:1px solid #bbf7d0;background:#f0fdf4;border-radius:8px"><strong>✅ Thank you! Your inquiry has been sent.</strong><br>We will reply as soon as possible.</p>'}else{throw new Error('failed')}}).catch(function(){b.disabled=false;s.textContent='❌ Sending failed — please try again, or reach us on WhatsApp.';s.style.color='#dc2626'})})})()</script></div>
+<div class="cbox"><h3>Contact</h3><p><b>Dongguan Zhishang Automation Technology Co., Ltd</b></p><p>Address: No. 42, Dongcheng Section, Huancheng East Road, Dongcheng Subdistrict, Dongguan, Guangdong, China</p><p>Contact: Jelly Chen</p><p>Tel / WhatsApp / WeChat: <a href="tel:+8615820928436">+86 158 2092 8436</a></p><p>Email: <a href="mailto:sales@zhishangkj.com">sales@zhishangkj.com</a></p><p class="trust">Nozzle covered by invention and utility model patents</p></div></div>
+<script>(function(){var m=new URLSearchParams(location.search).get('model');if(!m)return;var s=document.getElementById('model');for(var o of s.options)if(o.text.replace(/ /g,'').indexOf(m)===0){o.selected=true;break}})()</script></section><script>
+(function(){
+"use strict";
+var LANG="en",BASE="/";
+var T={"tab1": "Box size & machine matcher", "tab2": "Workshop & shipping calculator", "tab3": "RFQ spec sheet", "unit_mm": "mm", "unit_inch": "inch", "length": "Length", "width": "Width", "height": "Height", "process": "Process", "proc_bead": "Bead / line gluing", "proc_spray": "Surface glue spraying", "proc_press": "Bubble pressing", "proc_case": "Case making", "line_setup": "Line setup", "line_any": "Any", "line_inline": "Inline conveyor", "line_cabinet": "Standalone cabinet", "line_dual": "Dual-station", "glue_type": "Glue type", "glue_cold": "Cold PVA / universal", "glue_hot": "Hot melt / PSA", "glue_any": "Not sure", "glue_path": "Glue path", "path_flat": "Flat 2D surface only (3-axis eligible)", "path_3d": "Bottom + side walls (requires 4-axis)", "path_any": "Not sure", "find": "Find matching machines", "best_match": "Best match", "also_fits": "Also fits", "add_to_plan": "+ Add to line plan", "no_std": "No standard model covers this size. Contact us for a custom (ZS-FB series) build.", "view_product": "View product", "eff_size": "Effective size", "overall": "Overall dimensions", "power": "Rated power", "speed": "Speed", "glue_w": "Glue width", "voltage": "Voltage", "air": "Air pressure", "flat_note": "flat gluing only", "dual_note": "dual-station", "your_line": "Your line plan", "qty": "Qty", "remove": "Remove", "add_machine": "Add a machine", "doorway_w": "Doorway width", "plant_volt": "Plant voltage", "v220": "220V 50Hz (standard)", "v110": "110-120V 60Hz", "v380": "380-415V 50Hz", "v480": "480V 60Hz", "footprint": "Total machine footprint", "doorway_check": "Doorway check", "door_ok": "All machines fit through", "door_warn": "does not fit doorway", "load": "Total rated electrical load", "amps": "Single-phase amps at", "volt_warn": "Your plant voltage differs from the standard 220V AC 50Hz. Add voltage customization or transformer to your RFQ.", "air_req": "Compressed air", "shipping": "Export shipping estimate", "cbm": "CBM", "crate_note": "Standard export wooden crate: +150 mm per side estimate (CS4539 uses exact brochure crate 1450*1000*1850 mm = 2.68 CBM)", "container": "of a 20GP container (~28 CBM)", "port": "Ships from Yantian / Shekou ports", "rfq_title": "RFQ specification sheet", "os_title": "Zhishang overseas support", "os_1": "Dongguan factory grown out of Zhishang Boutique Packaging, est. 2018", "os_2": "In-house Jiuzhou Shunchi VOC-tested adhesives", "os_3": "In-house Sanshi Precision Mold: 24h standard / 8h urgent mold & fixture shop", "os_4": "Lifetime patented glue nozzle repair and trade-in", "os_5": "7-day overseas fault response", "os_6": "Pre-shipment sample video verification", "ck_volt": "Confirm local voltage build", "ck_sample": "Request sample box trial video", "ck_crate": "Confirm export crate dimensions", "ck_spare": "Include spare parts kit", "btn_form": "Pre-fill inquiry form", "btn_wa": "Send via WhatsApp", "btn_copy": "Copy spec sheet", "copied": "Copied!", "wa_num": "8615820928436"};
+var DB=[{"id": "e4", "model": "ZS-S088E-4", "en": "Inline 4-axis cold glue", "zh": "随线四轴划胶机-冷胶", "cat": "inline", "axes": 4, "glue": "cold", "eL": 600, "eW": 600, "eH": 130, "mL": 50, "mW": 50, "mH": 25, "oL": 1600, "oW": 1080, "oH": 1550, "speed": "1.2 m/s", "power": 2300, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088e-4", "flat": false, "stations": 1, "var": null, "note_en": "", "note_zh": ""}, {"id": "r4", "model": "ZS-S088R-4", "en": "Inline 4-axis hot melt", "zh": "随线四轴划胶机-热胶", "cat": "inline", "axes": 4, "glue": "hot", "eL": 600, "eW": 600, "eH": 130, "mL": 50, "mW": 50, "mH": 25, "oL": 1600, "oW": 1080, "oH": 1550, "speed": "1.2 m/s", "power": 5300, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088r-4", "flat": false, "stations": 1, "var": null, "note_en": "", "note_zh": ""}, {"id": "r3", "model": "ZS-S088R-3", "en": "Inline 3-axis hot melt (flat gluing)", "zh": "随线三轴划胶机-热胶", "cat": "inline", "axes": 3, "glue": "hot", "eL": 600, "eW": 600, "eH": 130, "mL": 60, "mW": 60, "mH": 30, "oL": 1600, "oW": 1080, "oH": 1550, "speed": "1 m/s", "power": 5300, "width": "5-12mm", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088r-3", "flat": true, "stations": 1, "var": null, "note_en": "Flat gluing only", "note_zh": "仅平面划胶"}, {"id": "c", "model": "ZS-S088C", "en": "4-axis cabinet cold glue", "zh": "四轴柜式划胶机-冷胶", "cat": "cabinet", "axes": 4, "glue": "cold", "eL": 900, "eW": 600, "eH": 150, "mL": 50, "mW": 50, "mH": 10, "oL": 1330, "oW": 1090, "oH": 1600, "speed": "1.2 m/s", "power": 2300, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088c", "flat": false, "stations": 1, "var": null, "note_en": "", "note_zh": ""}, {"id": "c4", "model": "ZS-S088C-4", "en": "4-axis cabinet hot melt", "zh": "四轴柜式划胶机-热胶", "cat": "cabinet", "axes": 4, "glue": "hot", "eL": 900, "eW": 600, "eH": 150, "mL": 50, "mW": 50, "mH": 10, "oL": 1330, "oW": 1090, "oH": 1600, "speed": "1.2 m/s", "power": 5300, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088c-4", "flat": false, "stations": 1, "var": null, "note_en": "", "note_zh": ""}, {"id": "d", "model": "ZS-S088D", "en": "3-axis cabinet cold glue (flat)", "zh": "三轴柜式划胶机-冷胶", "cat": "cabinet", "axes": 3, "glue": "cold", "eL": 900, "eW": 600, "eH": 0, "mL": 50, "mW": 50, "mH": 0, "oL": 1330, "oW": 1090, "oH": 1600, "speed": "1.2 m/s", "power": 2000, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088d", "flat": true, "stations": 1, "var": null, "note_en": "Flat gluing only", "note_zh": "仅平面划胶"}, {"id": "d4", "model": "ZS-S088D-4", "en": "3-axis cabinet hot melt (flat)", "zh": "三轴柜式划胶机-热胶", "cat": "cabinet", "axes": 3, "glue": "hot", "eL": 900, "eW": 600, "eH": 0, "mL": 50, "mW": 50, "mH": 0, "oL": 1330, "oW": 1090, "oH": 1500, "speed": "1.2 m/s", "power": 4000, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088d-4", "flat": true, "stations": 1, "var": null, "note_en": "Flat gluing only", "note_zh": "仅平面划胶"}, {"id": "b", "model": "ZS-S088B", "en": "Dual-station 4-axis cold glue (standard)", "zh": "四轴双工位划胶机-标准", "cat": "dual", "axes": 4, "glue": "cold", "eL": 480, "eW": 300, "eH": 130, "mL": 50, "mW": 50, "mH": 25, "oL": 890, "oW": 840, "oH": 1590, "speed": "0.9 m/s", "power": 1400, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088b", "flat": false, "stations": 2, "var": "std", "note_en": "", "note_zh": ""}, {"id": "b2", "model": "ZS-S088B-2", "en": "Dual-station 4-axis cold glue (large)", "zh": "四轴双工位划胶机-加大", "cat": "dual", "axes": 4, "glue": "cold", "eL": 540, "eW": 420, "eH": 130, "mL": 50, "mW": 50, "mH": 25, "oL": 1140, "oW": 890, "oH": 1590, "speed": "0.9 m/s", "power": 1400, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088b", "flat": false, "stations": 2, "var": "lg", "note_en": "", "note_zh": ""}, {"id": "a", "model": "ZS-S088A", "en": "Dual-station 3-axis cold glue (standard)", "zh": "三轴双工位划胶机-标准", "cat": "dual", "axes": 3, "glue": "cold", "eL": 450, "eW": 300, "eH": 150, "mL": 50, "mW": 50, "mH": 0, "oL": 890, "oW": 840, "oH": 1350, "speed": "0.9 m/s", "power": 1400, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088a", "flat": true, "stations": 2, "var": "std", "note_en": "Flat gluing only", "note_zh": "仅平面划胶"}, {"id": "a2", "model": "ZS-S088A-2", "en": "Dual-station 3-axis cold glue (large)", "zh": "三轴双工位划胶机-加大", "cat": "dual", "axes": 3, "glue": "cold", "eL": 500, "eW": 420, "eH": 150, "mL": 50, "mW": 50, "mH": 0, "oL": 1140, "oW": 890, "oH": 1350, "speed": "0.9 m/s", "power": 1400, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088a", "flat": true, "stations": 2, "var": "lg", "note_en": "Flat gluing only", "note_zh": "仅平面划胶"}, {"id": "ar", "model": "ZS-S088A-R", "en": "Dual-station 3-axis hot melt (standard)", "zh": "三轴双工位划胶机-热胶-标准", "cat": "dual", "axes": 3, "glue": "hot", "eL": 480, "eW": 300, "eH": 130, "mL": 50, "mW": 50, "mH": 25, "oL": 890, "oW": 840, "oH": 1590, "speed": "0.9 m/s", "power": 1400, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088a-r", "flat": false, "stations": 2, "var": "std", "note_en": "", "note_zh": ""}, {"id": "ar2", "model": "ZS-S088A-2-R", "en": "Dual-station 3-axis hot melt (large)", "zh": "三轴双工位划胶机-热胶-加大", "cat": "dual", "axes": 3, "glue": "hot", "eL": 540, "eW": 420, "eH": 130, "mL": 50, "mW": 50, "mH": 25, "oL": 1140, "oW": 890, "oH": 1590, "speed": "0.9 m/s", "power": 1400, "width": "3-10MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088a-r", "flat": false, "stations": 2, "var": "lg", "note_en": "", "note_zh": ""}, {"id": "b2r", "model": "ZS-S088B-2-R", "en": "Dual-station 4-axis hot melt (standard)", "zh": "四轴双工位划胶机-热胶-标准", "cat": "dual", "axes": 4, "glue": "hot", "eL": 450, "eW": 300, "eH": 150, "mL": 50, "mW": 50, "mH": 10, "oL": 890, "oW": 840, "oH": 1350, "speed": "0.8 m/s", "power": 3500, "width": "5-12mm", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088b-2-r", "flat": false, "stations": 2, "var": "std", "note_en": "", "note_zh": ""}, {"id": "b2r2", "model": "ZS-S088B-2-R (large)", "en": "Dual-station 4-axis hot melt (large)", "zh": "四轴双工位划胶机-热胶-加大", "cat": "dual", "axes": 4, "glue": "hot", "eL": 500, "eW": 400, "eH": 150, "mL": 50, "mW": 50, "mH": 10, "oL": 1140, "oW": 890, "oH": 1350, "speed": "0.8 m/s", "power": 3500, "width": "5-12mm", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088b-2-r", "flat": false, "stations": 2, "var": "lg", "note_en": "", "note_zh": ""}, {"id": "p", "model": "ZS-S088P", "en": "3-axis glue sprayer", "zh": "三轴喷胶机", "cat": "cabinet", "axes": 3, "glue": "cold", "eL": 880, "eW": 520, "eH": 130, "mL": 50, "mW": 50, "mH": 1, "oL": 1400, "oW": 1100, "oH": 1500, "speed": "1 m/s", "power": 1400, "width": "3-20MM", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-s088p", "flat": false, "stations": 1, "var": null, "note_en": "Spray width 3-20MM", "note_zh": "喷胶宽度 3-20MM"}, {"id": "spi", "model": "Inline 4-axis sprayer", "en": "Inline 4-axis cold glue sprayer", "zh": "随线四轴喷胶机-冷胶", "cat": "inline", "axes": 4, "glue": "cold", "eL": 600, "eW": 600, "eH": 130, "mL": 50, "mW": 50, "mH": 25, "oL": 1600, "oW": 1080, "oH": 1550, "speed": "1.2 m/s", "power": 2300, "width": "", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "inline-4-axis-glue-spraying-machine", "flat": false, "stations": 1, "var": null, "note_en": "Same frame as ZS-S088E-4, spray head", "note_zh": "与 ZS-S088E-4 同机身，喷胶头"}, {"id": "yh", "model": "ZS-YH4040", "en": "Inline bubble press", "zh": "随线压泡机", "cat": "press", "axes": 0, "glue": "none", "eL": 400, "eW": 400, "eH": 120, "mL": 60, "mW": 60, "mH": 30, "oL": 1500, "oW": 1500, "oH": 1500, "speed": "20 pcs/min", "power": 1200, "width": "", "air": "0.6MPa", "volt": "220V AC, 50Hz", "slug": "zs-yh4040", "flat": false, "stations": 1, "var": null, "note_en": "Single head 100-1200 pcs, dual head 2000-2400 pcs", "note_zh": "单头 100-1200 个，双头 2000-2400 个"}, {"id": "cs", "model": "CS4539", "en": "Semi-auto small case maker", "zh": "半自动小皮壳机", "cat": "case", "axes": 0, "glue": "none", "eL": 450, "eW": 390, "eH": 0, "mL": 35, "mW": 35, "mH": 0, "oL": 1400, "oW": 950, "oH": 1700, "speed": "15-34 pcs/min", "power": 1000, "width": "", "air": "0.6-0.8MPa", "volt": "220V AC, 50Hz", "slug": "cs4539", "flat": false, "stations": 1, "var": null, "note_en": "Board 0.8-20mm, wrap 70-300g, crate 1450*1000*1850mm, ~490KG", "note_zh": "纸板 0.8-20mm，面纸 70-300g，出口木架 1450*1000*1850mm，约490KG"}];
+var linePlan=[];
+var unit="mm";
+
+/* ── Tab switching ── */
+var tabs=document.querySelectorAll(".tw-tab");
+var panes=document.querySelectorAll(".tw-pane");
+tabs.forEach(function(t){t.addEventListener("click",function(){
+  tabs.forEach(function(x){x.setAttribute("aria-selected","false")});
+  panes.forEach(function(x){x.classList.remove("active")});
+  t.setAttribute("aria-selected","true");
+  document.getElementById(t.getAttribute("aria-controls")).classList.add("active");
+})});
+
+/* ── Unit conversion ── */
+var unitRadios=document.querySelectorAll('input[name="tw-unit"]');
+unitRadios.forEach(function(r){r.addEventListener("change",function(){
+  var prev=unit;unit=r.value;
+  var factor=unit==="inch"?1/25.4:25.4;
+  if((prev==="mm"&&unit==="inch")||(prev==="inch"&&unit==="mm")){
+    ["tw-l","tw-w","tw-h","tw-door"].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el&&el.value){el.value=Math.round(parseFloat(el.value)*factor*100)/100}
+    });
+  }
+})});
+
+function toMM(v){return unit==="inch"?v*25.4:v}
+
+/* ── SVG diagram ── */
+function drawBox(L,W,H,proc,path){
+  var svg=document.getElementById("tw-diagram");
+  if(!svg)return;
+  var ml=L||200,mw=W||150,mh=H||80;
+  var sc=Math.min(220/Math.max(ml,1),160/Math.max(mw,1),120/Math.max(mh,1),1.5);
+  var sl=ml*sc,sw=mw*sc,sh=mh*sc;
+  var ox=180,oy=60;
+  var iso=0.5;
+  // 3D isometric box
+  var x0=ox,y0=oy+sh;
+  var x1=ox+sl,y1=oy+sh;
+  var x2=ox+sl+sw*iso,y2=oy+sh-sw*iso*0.6;
+  var x3=ox+sw*iso,y3=oy+sh-sw*iso*0.6;
+  var x4=ox,y4=oy;
+  var x5=ox+sl,y5=oy;
+  var x6=ox+sl+sw*iso,y6=oy-sw*iso*0.6;
+  var x7=ox+sw*iso,y7=oy-sw*iso*0.6;
+
+  var paths="";
+  // Bottom face
+  paths+='<polygon points="'+x0+','+y0+' '+x1+','+y1+' '+x2+','+y2+' '+x3+','+y3+'" fill="#F3F5F7" stroke="#0F2A44" stroke-width="1.5"/>';
+  // Front face
+  paths+='<polygon points="'+x0+','+y0+' '+x1+','+y1+' '+x5+','+y5+' '+x4+','+y4+'" fill="#dde2e8" stroke="#0F2A44" stroke-width="1.5"/>';
+  // Right side face
+  paths+='<polygon points="'+x1+','+y1+' '+x2+','+y2+' '+x6+','+y6+' '+x5+','+y5+'" fill="#c9d2dc" stroke="#0F2A44" stroke-width="1.5"/>';
+  // Top face
+  paths+='<polygon points="'+x4+','+y4+' '+x5+','+y5+' '+x6+','+y6+' '+x7+','+y7+'" fill="#e8ecf0" stroke="#0F2A44" stroke-width="1.5"/>';
+
+  // Dimension labels
+  var fmt=unit==="inch"?function(v){return(v/25.4).toFixed(1)+'"'}:function(v){return v+" mm"};
+  paths+='<text x="'+(x0+x1)/2+'" y="'+(y0+18)+'" text-anchor="middle" fill="#0F2A44" font-size="12" font-weight="600" style="font-variant-numeric:tabular-nums">'+fmt(ml)+'</text>';
+  if(mh>0)paths+='<text x="'+(x4-14)+'" y="'+(y4+y0)/2+'" text-anchor="end" fill="#0F2A44" font-size="12" font-weight="600" style="font-variant-numeric:tabular-nums" transform="rotate(-90,'+(x4-14)+','+(y4+y0)/2+')">'+fmt(mh)+'</text>';
+  paths+='<text x="'+(x2+14)+'" y="'+(y2+y1)/2+'" fill="#0F2A44" font-size="12" font-weight="600" style="font-variant-numeric:tabular-nums">'+fmt(mw)+'</text>';
+
+  // Glue path visualization
+  var accent="#F2A900";
+  if(proc==="bead"){
+    if(path==="3d"||path==="any"){
+      // 4-axis: bottom + inner side walls
+      var pad=sl*0.08;
+      // bottom path
+      paths+='<rect x="'+(x0+pad)+'" y="'+(y0-sh+pad)+'" width="'+(sl-2*pad)+'" height="'+(sh-2*pad)+'" fill="none" stroke="'+accent+'" stroke-width="2.5" stroke-dasharray="6 4" rx="2"/>';
+      // side wall indicator lines
+      var sy=y0-sh*0.3;
+      paths+='<line x1="'+x0+'" y1="'+y0+'" x2="'+x0+'" y2="'+y4+'" stroke="'+accent+'" stroke-width="2" stroke-dasharray="4 3"/>';
+      paths+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x1+'" y2="'+y5+'" stroke="'+accent+'" stroke-width="2" stroke-dasharray="4 3"/>';
+      paths+='<text x="'+(x0+x1)/2+'" y="'+(y0-sh-8)+'" text-anchor="middle" fill="'+accent+'" font-size="11" font-weight="600">'+(LANG==="zh"?"4轴: 底+侧壁":"4-axis: bottom + walls")+'</text>';
+    }else{
+      // 3-axis: flat path only
+      var pad2=sl*0.1;
+      paths+='<rect x="'+(x0+pad2)+'" y="'+(y0-sh+pad2)+'" width="'+(sl-2*pad2)+'" height="'+(sh-2*pad2)+'" fill="none" stroke="'+accent+'" stroke-width="2.5" stroke-dasharray="6 4" rx="2"/>';
+      paths+='<text x="'+(x0+x1)/2+'" y="'+(y0-sh-8)+'" text-anchor="middle" fill="'+accent+'" font-size="11" font-weight="600">'+(LANG==="zh"?"3轴: 仅平面":"3-axis: flat only")+'</text>';
+    }
+  }else if(proc==="spray"){
+    // spray coverage area
+    var pad3=sl*0.06;
+    paths+='<rect x="'+(x0+pad3)+'" y="'+(y0-sh+pad3)+'" width="'+(sl-2*pad3)+'" height="'+(sh-2*pad3)+'" fill="'+accent+'" fill-opacity="0.15" stroke="'+accent+'" stroke-width="1.5" rx="2"/>';
+    // spray dots
+    for(var di=0;di<5;di++){
+      var dx=x0+pad3+(sl-2*pad3)*0.15+di*(sl-2*pad3)*0.175;
+      paths+='<circle cx="'+dx+'" cy="'+(y0-sh*0.5)+'" r="2.5" fill="'+accent+'"/>';
+    }
+    paths+='<text x="'+(x0+x1)/2+'" y="'+(y0-sh-8)+'" text-anchor="middle" fill="'+accent+'" font-size="11" font-weight="600">'+(LANG==="zh"?"喷胶覆盖区域":"Spray coverage area")+'</text>';
+  }else if(proc==="press"){
+    // press platen
+    var pm=Math.min(sl,sw)*0.7;
+    var pcx=(x4+x5)/2,pcy=(y4+y5)/2-5;
+    paths+='<rect x="'+(pcx-pm/2)+'" y="'+(pcy-pm*0.3)+'" width="'+pm+'" height="'+(pm*0.6)+'" fill="#0F2A44" fill-opacity="0.12" stroke="#0F2A44" stroke-width="1.5" rx="2"/>';
+    paths+='<line x1="'+pcx+'" y1="'+(pcy-pm*0.3-12)+'" x2="'+pcx+'" y2="'+(pcy-pm*0.3)+'" stroke="#0F2A44" stroke-width="2" marker-end="url(#arrow)"/>';
+    paths+='<text x="'+pcx+'" y="'+(pcy-pm*0.3-16)+'" text-anchor="middle" fill="#0F2A44" font-size="11" font-weight="600">'+(LANG==="zh"?"压泡工位":"Press platen")+'</text>';
+  }
+
+  svg.innerHTML='<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0F2A44"/></marker></defs>'+paths;
+}
+
+/* ── Matching logic ── */
+function matchMachines(){
+  var lv=parseFloat(document.getElementById("tw-l").value)||0;
+  var wv=parseFloat(document.getElementById("tw-w").value)||0;
+  var hv=parseFloat(document.getElementById("tw-h").value)||0;
+  var L=toMM(lv),W=toMM(wv),H=toMM(hv);
+  var proc=document.getElementById("tw-proc").value;
+  var line=document.getElementById("tw-line").value;
+  var glue=document.getElementById("tw-glue").value;
+  var path=document.getElementById("tw-path").value;
+
+  drawBox(L,W,H,proc,path);
+
+  if(L<=0&&W<=0&&H<=0){document.getElementById("tw-results").innerHTML="";return}
+
+  var results=[];
+  DB.forEach(function(m){
+    // Filter by process
+    if(proc==="bead"&&(m.cat==="press"||m.id==="cs"))return;
+    if(proc==="spray"&&m.cat!=="cabinet"&&m.cat!=="inline")return;
+    if(proc==="spray"&&m.id!=="p"&&m.id!=="spi")return;
+    if(proc==="press"&&m.id!=="yh")return;
+    if(proc==="case"&&m.id!=="cs")return;
+
+    // Filter by line setup
+    if(line==="inline"&&m.cat!=="inline")return;
+    if(line==="cabinet"&&m.cat!=="cabinet")return;
+    if(line==="dual"&&m.cat!=="dual")return;
+
+    // Filter by glue type
+    if(glue==="cold"&&m.glue==="hot")return;
+    if(glue==="hot"&&m.glue==="cold")return;
+
+    // Filter by path (3-axis = flat only, 4-axis = 3D)
+    if(path==="3d"&&m.flat)return;
+
+    // Check size fit
+    if(proc==="press"||proc==="case"){
+      if(L>0&&L>m.eL)return;
+      if(W>0&&W>m.eW)return;
+      if(H>0&&m.eH>0&&H>m.eH)return;
+      if(L>0&&L<m.mL)return;
+      if(W>0&&W<m.mW)return;
+    }else{
+      if(L>0&&L>m.eL)return;
+      if(W>0&&W>m.eW)return;
+      if(H>0&&m.eH>0&&H>m.eH)return;
+      if(L>0&&L<m.mL)return;
+      if(W>0&&W<m.mW)return;
+      if(H>0&&m.mH>0&&H<m.mH)return;
+    }
+
+    // Build reason
+    var reason="";
+    var nm=LANG==="zh"?m.zh:m.en;
+    if(L>600&&m.cat==="cabinet")reason+=(LANG==="zh"?"盒子长度 "+L+"mm 超过随线机 600mm 上限，选柜式 "+m.eL+"mm。":"Box length "+L+"mm exceeds inline 600mm limit; cabinet covers up to "+m.eL+"mm. ");
+    if(m["var"]==="lg")reason+=(LANG==="zh"?"选加大版以覆盖 "+W+"mm 宽度。":"Large variant selected to cover "+W+"mm width. ");
+    if(m["var"]==="std"&&W<=300)reason+=(LANG==="zh"?"标准版即可覆盖 "+W+"mm 宽度。":"Standard variant covers "+W+"mm width. ");
+    if(m.flat)reason+=(LANG==="zh"?"仅平面划胶（3轴）。":"Flat gluing only (3-axis). ");
+    if(m.stations>1)reason+=(LANG==="zh"?"双工位，一人可操作两台。":"Dual-station; one operator can run two machines. ");
+    if(!reason)reason=LANG==="zh"?"尺寸在有效范围内。":"Dimensions within effective range. ";
+
+    results.push({m:m,reason:reason});
+  });
+
+  var html="";
+  if(results.length===0){
+    html='<div class="tw-note">'+T.no_std+'</div>';
+  }else{
+    results.forEach(function(r,i){
+      var m=r.m;
+      var nm=LANG==="zh"?m.zh:m.en;
+      var tag=i===0?T.best_match:T.also_fits;
+      var cls=i===0?"tw-match best":"tw-match";
+      html+='<div class="'+cls+'">'
+        +'<h3>'+tag+": "+m.model+" "+nm+'</h3>'
+        +'<p class="specs">'+T.eff_size+": "+m.eL+"*"+m.eW+(m.eH?"*"+m.eH:"")+"mm | "
+        +T.power+": "+m.power+"W | "+T.speed+": "+m.speed
+        +(m.width?" | "+T.glue_w+": "+m.width:"")
+        +'</p>'
+        +'<p class="reason">'+r.reason+(m.note_en&&LANG==="en"?m.note_en:"")+(m.note_zh&&LANG==="zh"?m.note_zh:"")+'</p>'
+        +'<div class="tw-match-actions">'
+        +'<a href="'+BASE+(LANG==="zh"?"zh/":"")+'products/'+m.slug+'/">'+T.view_product+' &rarr;</a> '
+        +'<button type="button" class="tw-add" data-mid="'+m.id+'">'+T.add_to_plan+'</button>'
+        +'</div></div>';
+    });
+  }
+  var resEl=document.getElementById("tw-results");
+  resEl.innerHTML=html;
+  resEl.querySelectorAll(".tw-add[data-mid]").forEach(function(btn){
+    btn.addEventListener("click",function(){window._twAdd(btn.getAttribute("data-mid"))});
+  });
+}
+
+document.getElementById("tw-find").addEventListener("click",matchMachines);
+// Auto-match on input change
+["tw-l","tw-w","tw-h"].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener("input",function(){clearTimeout(el._dbt);el._dbt=setTimeout(matchMachines,400)});
+});
+["tw-proc","tw-line","tw-glue","tw-path"].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.addEventListener("change",matchMachines);
+});
+
+/* ── Section 2: Line Planner ── */
+window._twAdd=function(mid){
+  var m=null;DB.forEach(function(x){if(x.id===mid)m=x});
+  if(!m)return;
+  linePlan.push({m:m,qty:1});
+  renderLine();
+  // Switch to tab 2
+  tabs[1].click();
+};
+
+function renderLine(){
+  var el=document.getElementById("tw-line-list");
+  if(!el)return;
+  var html="";
+  linePlan.forEach(function(item,i){
+    var nm=LANG==="zh"?item.m.zh:item.m.en;
+    html+='<div class="tw-line-item">'
+      +'<span>'+item.m.model+" "+nm+'</span>'
+      +'<input type="number" min="1" max="20" value="'+item.qty+'" data-idx="'+i+'" class="tw-qty-in">'
+      +'<button type="button" data-idx="'+i+'" class="tw-rm">&times;</button>'
+      +'</div>';
+  });
+  el.innerHTML=html;
+  el.querySelectorAll(".tw-qty-in").forEach(function(inp){
+    inp.addEventListener("change",function(){
+      linePlan[parseInt(inp.getAttribute("data-idx"))].qty=Math.max(1,parseInt(inp.value)||1);
+      calcPlant();
+    });
+  });
+  el.querySelectorAll(".tw-rm").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      linePlan.splice(parseInt(btn.getAttribute("data-idx")),1);
+      renderLine();
+    });
+  });
+  calcPlant();
+}
+
+function calcPlant(){
+  var totalFP=0,totalKW=0,maxAir="0.6MPa",totalCBM=0;
+  var doorW=toMM(parseFloat(document.getElementById("tw-door").value)||1200);
+  var plantVolt=document.getElementById("tw-pvolt").value;
+  var doorIssues=[];
+
+  linePlan.forEach(function(item){
+    var m=item.m,q=item.qty;
+    var fpM2=(m.oL/1000)*(m.oW/1000);
+    totalFP+=fpM2*q;
+    totalKW+=(m.power/1000)*q;
+    // Door check: shortest horizontal dimension
+    var minH=Math.min(m.oL,m.oW);
+    if(minH>doorW)doorIssues.push(m.model+" ("+minH+"mm)");
+    // Air
+    if(m.air==="0.6-0.8MPa")maxAir="0.6-0.8MPa";
+    // CBM: CS4539 uses exact brochure crate
+    if(m.id==="cs"){
+      totalCBM+=(1.45*1.0*1.85)*q;
+    }else{
+      // +150mm per side standard export wooden crate estimate
+      var cl=(m.oL+300)/1000,cw=(m.oW+300)/1000,ch=(m.oH+300)/1000;
+      totalCBM+=cl*cw*ch*q;
+    }
+  });
+
+  var amps220=(totalKW*1000/220).toFixed(1);
+  var voltWarn=plantVolt!=="220";
+  var pct20GP=((totalCBM/28)*100).toFixed(1);
+
+  var out=document.getElementById("tw-totals");
+  if(!out||linePlan.length===0){if(out)out.innerHTML="";return}
+
+  var html="<dl>";
+  html+="<dt>"+T.footprint+"</dt><dd>"+totalFP.toFixed(2)+' m² / '+(totalFP*10.764).toFixed(1)+' sq ft</dd>';
+  html+="<dt>"+T.doorway_check+"</dt><dd>"+(doorIssues.length===0?('✅ '+T.door_ok):('⚠️ '+doorIssues.join(", ")+" "+T.door_warn))+"</dd>";
+  html+="<dt>"+T.load+"</dt><dd>"+totalKW.toFixed(1)+' kW | '+T.amps+' 220V: '+amps220+' A</dd>';
+  if(voltWarn)html+='<dd class="warn">⚠️ '+T.volt_warn+'</dd>';
+  html+="<dt>"+T.air_req+"</dt><dd>"+maxAir+"</dd>";
+  html+="<dt>"+T.shipping+"</dt><dd>"+totalCBM.toFixed(2)+' '+T.cbm+' ('+pct20GP+'% '+T.container+')</dd>';
+  html+="<dd>"+T.port+"</dd>";
+  html+="</dl>";
+  html+='<p style="font-size:.82rem;color:#5B6B7A">'+T.crate_note+'</p>';
+  out.innerHTML=html;
+  buildRFQ();
+}
+
+document.getElementById("tw-door").addEventListener("input",function(){calcPlant()});
+document.getElementById("tw-pvolt").addEventListener("change",function(){calcPlant()});
+
+/* Machine add dropdown */
+document.getElementById("tw-add-sel").addEventListener("change",function(){
+  var val=this.value;if(!val)return;
+  window._twAdd(val);
+  this.value="";
+});
+
+/* ── Section 3: RFQ spec sheet ── */
+function buildRFQ(){
+  var lv=document.getElementById("tw-l").value||"-";
+  var wv=document.getElementById("tw-w").value||"-";
+  var hv=document.getElementById("tw-h").value||"-";
+  var proc=document.getElementById("tw-proc").value;
+  var glue=document.getElementById("tw-glue").value;
+  var path=document.getElementById("tw-path").value;
+  var plantVolt=document.getElementById("tw-pvolt").value;
+
+  var lines=[];
+  lines.push("=== "+(LANG==="zh"?"询价规格单 | 至尚科技":"RFQ Spec Sheet | Zhishang Technology")+" ===");
+  lines.push("");
+  lines.push((LANG==="zh"?"盒子尺寸: ":"Box size: ")+lv+" x "+wv+" x "+hv+" "+unit);
+  lines.push((LANG==="zh"?"工艺: ":"Process: ")+proc);
+  lines.push((LANG==="zh"?"胶水: ":"Glue: ")+glue);
+  lines.push((LANG==="zh"?"胶路: ":"Glue path: ")+path);
+  lines.push((LANG==="zh"?"车间电压: ":"Plant voltage: ")+plantVolt);
+  lines.push("");
+  lines.push((LANG==="zh"?"--- 设备清单 ---":"--- Machine List ---"));
+  linePlan.forEach(function(item){
+    var nm=LANG==="zh"?item.m.zh:item.m.en;
+    lines.push(item.qty+"x "+item.m.model+" "+nm+" ("+item.m.power+"W, "+item.m.oL+"*"+item.m.oW+"*"+item.m.oH+"mm)");
+  });
+  lines.push("");
+
+  // Checkboxes
+  var cks=document.querySelectorAll(".tw-ck input:checked");
+  if(cks.length>0){
+    lines.push((LANG==="zh"?"--- 请确认 ---":"--- Please confirm ---"));
+    cks.forEach(function(c){lines.push("[ ] "+c.parentElement.textContent.trim())});
+    lines.push("");
+  }
+
+  lines.push((LANG==="zh"?"联系方式: Jelly Chen | +86 158 2092 8436 | sales@zhishangkj.com":"Contact: Jelly Chen | +86 158 2092 8436 | sales@zhishangkj.com"));
+  lines.push("https://zhishangkj.com/"+(LANG==="zh"?"zh/":"")+"tools/");
+
+  var txt=lines.join("\n");
+  document.getElementById("tw-rfq-text").textContent=txt;
+  window._twRFQText=txt;
+}
+
+/* Pre-fill inquiry form */
+document.getElementById("tw-btn-form").addEventListener("click",function(){
+  var q=document.getElementById("quote");
+  if(q){q.scrollIntoView({behavior:"smooth"})}
+  setTimeout(function(){
+    var msg=document.getElementById("f-msg");
+    if(msg)msg.value=window._twRFQText||"";
+    // Set model dropdown to first machine in plan
+    if(linePlan.length>0){
+      var sel=document.getElementById("model");
+      if(sel){
+        for(var i=0;i<sel.options.length;i++){
+          if(sel.options[i].text.indexOf(linePlan[0].m.model)===0){sel.selectedIndex=i;break}
+        }
+      }
+    }
+  },500);
+});
+
+/* WhatsApp */
+document.getElementById("tw-btn-wa").addEventListener("click",function(){
+  var txt=window._twRFQText||"";
+  window.open("https://wa.me/"+T.wa_num+"?text="+encodeURIComponent(txt),"_blank");
+});
+
+/* Copy */
+document.getElementById("tw-btn-copy").addEventListener("click",function(){
+  var btn=this;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(window._twRFQText||"").then(function(){
+      var orig=btn.textContent;btn.textContent=T.copied;setTimeout(function(){btn.textContent=orig},1500);
+    });
+  }
+});
+
+// Initial draw
+drawBox(200,150,80,"bead","any");
+
+// rebuild RFQ when checkboxes change
+document.querySelectorAll(".tw-ck input").forEach(function(c){c.addEventListener("change",buildRFQ)});
+
+})();
+</script></main>
+<aside class="fcontact" aria-label="Quick contact"><a href="https://wa.me/8615820928436" target="_blank" rel="noopener" title="WhatsApp +86 158 2092 8436">WhatsApp</a><a href="mailto:sales@zhishangkj.com" title="sales@zhishangkj.com">Email</a><a href="tel:+8615820928436" title="WeChat: +86 158 2092 8436">WeChat<small>+86 158 2092 8436</small></a></aside>
+<template id="hold-video"><section class="vslot"><div class="wrap"><video controls preload="none" playsinline poster=""><source src="" type="video/mp4"></video></div></section></template>
+<template id="hold-dark-hero"><section class="hero dark"><div class="wrap"><div><h1></h1></div></div></section></template>
+<script>(function(){var a=document.getElementById('askcta'),b=document.getElementById('pbar');if(a&&b&&'IntersectionObserver' in window){new IntersectionObserver(function(es){var v=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;b.hidden=!v;document.body.style.paddingBottom=v?b.offsetHeight+'px':''}).observe(a)}else if(b){b.hidden=false;document.body.style.paddingBottom=b.offsetHeight+'px'}})();(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;document.documentElement.classList.add('mo');var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('main section h2,.pcard,.card,.entry,.bead,.glue').forEach(function(el){el.classList.add('rv');io.observe(el)})})()</script><script>(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){v.preload='auto';var p=v.play();if(p)p.catch(function(){})}else v.pause()})},{threshold:.4});document.querySelectorAll('video.mvid').forEach(function(v){io.observe(v)})})()</script><a class="mcta" href="/contact/#quote">Request a Quote</a>
+<footer><div class="wrap fgrid"><div><span class="flogo"><img src="/img/logo-120h.png" width="186" height="48" alt="至尚科技 ZHI SHANG TECHNOLOGY" loading="lazy"></span><br><b>Dongguan Zhishang Automation Technology Co., Ltd</b><br>No. 42, Dongcheng Section, Huancheng East Road, Dongcheng Subdistrict, Dongguan, Guangdong, China<br>Jelly Chen · Tel / WhatsApp / WeChat: +86 158 2092 8436 · <a href="mailto:sales@zhishangkj.com">sales@zhishangkj.com</a></div><div class="small"><a href="/glue/">Glue (Jiuzhou Shunchi)</a> · <a href="/molds/">Molds (Sanshi)</a> · <a href="/guides/">Guides</a><br>© 2026 Dongguan Zhishang Automation Technology Co., Ltd</div></div></footer><!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var m=matchMedia('(max-width:900px)').matches;
+if(m)Tawk_API.customStyle={visibility:{mobile:{position:'br',xOffset:12,yOffset:80},desktop:{position:'br',xOffset:12,yOffset:80}}};
+function L(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6ad9f510033a93345a73c9b8/1k5hmaiv5';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+}
+m?setTimeout(L,20000):L();
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body></html>
