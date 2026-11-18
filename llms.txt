@@ -33,6 +33,7 @@
 - [Rigid Box Warping](https://zhishangkj.com/guides/rigid-box-warping/)
 - [Hot Melt Ordering Checklist](https://zhishangkj.com/guides/hot-melt-ordering-checklist/)
 - [Rigid Box Bubble Pressing Guide](https://zhishangkj.com/guides/rigid-box-bubble-pressing-guide/)
+- [S088 Gluing Machine Comparison: Inline, Cabinet & 3 vs 4 Axis](https://zhishangkj.com/guides/s088-gluing-machine-comparison/)
 
 ## Key Facts & Overseas Support
 
